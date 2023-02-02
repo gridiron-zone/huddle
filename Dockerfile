@@ -22,7 +22,7 @@ RUN apk add --update ca-certificates
 RUN apk add --no-cache bash
 
 # Copy over binaries from the build-env
-COPY --from=huddlelabs/builder:latest /code/build/huddle /usr/bin/huddle
+COPY --from=desmoslabs/desmos-build:latest /core/build/huddle /usr/bin/huddle
 
 EXPOSE 26656 26657 1317 9090
 
