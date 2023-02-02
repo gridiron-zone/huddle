@@ -271,16 +271,16 @@ replace (
 	github.com/99designs/keyring => github.com/cosmos/keyring v1.2.0
 
 	// Our wasmd branch is: https://github.com/desmos-labs/wasmd v0.28.x-huddle
-	github.com/CosmWasm/wasmd => github.com/desmos-labs/wasmd v0.29.0-huddle.2
+	github.com/CosmWasm/wasmd => github.com/desmos-labs/wasmd v0.29.0-desmos.2
 
 	// Fixes Dragonberry
 	github.com/confio/ics23/go => github.com/cosmos/cosmos-sdk/ics23/go v0.8.0
 
 	// Our cosmos-sdk branch is: https://github.com/desmos-labs/cosmos-sdk v0.45.x-huddle
-	github.com/cosmos/cosmos-sdk => github.com/desmos-labs/cosmos-sdk v0.45.11-huddle
+	github.com/cosmos/cosmos-sdk => github.com/desmos-labs/cosmos-sdk v0.45.11-desmos
 
 	// Replace the Cosmos Ledger app with the Huddle fork
-	github.com/cosmos/ledger-cosmos-go => github.com/desmos-labs/ledger-huddle-go v0.11.1-huddle
+	github.com/cosmos/ledger-cosmos-go => github.com/desmos-labs/ledger-desmos-go v0.11.1-desmos
 
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 
