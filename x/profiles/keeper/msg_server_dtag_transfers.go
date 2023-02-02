@@ -7,7 +7,7 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 // RequestDTagTransfer defines a rpc method for MsgRequestDTagTransfer

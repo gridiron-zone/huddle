@@ -16,26 +16,26 @@ A user can query the `fees` module using the CLI.
 The `query` commands allow users to query the `fees` state.
 
 ```
-desmos query fees --help
+huddle query fees --help
 ```
 
 #### parameters
 The `parameters` command allows users to get hte currently set parameters.
 
 ```bash
-desmos query fees parameters [flags]
+huddle query fees parameters [flags]
 ```
 
 Example:
 ```bash
-desmos query fees parameters
+huddle query fees parameters
 ```
 
 Example Output:
 ```yaml
 params:
   min_fees:
-    - message_type: /desmos.profiles.v2.SaveProfile
+    - message_type: /huddle.profiles.v2.SaveProfile
       amount: 
         - amount: "100"
           denom: "stake"
@@ -48,12 +48,12 @@ A user can query the `fees` module gRPC endpoints.
 The `Params` endpoint allows users to query the current params of the `fees` module.
 
 ```bash
-desmos.fees.v1.Query/Params
+huddle.fees.v1.Query/Params
 ```
 
 Example:
 ```bash
-grpcurl localhost:9090 desmos.fees.v1.Query/Params
+grpcurl localhost:9090 huddle.fees.v1.Query/Params
 ```
 
 Example Output: 
@@ -62,7 +62,7 @@ Example Output:
   "params": {
     "min_fees": [
       {
-        "message_type": "/desmos.profiles.v2.SaveProfile",
+        "message_type": "/huddle.profiles.v2.SaveProfile",
         "amount": [
           {
             "amount": "100",
@@ -82,12 +82,12 @@ A user can query the `fees` module using REST endpoints.
 The `params` endpoint allows users to query for the module parameters.
 
 ```bash
-/desmos/fees/v1/params
+/huddle/fees/v1/params
 ```
 
 Example: 
 ```bash
-curl localhost:1317/desmos/fees/v1/params
+curl localhost:1317/huddle/fees/v1/params
 ```
 
 Example Output:
@@ -96,7 +96,7 @@ Example Output:
   "params": {
     "min_fees": [
       {
-        "message_type": "/desmos.profiles.v2.SaveProfile",
+        "message_type": "/huddle.profiles.v2.SaveProfile",
         "amount": [
           {
             "amount": "100",

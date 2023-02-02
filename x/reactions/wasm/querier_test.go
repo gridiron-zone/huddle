@@ -6,10 +6,10 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/query"
 
-	profilestypes "github.com/desmos-labs/desmos/v4/x/profiles/types"
+	profilestypes "github.com/gridiron-zone/huddle/x/profiles/types"
 
-	"github.com/desmos-labs/desmos/v4/x/reactions/types"
-	"github.com/desmos-labs/desmos/v4/x/reactions/wasm"
+	"github.com/gridiron-zone/huddle/x/reactions/types"
+	"github.com/gridiron-zone/huddle/x/reactions/wasm"
 )
 
 func (suite *Testsuite) TestReactionsWasmQuerier_QueryCustom() {

@@ -12,8 +12,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/tx"
 	"github.com/spf13/cobra"
 
-	profilescliutils "github.com/desmos-labs/desmos/v4/x/profiles/client/utils"
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	profilescliutils "github.com/gridiron-zone/huddle/x/profiles/client/utils"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 // GetCmdLinkChainAccount returns the command allowing to link an external chain account
@@ -21,8 +21,8 @@ func GetCmdLinkChainAccount() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "link-chain [data-file]",
 		Args:  cobra.ExactArgs(1),
-		Short: "Link a Desmos profile to an external chain account using the data written inside the given file",
-		Long: strings.TrimSpace(fmt.Sprintf(`Link an external account to a Desmos profile.
+		Short: "Link a Huddle profile to an external chain account using the data written inside the given file",
+		Long: strings.TrimSpace(fmt.Sprintf(`Link an external account to a Huddle profile.
 The link data must be supplied via a JSON file.
 
 Example:
@@ -32,7 +32,7 @@ Where data.json contains:
 
 {
    "address":{
-      "@type":"/desmos.profiles.v3.Bech32Address",
+      "@type":"/huddle.profiles.v3.Bech32Address",
       "value":"cosmos15uc89vnzufu5kuhhsxdkltt38zfx8vcyggzwfm",
       "prefix":"cosmos"
    },
@@ -144,9 +144,9 @@ func GetCmdQueryChainLinks() *cobra.Command {
 		Short: "Retrieve all chain links with optional user address, chain name, target and pagination",
 		Example: fmt.Sprintf(`%s query profiles chain-links
 %s query profiles chain-links --page=2 --limit=100
-%s query profiles chain-links desmos13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud
-%s query profiles chain-links desmos13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud "cosmos"
-%s query profiles chain-links desmos13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud "cosmos" cosmos19s242dxhxgzlsdmfjjg38jgfwhxca7569g84sw
+%s query profiles chain-links huddle13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud
+%s query profiles chain-links huddle13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud "cosmos"
+%s query profiles chain-links huddle13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud "cosmos" cosmos19s242dxhxgzlsdmfjjg38jgfwhxca7569g84sw
 `, version.AppName, version.AppName, version.AppName, version.AppName, version.AppName),
 		Args: cobra.RangeArgs(0, 3),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -252,8 +252,8 @@ func GetCmdQueryDefaultExternalAddresses() *cobra.Command {
 		Short: "Retrieve all default addresses in chain link with optional owner, chain name and pagination",
 		Example: fmt.Sprintf(`%s query profiles chain-link-owners
 %s query profiles default-external-address --page=2 --limit=100
-%s query profiles default-external-address "desmos13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud"
-%s query profiles default-external-address "desmos13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud" "cosmos"
+%s query profiles default-external-address "huddle13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud"
+%s query profiles default-external-address "huddle13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud" "cosmos"
 `, version.AppName, version.AppName, version.AppName, version.AppName),
 		Args: cobra.RangeArgs(0, 2),
 		RunE: func(cmd *cobra.Command, args []string) error {

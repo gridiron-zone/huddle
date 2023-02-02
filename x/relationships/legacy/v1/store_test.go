@@ -3,16 +3,16 @@ package v1_test
 import (
 	"testing"
 
-	v4types "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v4/types"
+	v4types "github.com/gridiron-zone/huddle/x/profiles/legacy/v4/types"
 
 	"github.com/cosmos/cosmos-sdk/testutil"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/desmos-labs/desmos/v4/app"
-	profilesv4 "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v4"
-	v1 "github.com/desmos-labs/desmos/v4/x/relationships/legacy/v1"
-	"github.com/desmos-labs/desmos/v4/x/relationships/types"
+	"github.com/gridiron-zone/huddle/app"
+	profilesv4 "github.com/gridiron-zone/huddle/x/profiles/legacy/v4"
+	v1 "github.com/gridiron-zone/huddle/x/relationships/legacy/v1"
+	"github.com/gridiron-zone/huddle/x/relationships/types"
 )
 
 func TestMigrateStore(t *testing.T) {

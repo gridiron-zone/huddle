@@ -7,7 +7,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/x/authz"
 
-	subspacesauthz "github.com/desmos-labs/desmos/v4/x/subspaces/authz"
+	subspacesauthz "github.com/gridiron-zone/huddle/x/subspaces/authz"
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
@@ -17,7 +17,7 @@ import (
 	authzcli "github.com/cosmos/cosmos-sdk/x/authz/client/cli"
 	"github.com/spf13/cobra"
 
-	"github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 // DONTCOVER
@@ -65,10 +65,10 @@ func GetCmdCreateSubspace() *cobra.Command {
 		Long: `Create a new subspace.
 The name must be a human readable name.`,
 		Example: fmt.Sprintf(`
-%s tx subspaces create "Desmos" \
-  --description "The official subspace of Desmos" \
-  --treasury desmos1jqk5p244yl4ktukq5xhavvlfzl8z4we4qfmuyh \
-  --owner desmos1p8r4guvdze03md4g9zclhh6mr8ljvtd80pehr3 \
+%s tx subspaces create "Huddle" \
+  --description "The official subspace of Huddle" \
+  --treasury huddle1jqk5p244yl4ktukq5xhavvlfzl8z4we4qfmuyh \
+  --owner huddle1p8r4guvdze03md4g9zclhh6mr8ljvtd80pehr3 \
   --from alice
 `, version.AppName),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -120,10 +120,10 @@ func GetCmdEditSubspace() *cobra.Command {
 		Short: "Edit the subspace with the given id",
 		Example: fmt.Sprintf(`
 %s tx subspaces edit 1 \
-  --name "Desmos - Democratizing social networks"
-  --description "The official subspace of Desmos" \
-  --treasury desmos1jqk5p244yl4ktukq5xhavvlfzl8z4we4qfmuyh \
-  --owner desmos1p8r4guvdze03md4g9zclhh6mr8ljvtd80pehr3 \
+  --name "Huddle - Democratizing social networks"
+  --description "The official subspace of Huddle" \
+  --treasury huddle1jqk5p244yl4ktukq5xhavvlfzl8z4we4qfmuyh \
+  --owner huddle1p8r4guvdze03md4g9zclhh6mr8ljvtd80pehr3 \
   --from alice
 `, version.AppName),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -292,8 +292,8 @@ func GetCmdEditSection() *cobra.Command {
 		Short: "Edit the subspace section with the given id",
 		Example: fmt.Sprintf(`
 %s tx subspaces edit 1 1 \
-  --name "Desmos - Democratizing social networks"
-  --description "The official subspace of Desmos" \
+  --name "Huddle - Democratizing social networks"
+  --description "The official subspace of Huddle" \
   --from alice
 `, version.AppName),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -712,7 +712,7 @@ func GetCmdAddUserToUserGroup() *cobra.Command {
 		Args:  cobra.ExactArgs(3),
 		Short: "Add a user to a user group",
 		Example: fmt.Sprintf(`
-%s tx subspaces groups add-user 1 1 desmos1p8r4guvdze03md4g9zclhh6mr8ljvtd80pehr3 \
+%s tx subspaces groups add-user 1 1 huddle1p8r4guvdze03md4g9zclhh6mr8ljvtd80pehr3 \
   --from alice
 `, version.AppName),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -754,7 +754,7 @@ func GetCmdRemoveUserFromUserGroup() *cobra.Command {
 		Args:  cobra.ExactArgs(3),
 		Short: "Remove a user from a user group",
 		Example: fmt.Sprintf(`
-%s tx subspaces groups remove-user 1 1 desmos1p8r4guvdze03md4g9zclhh6mr8ljvtd80pehr3 \
+%s tx subspaces groups remove-user 1 1 huddle1p8r4guvdze03md4g9zclhh6mr8ljvtd80pehr3 \
   --from alice
 `, version.AppName),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -802,7 +802,7 @@ It is mandatory to specify at least one permission to be set.
 When specifying multiple permissions, they must be separated by a comma (,).`,
 		Example: fmt.Sprintf(`
 %s tx subspaces set-user-permissions 1 \
-  desmos1463vltcqk6ql6zpk0g6s595jjcrzk4804hyqw7 \
+  huddle1463vltcqk6ql6zpk0g6s595jjcrzk4804hyqw7 \
   "WRITE_CONTENT,INTERACT_WITH_CONTENT,EDIT_OWN_CONTENT,MODERATE_CONTENT,
 EDIT_SUBSPACE,DELETE_SUBSPACE,MANAGE_SECTIONS,MANAGE_GROUPS,SET_PERMISSIONS,EVERYTHING" \
   --from alice
@@ -855,7 +855,7 @@ func GetCmdGrantAuthorization() *cobra.Command {
 		Long: `Grant an authorization to an address inside one or more subspaces.
 If you want to grant the same authorization inside multiple subspaces, simply specify the subspaces ids separating them with a comma (,).`,
 		Example: fmt.Sprintf(`
-%s tx subspaces grant 1,2,3 desmos1463vltcqk6ql6zpk0g6s595jjcrzk4804hyqw7 --msg-type=%s --from alice
+%s tx subspaces grant 1,2,3 huddle1463vltcqk6ql6zpk0g6s595jjcrzk4804hyqw7 --msg-type=%s --from alice
 `, version.AppName, sdk.MsgTypeURL(&types.MsgSetUserPermissions{})),
 		Args: cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {

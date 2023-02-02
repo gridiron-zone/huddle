@@ -6,13 +6,13 @@ import (
 	"math/rand"
 	"time"
 
-	poststypes "github.com/desmos-labs/desmos/v4/x/posts/types"
+	poststypes "github.com/gridiron-zone/huddle/x/posts/types"
 
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 
-	"github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 var (

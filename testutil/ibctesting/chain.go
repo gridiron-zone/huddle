@@ -36,9 +36,9 @@ import (
 	ibctmtypes "github.com/cosmos/ibc-go/v3/modules/light-clients/07-tendermint/types"
 	"github.com/cosmos/ibc-go/v3/testing/mock"
 
-	simapp "github.com/desmos-labs/desmos/v4/app"
+	simapp "github.com/gridiron-zone/huddle/app"
 
-	profilestypes "github.com/desmos-labs/desmos/v4/x/profiles/types"
+	profilestypes "github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 const (
@@ -64,7 +64,7 @@ var (
 type TestChain struct {
 	t *testing.T
 
-	App           *simapp.DesmosApp
+	App           *simapp.HuddleApp
 	ChainID       string
 	LastHeader    *ibctmtypes.Header // header for last block height committed
 	CurrentHeader tmproto.Header     // header for current block height

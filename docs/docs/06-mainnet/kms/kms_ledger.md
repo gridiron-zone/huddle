@@ -26,16 +26,16 @@ You can find other configuration examples [here](https://github.com/iqlusioninc/
    # Example KMS configuration file
    [[validator]]
    addr = "tcp://localhost:26658"    # or "unix:///path/to/socket"
-   chain_id = "desmos-mainnet-1"
+   chain_id = "huddle-mainnet-1"
    reconnect = true # true is the default
    secret_key = "~/.tmkms/secret_connection.key"
   
    [[providers.ledgertm]]
-   chain_ids = ["desmos-mainnet-1"]
+   chain_ids = ["huddle-mainnet-1"]
    ```
 
-- Edit `addr` to point to your `desmos` instance.
-- Adjust `chain-id` to match your `.desmos/config/config.toml` settings.
+- Edit `addr` to point to your `huddle` instance.
+- Adjust `chain-id` to match your `.huddle/config/config.toml` settings.
 - `provider.ledgertm` has not additional parameters at the moment, however, it is important that you keep that header to enable the feature.
 
 *Plug your Ledger device and open the Tendermint validator app.*
@@ -48,7 +48,7 @@ tmkms keygen ~/.tmkms/secret_connection.key
 ```
 
 ### Retrieve validator key
-The last step is to retrieve the validator key that you will use in `desmos`.
+The last step is to retrieve the validator key that you will use in `huddle`.
 
 Start the KMS:
 
@@ -60,19 +60,19 @@ The output should look similar to:
 
 ```
 07:28:24 [INFO] tmkms 0.3.0 starting up...
-07:28:24 [INFO] [keyring:ledgertm:ledgertm] added validator key desmosvalconspub1zcjduepqepu8acj4qua576zzquvcly2un0xkzhwh0ehvgmx8gxgl34zhkceskthfp6
+07:28:24 [INFO] [keyring:ledgertm:ledgertm] added validator key huddlevalconspub1zcjduepqepu8acj4qua576zzquvcly2un0xkzhwh0ehvgmx8gxgl34zhkceskthfp6
 07:28:24 [INFO] KMS node ID: 1BC12314E2E1C29015B66017A397F170C6ECDE4A
 ```
 
-The KMS may complain that it cannot connect to desmos. That is fine, we will fix it in the next section.
+The KMS may complain that it cannot connect to huddle. That is fine, we will fix it in the next section.
 
-This output indicates the validator key linked to this particular device is: `desmosvalconspub1zcjduepqepu8acj4qua576zzquvcly2un0xkzhwh0ehvgmx8gxgl34zhkceskthfp6`
+This output indicates the validator key linked to this particular device is: `huddlevalconspub1zcjduepqepu8acj4qua576zzquvcly2un0xkzhwh0ehvgmx8gxgl34zhkceskthfp6`
 
 Take note of the validator pubkey that appears in your screen. *We will use it in the next section.*
 
-## Desmos configuration
-You need to enable KMS access by editing `.desmos/config/config.toml`. In this file, modify `priv_validator_laddr` 
-to create a listening address/port or a unix socket in `desmos`.
+## Huddle configuration
+You need to enable KMS access by editing `.huddle/config/config.toml`. In this file, modify `priv_validator_laddr` 
+to create a listening address/port or a unix socket in `huddle`.
 
 For example:
 
@@ -84,13 +84,13 @@ priv_validator_laddr = "tcp://127.0.0.1:26658"
 ...
 ```
 
-Let's assume that you have set up your validator account and called it `kmsval`. You can tell desmos the key that we've got in the previous section.
+Let's assume that you have set up your validator account and called it `kmsval`. You can tell huddle the key that we've got in the previous section.
 
 ```bash
-desmos gentx --name kmsval --pubkey {.ValidatorKey} 
+huddle gentx --name kmsval --pubkey {.ValidatorKey} 
 ```
 
-Now start `desmos`. You should see that the KMS connects and receives a signature request.
+Now start `huddle`. You should see that the KMS connects and receives a signature request.
 
 Once the ledger receives the first message, it will ask for confirmation that the values are adequate.
 

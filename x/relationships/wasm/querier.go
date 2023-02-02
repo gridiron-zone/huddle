@@ -7,9 +7,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/desmos-labs/desmos/v4/cosmwasm"
-	relationshipskeeper "github.com/desmos-labs/desmos/v4/x/relationships/keeper"
-	"github.com/desmos-labs/desmos/v4/x/relationships/types"
+	"github.com/gridiron-zone/huddle/cosmwasm"
+	relationshipskeeper "github.com/gridiron-zone/huddle/x/relationships/keeper"
+	"github.com/gridiron-zone/huddle/x/relationships/types"
 )
 
 var _ cosmwasm.Querier = RelationshipsWasmQuerier{}

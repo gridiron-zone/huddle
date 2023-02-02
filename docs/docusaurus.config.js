@@ -35,17 +35,17 @@ function convertPageWithHrefToExternLinks(docs, generatedMenu) {
 }
 
 module.exports = {
-  title: 'Desmos documentation',
+  title: 'Huddle documentation',
   staticDirectories: ['static'],
-  tagline: 'Desmos network official documentation for developers and validators',
-  url: 'https://test-docs.desmos.network',
+  tagline: 'Huddle network official documentation for developers and validators',
+  url: 'https://test-docs.huddle.network',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   onDuplicateRoutes: 'warn',
   favicon: 'assets/favicon.ico',
   organizationName: 'desmos-labs', // Usually your GitHub org/user name.
-  projectName: 'desmos', // Usually your repo name.
+  projectName: 'huddle', // Usually your repo name.
   webpack: {
     jsLoader: (isServer) => ({
       loader: require.resolve('swc-loader'),
@@ -71,7 +71,7 @@ module.exports = {
     algolia: {
       apiKey: '492b6729d095b18f5599d6584e00ae11',
       appId: '1IAGPKAXGP',
-      indexName: 'desmos',
+      indexName: 'huddle',
       contextualSearch: false,
     },
     docs: {
@@ -81,10 +81,10 @@ module.exports = {
     },
     navbar: {
       logo: {
-        alt: 'Desmos logo',
+        alt: 'Huddle logo',
         src: 'assets/logo.svg',
         srcDark: 'assets/logo.svg',
-        href: 'https://docs.desmos.network'
+        href: 'https://docs.huddle.network'
       },
       items: [
         {
@@ -127,23 +127,23 @@ module.exports = {
           items: [
             {
               label: 'Twitter',
-              href: 'https://twitter.com/DesmosNetwork',
+              href: 'https://twitter.com/HuddleNetwork',
             },
             {
               label: 'Discord',
-              href: 'https://discord.desmos.network/',
+              href: 'https://discord.huddle.network/',
             },
             {
               label: 'Medium',
-              href: 'https://medium.com/desmosnetwork'
+              href: 'https://medium.com/huddlenetwork'
             },
             {
               label: 'Telegram',
-              href: 'https://t.me/desmosnetwork',
+              href: 'https://t.me/huddlenetwork',
             },
             {
               label: 'Reddit (not-official)',
-              href: 'https://www.reddit.com/r/DesmosNetwork/'
+              href: 'https://www.reddit.com/r/HuddleNetwork/'
             }
           ],
         },
@@ -152,21 +152,21 @@ module.exports = {
           items: [
             {
               label: 'Website',
-              to: 'https://www.desmos.network',
+              to: 'https://www.huddle.network',
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/desmos-labs/desmos',
+              href: 'https://github.com/gridiron-zone/huddle',
             },
           ],
         },
       ],
       logo: {
-        alt: 'Desmos Logo',
+        alt: 'Huddle Logo',
         src: 'assets/logo.png',
-        href: 'https://www.desmos.network',
+        href: 'https://www.huddle.network',
       },
-      copyright: `Copyright © ${new Date().getFullYear()} Desmos Network`,
+      copyright: `Copyright © ${new Date().getFullYear()} Huddle Network`,
     },
   },
   presets: [
@@ -181,7 +181,7 @@ module.exports = {
             const defaultItems = await defaultSidebarItemsGenerator(args);
             return convertPageWithHrefToExternLinks(args.docs, defaultItems);
           },
-          editUrl: 'https://github.com/desmos-labs/desmos/tree/master/docs',
+          editUrl: 'https://github.com/gridiron-zone/huddle/tree/master/docs',
           showLastUpdateTime: true,
           lastVersion: "current",
           exclude: [

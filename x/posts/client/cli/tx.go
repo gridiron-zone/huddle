@@ -13,9 +13,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/version"
 	"github.com/spf13/cobra"
 
-	cliutils "github.com/desmos-labs/desmos/v4/x/posts/client/utils"
-	"github.com/desmos-labs/desmos/v4/x/posts/types"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	cliutils "github.com/gridiron-zone/huddle/x/posts/client/utils"
+	"github.com/gridiron-zone/huddle/x/posts/types"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 // NewTxCmd returns a new command to perform subspaces transactions

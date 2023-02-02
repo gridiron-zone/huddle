@@ -3,7 +3,7 @@ package types_test
 import (
 	"testing"
 
-	"github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/x/subspaces/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
@@ -95,7 +95,7 @@ func TestMsgCreateSubspace_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgCreateSubspace_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgCreateSubspace","value":{"creator":"cosmos1qzskhrcjnkdz2ln4yeafzsdwht8ch08j4wed69","description":"This is a test subspace","name":"Test subspace","owner":"cosmos1lv3e0l66rr68k5l74mnrv4j9kyny6cz27pvnez","treasury":"cosmos1vkuuth0rak58x36m7wuzj7ztttxh26fhqcfxm0"}}`
+	expected := `{"type":"huddle/MsgCreateSubspace","value":{"creator":"cosmos1qzskhrcjnkdz2ln4yeafzsdwht8ch08j4wed69","description":"This is a test subspace","name":"Test subspace","owner":"cosmos1lv3e0l66rr68k5l74mnrv4j9kyny6cz27pvnez","treasury":"cosmos1vkuuth0rak58x36m7wuzj7ztttxh26fhqcfxm0"}}`
 	require.Equal(t, expected, string(msgCreateSubspace.GetSignBytes()))
 }
 
@@ -173,7 +173,7 @@ func TestMsgEditSubspace_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgEditSubspace_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgEditSubspace","value":{"description":"This is a new description","name":"This is a new name","owner":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1","treasury":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5"}}`
+	expected := `{"type":"huddle/MsgEditSubspace","value":{"description":"This is a new description","name":"This is a new name","owner":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1","treasury":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5"}}`
 	require.Equal(t, expected, string(msgEditSubspace.GetSignBytes()))
 }
 
@@ -319,7 +319,7 @@ func TestMsgCreateSection_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgCreateSection_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgCreateSection","value":{"creator":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","description":"This is a test section","name":"Test section","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgCreateSection","value":{"creator":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","description":"This is a test section","name":"Test section","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgCreateSection.GetSignBytes()))
 }
 
@@ -405,7 +405,7 @@ func TestMsgEditSection_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgEditSection_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgEditSection","value":{"description":"This is a test section","editor":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","name":"Test section","section_id":1,"subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgEditSection","value":{"description":"This is a test section","editor":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","name":"Test section","section_id":1,"subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgEditSection.GetSignBytes()))
 }
 
@@ -487,7 +487,7 @@ func TestMsgMoveSection_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgMoveSection_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgMoveSection","value":{"new_parent_id":1,"section_id":1,"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgMoveSection","value":{"new_parent_id":1,"section_id":1,"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgMoveSection.GetSignBytes()))
 }
 
@@ -565,7 +565,7 @@ func TestMsgDeleteSection_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgDeleteSection_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgDeleteSection","value":{"section_id":1,"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgDeleteSection","value":{"section_id":1,"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgDeleteSection.GetSignBytes()))
 }
 
@@ -685,7 +685,7 @@ func TestMsgCreateUserGroup_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgCreateUserGroup_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgCreateUserGroup","value":{"creator":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","default_permissions":["EDIT_SUBSPACE"],"description":"Description","initial_members":["cosmos16yhs7fgqnf6fjm4tftv66g2smtmee62wyg780l"],"name":"Group","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgCreateUserGroup","value":{"creator":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","default_permissions":["EDIT_SUBSPACE"],"description":"Description","initial_members":["cosmos16yhs7fgqnf6fjm4tftv66g2smtmee62wyg780l"],"name":"Group","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgCreateUserGroup.GetSignBytes()))
 }
 
@@ -760,7 +760,7 @@ func TestMsgEditUserGroup_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgEditUserGroup_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgEditUserGroup","value":{"description":"Description","group_id":1,"name":"Group","signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgEditUserGroup","value":{"description":"Description","group_id":1,"name":"Group","signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgEditUserGroup.GetSignBytes()))
 }
 
@@ -832,7 +832,7 @@ func TestMsgMoveUserGroup_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgMoveUserGroup_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgMoveUserGroup","value":{"group_id":1,"new_section_id":2,"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgMoveUserGroup","value":{"group_id":1,"new_section_id":2,"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgMoveUserGroup.GetSignBytes()))
 }
 
@@ -914,7 +914,7 @@ func TestMsgSetUserGroupPermissions_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgSetUserGroupPermissions_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgSetUserGroupPermissions","value":{"group_id":1,"permissions":["EDIT_SUBSPACE"],"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgSetUserGroupPermissions","value":{"group_id":1,"permissions":["EDIT_SUBSPACE"],"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgSetUserGroupPermissions.GetSignBytes()))
 }
 
@@ -992,7 +992,7 @@ func TestMsgDeleteUserGroup_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgDeleteUserGroup_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgDeleteUserGroup","value":{"group_id":1,"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgDeleteUserGroup","value":{"group_id":1,"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgDeleteUserGroup.GetSignBytes()))
 }
 
@@ -1084,7 +1084,7 @@ func TestMsgAddUserToUserGroup_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgAddUserToUserGroup_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgAddUserToUserGroup","value":{"group_id":1,"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1","user":"cosmos1x5pjlvufs4znnhhkwe8v4tw3kz30f3lxgwza53"}}`
+	expected := `{"type":"huddle/MsgAddUserToUserGroup","value":{"group_id":1,"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1","user":"cosmos1x5pjlvufs4znnhhkwe8v4tw3kz30f3lxgwza53"}}`
 	require.Equal(t, expected, string(msgAddUserToGroup.GetSignBytes()))
 }
 
@@ -1176,7 +1176,7 @@ func TestMsgRemoveUserFromUserGroup_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgRemoveUserFromUserGroup_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgRemoveUserFromUserGroup","value":{"group_id":1,"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1","user":"cosmos1x5pjlvufs4znnhhkwe8v4tw3kz30f3lxgwza53"}}`
+	expected := `{"type":"huddle/MsgRemoveUserFromUserGroup","value":{"group_id":1,"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1","user":"cosmos1x5pjlvufs4znnhhkwe8v4tw3kz30f3lxgwza53"}}`
 	require.Equal(t, expected, string(msgRemoveUserFromUserGroup.GetSignBytes()))
 }
 
@@ -1272,7 +1272,7 @@ func TestMsgSetUserPermissions_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgSetUserPermissions_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgSetUserPermissions","value":{"permissions":["EDIT_SUBSPACE"],"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1","user":"cosmos1x5pjlvufs4znnhhkwe8v4tw3kz30f3lxgwza53"}}`
+	expected := `{"type":"huddle/MsgSetUserPermissions","value":{"permissions":["EDIT_SUBSPACE"],"signer":"cosmos1m0czrla04f7rp3zg7dsgc4kla54q7pc4xt00l5","subspace_id":"1","user":"cosmos1x5pjlvufs4znnhhkwe8v4tw3kz30f3lxgwza53"}}`
 	require.Equal(t, expected, string(msgSetUserPermissions.GetSignBytes()))
 }
 

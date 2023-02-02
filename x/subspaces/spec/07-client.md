@@ -16,43 +16,43 @@ A user can query and interact with the `subspaces` module using the CLI.
 The `query` commands allow users to query the `subspaces` state.
 
 ```bash
-desmos query subspaces --help
+huddle query subspaces --help
 ```
 
 #### subspace
 The `subspace` query command allows users to query a subspace with the given id.
 
 ```bash
-desmos query subspaces subspace [id] [flags]
+huddle query subspaces subspace [id] [flags]
 ```
 
 Example:
 ```bash
-desmos query subspaces subspace 1
+huddle query subspaces subspace 1
 ```
 
 Example output:
 ```yaml
 subspace:
   creation_time: "2022-06-20T14:52:23.049305Z"
-  creator: desmos1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc
+  creator: huddle1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc
   description: "this is a test subspace"
   id: "1"
   name: test
-  owner: desmos1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3
-  treasury: desmos1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3
+  owner: huddle1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3
+  treasury: huddle1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3
 ```
 
 #### subspaces
 The `subspaces` query command allows users to query all the subspaces. Optional pagination is available.
 
 ```bash
-desmos query subspaces subspaces [flags]
+huddle query subspaces subspaces [flags]
 ```
 
 Example:
 ```bash
-desmos query subspaces subspaces --page=2 --limit=100
+huddle query subspaces subspaces --page=2 --limit=100
 ```
 
 Example output:
@@ -62,31 +62,31 @@ pagination:
   total: "0"
 subspaces:
 - creation_time: "2022-06-20T14:52:23.049305Z"
-  creator: desmos1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc
+  creator: huddle1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc
   description: ""
   id: "1"
   name: test
-  owner: desmos1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3
-  treasury: desmos1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3
+  owner: huddle1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3
+  treasury: huddle1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3
 ```
 
 #### sections
 The `sections` query command allows users to query the sections state.
 
 ```bash
-desmos query subspaces sections [command] [flags] --help
+huddle query subspaces sections [command] [flags] --help
 ```
 
 ##### list
 The `list` query command allows users to query all the sections of a subspace. Optional pagination is available.
 
 ```bash
-desmos query subspaces sections list [subspace-id] [flags]
+huddle query subspaces sections list [subspace-id] [flags]
 ```
 
 Example:
 ```bash
-desmos query subspaces sections list 1 --page=2 --limit=100
+huddle query subspaces sections list 1 --page=2 --limit=100
 ```
 
 Example output:
@@ -121,12 +121,12 @@ sections:
 The `section` query command allows users to query a specific section inside a subspace.
 
 ```bash
-desmos query subspaces sections section [subspace-id] [section-id] [flags]
+huddle query subspaces sections section [subspace-id] [section-id] [flags]
 ```
 
 Example:
 ```bash
-desmos query subspaces sections section 1 2
+huddle query subspaces sections section 1 2
 ```
 
 Example output:
@@ -143,19 +143,19 @@ section:
 The `groups` query command allows users to query the groups state.
 
 ```bash
-desmos query subspaces groups [command] --help
+huddle query subspaces groups [command] --help
 ```
 
 ##### list
 The `list` query command allows users to query all the groups of a subspace. Optional pagination is available.
 
 ```bash
-desmos query subspaces groups list [subspace-id] [flags] --help
+huddle query subspaces groups list [subspace-id] [flags] --help
 ```
 
 Example:
 ```bash
-desmos query subspaces groups list 1 
+huddle query subspaces groups list 1 
 ```
 
 Example output:
@@ -183,12 +183,12 @@ pagination:
 The `group` query command allows users to query a specific group of a subspace.
 
 ```bash
-desmos query subspaces groups group [subspace-id] [group-id] [flags]
+huddle query subspaces groups group [subspace-id] [group-id] [flags]
 ```
 
 Example:
 ```bash
-desmos query subspaces groups group 1 1
+huddle query subspaces groups group 1 1
 ```
 
 Example output:
@@ -206,19 +206,19 @@ group:
 The `members` query command allows users to query the members of a group.
 
 ```bash
-desmos query subspaces members [subspace-id] [group-id] [flags]
+huddle query subspaces members [subspace-id] [group-id] [flags]
 ```
 
 Example:
 ```bash
-desmos query subspaces members 1 1
+huddle query subspaces members 1 1
 ```
 
 Example output:
 ```yaml
 members:
-- desmos1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc
-- desmos1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3
+- huddle1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc
+- huddle1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3
 pagination:
   next_key: null
   total: "0"
@@ -228,12 +228,12 @@ pagination:
 The `permissions` query command allows users to query user's permissions of a specific subspace or section.
 
 ```bash
-desmos query subspaces permissions [subspace-id] [section-id] [user] [flags]
+huddle query subspaces permissions [subspace-id] [section-id] [user] [flags]
 ```
 
 Example:
 ```bash
-desmos query subspaces permissions 1 0 desmos1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc  
+huddle query subspaces permissions 1 0 huddle1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc  
 ```
 
 Example output:
@@ -244,7 +244,7 @@ details:
   user:
     permission:
     - EVERYTHING
-    user: desmos1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc
+    user: huddle1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc
 - group:
     group_id: 0
     permission: []
@@ -258,15 +258,15 @@ permissions:
 Users can query the `subspaces` module gRPC endpoints.
 
 ### Subspaces
-The `Subspaces` endpoint allows users to query all the subspaces inside Desmos.
+The `Subspaces` endpoint allows users to query all the subspaces inside Huddle.
 
 ```bash
-desmos.subspaces.v2.Query/Subspaces
+huddle.subspaces.v2.Query/Subspaces
 ```
 
 Example:
 ```bash
-grpcurl -plaintext localhost:9090 desmos.subspaces.v2.Query/Subspaces
+grpcurl -plaintext localhost:9090 huddle.subspaces.v2.Query/Subspaces
 ```
 
 Example output:
@@ -276,9 +276,9 @@ Example output:
     {
       "id": "1",
       "name": "test",
-      "treasury": "desmos1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3",
-      "owner": "desmos1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3",
-      "creator": "desmos1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc",
+      "treasury": "huddle1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3",
+      "owner": "huddle1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3",
+      "creator": "huddle1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc",
       "creationTime": "2022-06-20T14:52:23.049305Z"
     }
   ],
@@ -292,12 +292,12 @@ Example output:
 The `Subspace` endpoint allows users to query a subspace associated with the given ID.
 
 ```bash
-desmos.subspaces.v2.Query/Subspace
+huddle.subspaces.v2.Query/Subspace
 ```
 
 Example:
 ```bash
-grpcurl -plaintext -d '{"subspace_id":1}' localhost:9090 desmos.subspaces.v2.Query/Subspace
+grpcurl -plaintext -d '{"subspace_id":1}' localhost:9090 huddle.subspaces.v2.Query/Subspace
 ```
 
 Example output:
@@ -306,9 +306,9 @@ Example output:
   "subspace": {
     "id": "1",
     "name": "test",
-    "treasury": "desmos1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3",
-    "owner": "desmos1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3",
-    "creator": "desmos1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc",
+    "treasury": "huddle1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3",
+    "owner": "huddle1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3",
+    "creator": "huddle1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc",
     "creationTime": "2022-06-20T14:52:23.049305Z"
   }
 }
@@ -318,12 +318,12 @@ Example output:
 The `Sections` endpoint allows users to query the sections associated with the given subspace ID. 
 
 ```bash
-desmos.subspaces.v2.Query/Sections
+huddle.subspaces.v2.Query/Sections
 ```
 
 Example:
 ```bash
-grpcurl -plaintext -d '{"subspace_id":1}' localhost:9090 desmos.subspaces.v2.Query/Sections 
+grpcurl -plaintext -d '{"subspace_id":1}' localhost:9090 huddle.subspaces.v2.Query/Sections 
 ```
 
 Example output:
@@ -363,12 +363,12 @@ Example output:
 The `Section` endpoint allows users to query a section with the given ID inside the subspace with the given ID.
 
 ```bash
-desmos.subspaces.v2.Query/Section
+huddle.subspaces.v2.Query/Section
 ```
 
 Example:
 ```bash
-grpcurl -plaintext -d '{"subspace_id":1, "section_id":1}' localhost:9090 desmos.subspaces.v2.Query/Section
+grpcurl -plaintext -d '{"subspace_id":1, "section_id":1}' localhost:9090 huddle.subspaces.v2.Query/Section
 ```
 
 Example output:
@@ -386,12 +386,12 @@ Example output:
 The `UserGroups` endpoint allows users to query all the user groups associated with a given subspace ID and section ID.
 
 ```bash
-desmos.subspaces.v2.Query/UserGroups
+huddle.subspaces.v2.Query/UserGroups
 ```
 
 Example:
 ```bash
-grpcurl -plaintext -d '{"subspace_id":1, "section_id": 0}' localhost:9090 desmos.subspaces.v2.Query/UserGroups
+grpcurl -plaintext -d '{"subspace_id":1, "section_id": 0}' localhost:9090 huddle.subspaces.v2.Query/UserGroups
 ```
 
 Example output:
@@ -420,12 +420,12 @@ Example output:
 The `UserGroup` endpoint allows users to query a specific user group with the given ID associated with a given subspace ID.
 
 ```bash
-desmos.subspaces.v2.Query/UserGroup
+huddle.subspaces.v2.Query/UserGroup
 ```
 
 Example:
 ```bash
-grpcurl -plaintext -d '{"subspace_id":1, "group_id":1}' localhost:9090 desmos.subspaces.v2.Query/UserGroup 
+grpcurl -plaintext -d '{"subspace_id":1, "group_id":1}' localhost:9090 huddle.subspaces.v2.Query/UserGroup 
 ```
 
 Example output:
@@ -445,20 +445,20 @@ The `UserGroupMembers` endpoint allows users to query all the members of the use
 subspace with the given ID.
 
 ```bash
-desmos.subspaces.v2.Query/UserGroupMembers
+huddle.subspaces.v2.Query/UserGroupMembers
 ```
 
 Example:
 ```bash
-grpcurl -plaintext -d '{"subspace_id":1, "group_id":1}' localhost:9090 desmos.subspaces.v2.Query/UserGroupMembers
+grpcurl -plaintext -d '{"subspace_id":1, "group_id":1}' localhost:9090 huddle.subspaces.v2.Query/UserGroupMembers
 ```
 
 Example output:
 ```json
 {
   "members": [
-    "desmos1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc",
-    "desmos1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3"
+    "huddle1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc",
+    "huddle1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3"
   ],
   "pagination": {
     "total": "2"
@@ -471,12 +471,12 @@ The `UserPermissions` endpoint allows users to query all the user's permissions 
 and the section with the given ID.
 
 ```bash
-desmos.subspaces.v2.Query/UserPermissions
+huddle.subspaces.v2.Query/UserPermissions
 ```
 
 Example:
 ```bash
-grpcurl -plaintext -d '{"subspace_id":1, "section_id":0, "user": "desmos1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc"}' localhost:9090 desmos.subspaces.v2.Query/UserPermissions
+grpcurl -plaintext -d '{"subspace_id":1, "section_id":0, "user": "huddle1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc"}' localhost:9090 huddle.subspaces.v2.Query/UserPermissions
 ```
 
 Example output:
@@ -489,7 +489,7 @@ Example output:
     {
       "subspaceId": "1",
       "user": {
-        "user": "desmos1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc",
+        "user": "huddle1nwp8gxrnmrsrzjdhvk47vvmthzxjtphgxp5ftc",
         "permission": [
           "EVERYTHING"
         ]
@@ -515,45 +515,45 @@ Example output:
 A user can query the `subspaces` module using REST endpoints.
 
 ### Subspaces
-The `Subspaces` endpoint allows users to query all the subspaces inside Desmos.
+The `Subspaces` endpoint allows users to query all the subspaces inside Huddle.
 
 ````
-/desmos/subspaces/v3/subspaces
+/huddle/subspaces/v3/subspaces
 ````
 
 ### Subspace
 The `Subspace` endpoint allows users to query a subspace associated with the given ID.
 
 ````
-/desmos/subspaces/v3/subspaces/{subspace_id}
+/huddle/subspaces/v3/subspaces/{subspace_id}
 ````
 
 ### Sections
 The `Sections` endpoint allows users to query the sections associated with the given subspace ID.
 
 ````
-/desmos/subspaces/v3/{subspace_id}/sections
+/huddle/subspaces/v3/{subspace_id}/sections
 ````
 
 ### Section
 The `Section` endpoint allows users to query a section with the given ID associated with the subspace with the given ID.
 
 ````
-/desmos/subspaces/v3/{subspace_id}/sections/{section_id}
+/huddle/subspaces/v3/{subspace_id}/sections/{section_id}
 ````
 
 ### UserGroups
 The `UserGroups` endpoint allows users to query all the user groups associated with a given subspace ID.
 
 ````
-/desmos/subspaces/v3/subspaces/{subspace_id}/groups
+/huddle/subspaces/v3/subspaces/{subspace_id}/groups
 ````
 
 ### UserGroup
 The `UserGroup` endpoint allows users to query a specific user group with the given ID associated with a given subspace ID.
 
 ````
-/desmos/subspaces/v3/subspaces/{subspace_id}/groups/{group_id}
+/huddle/subspaces/v3/subspaces/{subspace_id}/groups/{group_id}
 ````
 
 ### UserGroupMembers
@@ -561,7 +561,7 @@ The `UserGroupMembers` endpoint allows users to query all the members of the use
 subspace with the given ID.
 
 ````
-/desmos/subspaces/v3/subspaces/{subspace_id}/groups/{group_id}/members
+/huddle/subspaces/v3/subspaces/{subspace_id}/groups/{group_id}/members
 ````
 
 ### UserPermissions
@@ -569,5 +569,5 @@ The `UserPermissions` endpoint allows users to query all the user's permissions 
 and the section with the given ID.
 
 ````
-/desmos/subspaces/v3/subspaces/{subspace_id}/permissions/{user}
+/huddle/subspaces/v3/subspaces/{subspace_id}/permissions/{user}
 ````

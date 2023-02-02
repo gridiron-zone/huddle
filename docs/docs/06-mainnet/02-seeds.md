@@ -13,7 +13,7 @@ If you are looking for testnet seed nodes, please refer to [this](../05-testnet/
 
 Visit the [mainnet repo](https://github.com/desmos-labs/mainnet#seed-nodes) to get the seed nodes.
 
-Add the seed nodes to the `~/.desmos/config/config.toml` file each one
+Add the seed nodes to the `~/.huddle/config/config.toml` file each one
 separated by a comma like following:
 ```toml
 seeds = "seed1,seed2,..."

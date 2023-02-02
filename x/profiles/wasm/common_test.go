@@ -25,17 +25,17 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	db "github.com/tendermint/tm-db"
 
-	"github.com/desmos-labs/desmos/v4/app"
-	"github.com/desmos-labs/desmos/v4/x/profiles/keeper"
-	relationshipskeeper "github.com/desmos-labs/desmos/v4/x/relationships/keeper"
-	relationshipstypes "github.com/desmos-labs/desmos/v4/x/relationships/types"
-	subspaceskeeper "github.com/desmos-labs/desmos/v4/x/subspaces/keeper"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/app"
+	"github.com/gridiron-zone/huddle/x/profiles/keeper"
+	relationshipskeeper "github.com/gridiron-zone/huddle/x/relationships/keeper"
+	relationshipstypes "github.com/gridiron-zone/huddle/x/relationships/types"
+	subspaceskeeper "github.com/gridiron-zone/huddle/x/subspaces/keeper"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 func buildSaveProfileRequest(cdc codec.Codec, msg sdk.Msg) json.RawMessage {

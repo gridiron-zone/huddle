@@ -8,7 +8,7 @@ slug: overview
 # `x/reports`
 
 ## Abstract 
-This document specifies the reports module of Desmos.  
+This document specifies the reports module of Huddle.  
 
 This module handles the creation and management of a reporting system toward content and users.
 

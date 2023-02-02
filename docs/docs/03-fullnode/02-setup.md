@@ -6,7 +6,7 @@ slug: setup
 ---
 
 # Full node setup
-Following you will find the instructions on how to manually setup your Desmos full node.
+Following you will find the instructions on how to manually setup your Huddle full node.
 
 :::note Requirements
 Before starting, make sure you read the [overview](01-overview.mdx) to make sure your hardware meets the needed
@@ -18,7 +18,7 @@ requirements.
 :::tip Choose your DB backend
 Before installing the software, a consideration must be done.
 
-By default, Desmos uses [LevelDB](https://github.com/google/leveldb) as its database backend engine. However, since
+By default, Huddle uses [LevelDB](https://github.com/google/leveldb) as its database backend engine. However, since
 version `v0.6.0` we've also added the possibility of optionally
 using [Facebook's RocksDB](https://github.com/facebook/rocksdb), which, although still being experimental, is known to
 be faster and could lead to lower syncing times. If you want to try out RocksDB you can take a look at
@@ -31,8 +31,8 @@ In your terminal, run the following:
 # Make sure we are inside the home directory
 cd $HOME
 
-# Clone the Desmos software
-git clone https://github.com/desmos-labs/desmos.git && cd desmos
+# Clone the Huddle software
+git clone https://github.com/gridiron-zone/huddle.git && cd huddle
 
 # Checkout the correct tag
 git checkout tags/v2.3.1
@@ -45,18 +45,18 @@ make install
 make install DB_BACKEND=rocksdb
 ```
 
-If the software is built successfully, the `desmos` executable will be located inside your `$GOBIN` path. If you setup
+If the software is built successfully, the `huddle` executable will be located inside your `$GOBIN` path. If you setup
 your environment variables correctly in the previous step, you should also be able to run it properly. To check this,
 try running:
 
 ```bash
-desmos version --long
+huddle version --long
 ```
 
-## 2. Initialize the Desmos working directory
+## 2. Initialize the Huddle working directory
 
-Configuration files and chain data will be stored inside the `$HOME/.desmos` directory by default. In order to create
-this folder and all the necessary data we need to initialize a new full node using the `desmos init` command.
+Configuration files and chain data will be stored inside the `$HOME/.huddle` directory by default. In order to create
+this folder and all the necessary data we need to initialize a new full node using the `huddle init` command.
 
 Starting from `v0.15.0`, you are now able to provide a custom seed when initializing your node. This will be
 particularly useful because, in the case that you want to reset your node, you will be able to re-generate the same
@@ -66,14 +66,14 @@ In order to provide a custom seed to your private key, you can do as follows:
 
 1. Get a new random seed by running
    ```shell
-   desmos keys add node --dry-run
+   huddle keys add node --dry-run
 
    # Example
-   # desmos keys add node --dry-run
+   # huddle keys add node --dry-run
    # - name: node
    #   type: local
-   #   address: desmos126cw9j2wy099lttf2qx0qds6k7t4kdea5ualh9
-   #   pubkey: desmospub1addwnpepqdpfv4lh0vqjvmu43spz4lq0l92qret9hv6007j4r28z05wuthw2jz3frd4
+   #   address: huddle126cw9j2wy099lttf2qx0qds6k7t4kdea5ualh9
+   #   pubkey: huddlepub1addwnpepqdpfv4lh0vqjvmu43spz4lq0l92qret9hv6007j4r28z05wuthw2jz3frd4
    #   mnemonic: ""
    #   threshold: 0
    #   pubkeys: []
@@ -88,9 +88,9 @@ In order to provide a custom seed to your private key, you can do as follows:
 
 2. Run the `init` command using the `--recover` flag.
    ```shell
-   desmos init <your_node_moniker> --recover
+   huddle init <your_node_moniker> --recover
    ```
-   You can choose any `moniker` value you like. It will be saved in the `config.toml` under the `.desmos` working
+   You can choose any `moniker` value you like. It will be saved in the `config.toml` under the `.huddle` working
    directory.
 
 3. Insert the previously outputted secret recovery phrase (mnemonic phrase):
@@ -99,10 +99,10 @@ In order to provide a custom seed to your private key, you can do as follows:
    sort curious village display voyage oppose dice idea mutual inquiry keep swim team direct tired pink clinic figure tiny december giant obvious clump chest
    ```
 
-   This will generate the working files in `~/.desmos`
+   This will generate the working files in `~/.huddle`
 
    :::tip Tip
-   By default, running `desmos init <your_node_moniker>` without the `--recover` flag will randomly generate a `priv_validator_key.json`. There is no way to regenerate this key if you lose it.\
+   By default, running `huddle init <your_node_moniker>` without the `--recover` flag will randomly generate a `priv_validator_key.json`. There is no way to regenerate this key if you lose it.\
    We recommend running this command with the `--recover` so that you can regenerate the same `priv_validator_key.json` from the secret recovery phrase (mnemonic phrase).
    :::
 
@@ -116,7 +116,7 @@ telling how the genesis block of the network should look like.
 ## 4. Setup seeds
 
 The next thing you have to do now is telling your node how to connect with other nodes that are already present on the
-network. In order to do so, we will use the `seeds` and `persistent_peers` values of the `~/.desmos/config/config.toml`
+network. In order to do so, we will use the `seeds` and `persistent_peers` values of the `~/.huddle/config/config.toml`
 file.
 
 Seed nodes are a particular type of nodes present on the network. Your fullnode will connect to them, and they will
@@ -127,7 +127,7 @@ connect to such nodes.
 
 ## 5. State sync
 
-Starting from Desmos `v0.15.0`, we've added the support for Tendermint'
+Starting from Huddle `v0.15.0`, we've added the support for Tendermint'
 s [state sync](https://docs.tendermint.com/v0.34/tendermint-core/state-sync.html). This feature allows new nodes to
 sync with the chain extremely fast, by downloading snapshots created by other full nodes.
 Here below, you can find the links to check for the correct procedure depending on which network you're setting up your node:
@@ -137,12 +137,12 @@ Here below, you can find the links to check for the correct procedure depending 
 ### Changing state sync height
 If you change the state sync height, you will need to perform these actions before trying to sync again:
 * If you're running a **validator node**:
-    1. Backup the `~/.desmos/data/priv_validator_state.json`;
-    2. Run `desmos unsafe-reset-all`;
+    1. Backup the `~/.huddle/data/priv_validator_state.json`;
+    2. Run `huddle unsafe-reset-all`;
     3. Restore the `priv_validator_state.json` file.
     4. Restart the node.
 * If you're running a *full node*:
-    1. Run `desmos unsafe-reset-all`;
+    1. Run `huddle unsafe-reset-all`;
     2. Restart the node.
 
 ## 6. Full sync - Sync from block 1
@@ -156,14 +156,14 @@ Remember that this procedure takes time (hours, or days) and you will not be abl
 :::
 
 ### 1. Downgrade the software
-The first thing you need to do in order to start sync from scratch is getting the correct Desmos version according to the network you're connecting to:
+The first thing you need to do in order to start sync from scratch is getting the correct Huddle version according to the network you're connecting to:
 * [**Mainnet**](../06-mainnet/04-full-sync.md);
 * [**Testnet**](../05-testnet/04-join-public/05-full-sync.md).
 
 ### 2. Disable state-sync
-1. Open the `~/.desmos/config/config.toml` file.
+1. Open the `~/.huddle/config/config.toml` file.
 2. Disable state sync by setting `enable = false`.
-3. Run a `desmos unsafe-reset-all`.
+3. Run a `huddle unsafe-reset-all`.
 
 ### 3. Setup Cosmovisor
 Since we're relying on the Cosmos SDK `x/upgrade` module to update the network, you will need to set up Cosmovisor
@@ -173,7 +173,7 @@ in order to handle the updates that happened at different heights in the past. C
 
 Currently, the `snapshot` feature is enabled by the default. This means that your node will periodically create snapshots of the chain state and make them public, allowing other nodes to quickly join the network by syncing the application state at a given height.
 
-By default, we have set Desmos to take snapshots every 500 blocks, and persist the last 2 snapshots, deleting older ones. If you want to provide other nodes with more (or less) frequent snapshots, you can do this by editing a couple of things inside your `~/.desmos/config/app.toml` file, under the `state-sync` section:
+By default, we have set Huddle to take snapshots every 500 blocks, and persist the last 2 snapshots, deleting older ones. If you want to provide other nodes with more (or less) frequent snapshots, you can do this by editing a couple of things inside your `~/.huddle/config/app.toml` file, under the `state-sync` section:
 
 ```toml
 # snapshot-interval specifies the block interval at which local state sync snapshots are
@@ -198,7 +198,7 @@ You can find out more about pruning [here](01-overview.mdx#understanding-pruning
 ## 8. (Optional) Change your database backend
 
 If you would like to run your node using [Facebook's RocksDB](https://github.com/facebook/rocksdb) as the database
-backend, and you have correctly built the Desmos binaries to work with it following the instructions
+backend, and you have correctly built the Huddle binaries to work with it following the instructions
 at [point 1](#1-build-the-software), there is one more thing you need to do.
 
 In order to tell Tendermint to use RocksDB as its database backend engine, you are required to change the following like
@@ -255,20 +255,20 @@ sudo ufw status
 If you also want to run a gRPC server, RPC node or the REST APIs, you also need to remember to open the related ports as
 well.
 
-## 10. Start the Desmos node
+## 10. Start the Huddle node
 
 After setting up the binary and opening up ports, you are now finally ready to start your node:
 
 ```bash
-# Run Desmos full node
-desmos start
+# Run Huddle full node
+huddle start
 ```
 
 The full node will connect to the peers and start syncing. You can check the status of the node by executing:
 
 ```bash
 # Check status of the node
-desmos status
+huddle status
 ```
 
 You should see an output like the following one:
@@ -318,10 +318,10 @@ If you see that the `catching_up` value is `false` under the `sync_info`, it mea
 is `true`, it means your node is still syncing. You can get the `catching_up` value by simply running:
 
 ```shell
-desmos status 2>&1 | jq "{catching_up: .SyncInfo.catching_up}"
+huddle status 2>&1 | jq "{catching_up: .SyncInfo.catching_up}"
 
 # Example
-# $ desmos status 2>&1 | jq "{catching_up: .SyncInfo.catching_up}"
+# $ huddle status 2>&1 | jq "{catching_up: .SyncInfo.catching_up}"
 # {
 #   "catching_up": false
 # }
@@ -331,17 +331,17 @@ After your node is fully synced, you can consider running your full node as a [v
 
 ## 11. (Optional) Configure the background service
 
-To allow your `desmos` instance to run in the background as a service you need to execute the following command
+To allow your `huddle` instance to run in the background as a service you need to execute the following command
 
 ```bash
-tee /etc/systemd/system/desmosd.service > /dev/null <<EOF
+tee /etc/systemd/system/huddled.service > /dev/null <<EOF
 [Unit]
-Description=Desmos Full Node
+Description=Huddle Full Node
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$GOBIN/desmos start
+ExecStart=$GOBIN/huddle start
 Restart=always
 RestartSec=3
 LimitNOFILE=4096
@@ -354,13 +354,13 @@ EOF
 Once you have successfully created the service, you need to enable it. You can do so by running
 
 ```bash
-systemctl enable desmosd
+systemctl enable huddled
 ```
 
 After this, you can run it by executing
 
 ```bash
-systemctl start desmosd
+systemctl start huddled
 ```
 
 ### Service operations
@@ -368,44 +368,44 @@ systemctl start desmosd
 If you want to see if the service is running properly, you can execute
 
 ```bash
-systemctl status desmosd
+systemctl status huddled
 ```
 
 If everything is running smoothly you should see something like
 
 ```bash
-$ systemctl status desmosd
-● desmos.service - Desmos Node
-   Loaded: loaded (/etc/systemd/system/desmosd.service; enabled; vendor preset:
+$ systemctl status huddled
+● huddle.service - Huddle Node
+   Loaded: loaded (/etc/systemd/system/huddled.service; enabled; vendor preset:
    Active: active (running) since Fri 2020-01-17 10:23:12 CET; 2min 3s ago
- Main PID: 11318 (desmos)
+ Main PID: 11318 (huddle)
     Tasks: 10 (limit: 4419)
-   CGroup: /system.slice/desmosd.service
-           └─11318 /root/go/bin/desmos start
+   CGroup: /system.slice/huddled.service
+           └─11318 /root/go/bin/huddle start
 ```
 
 #### Check the node status
 If you want to see the current status of the node, you can do so by running
 
 ```bash
-journalctl -u desmosd -f
+journalctl -u huddled -f
 ```
 
 #### Stopping the service
 If you wish to stop the service from running, you can do so by running
 
 ```bash
-systemctl stop desmosd
+systemctl stop huddled
 ```
 
-To check the successful stop, execute `systemctl status desmos`. This should return
+To check the successful stop, execute `systemctl status huddle`. This should return
 
 ```bash
-$ systemctl status desmosd
-● desmos.service - Desmos Node
-   Loaded: loaded (/etc/systemd/system/desmosd.service; enabled; vendor preset: enabled)
+$ systemctl status huddled
+● huddle.service - Huddle Node
+   Loaded: loaded (/etc/systemd/system/huddled.service; enabled; vendor preset: enabled)
    Active: failed (Result: exit-code) since Fri 2020-01-17 10:28:04 CET; 3s ago
-  Process: 11318 ExecStart=/root/go/bin/desmos start (code=exited, status=143)
+  Process: 11318 ExecStart=/root/go/bin/huddle start (code=exited, status=143)
  Main PID: 11318 (code=exited, status=143)
 ```
 

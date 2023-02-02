@@ -6,16 +6,16 @@ import (
 	"fmt"
 	"math/rand"
 
-	v2 "github.com/desmos-labs/desmos/v4/x/posts/legacy/v2"
+	v2 "github.com/gridiron-zone/huddle/x/posts/legacy/v2"
 
-	"github.com/desmos-labs/desmos/v4/x/posts/simulation"
-	subspaceskeeper "github.com/desmos-labs/desmos/v4/x/subspaces/keeper"
+	"github.com/gridiron-zone/huddle/x/posts/simulation"
+	subspaceskeeper "github.com/gridiron-zone/huddle/x/subspaces/keeper"
 
-	feeskeeper "github.com/desmos-labs/desmos/v4/x/fees/keeper"
+	feeskeeper "github.com/gridiron-zone/huddle/x/fees/keeper"
 
-	"github.com/desmos-labs/desmos/v4/x/posts/client/cli"
-	"github.com/desmos-labs/desmos/v4/x/posts/keeper"
-	"github.com/desmos-labs/desmos/v4/x/posts/types"
+	"github.com/gridiron-zone/huddle/x/posts/client/cli"
+	"github.com/gridiron-zone/huddle/x/posts/keeper"
+	"github.com/gridiron-zone/huddle/x/posts/types"
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"

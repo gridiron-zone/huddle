@@ -10,7 +10,7 @@ import (
 // RegisterLegacyAminoCodec registers the necessary interfaces and concrete types
 // on the provided LegacyAmino codec. These types are used for Amino JSON serialization.
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
-	cdc.RegisterConcrete(&GenericSubspaceAuthorization{}, "desmos/GenericSubspaceAuthorization", nil)
+	cdc.RegisterConcrete(&GenericSubspaceAuthorization{}, "huddle/GenericSubspaceAuthorization", nil)
 }
 
 // RegisterInterfaces registers the interfaces types with the interface registry

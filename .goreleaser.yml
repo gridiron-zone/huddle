@@ -1,10 +1,10 @@
 ---
-project_name: desmos
+project_name: huddle
 
 release:
   github:
     owner: desmos-labs
-    name: desmos
+    name: huddle
 
 builds:
   - skip: true

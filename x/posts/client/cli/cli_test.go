@@ -18,12 +18,12 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmcli "github.com/tendermint/tendermint/libs/cli"
 
-	"github.com/desmos-labs/desmos/v4/app"
-	"github.com/desmos-labs/desmos/v4/testutil"
-	"github.com/desmos-labs/desmos/v4/x/posts/client/cli"
-	cliutils "github.com/desmos-labs/desmos/v4/x/posts/client/utils"
-	"github.com/desmos-labs/desmos/v4/x/posts/types"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/app"
+	"github.com/gridiron-zone/huddle/testutil"
+	"github.com/gridiron-zone/huddle/x/posts/client/cli"
+	cliutils "github.com/gridiron-zone/huddle/x/posts/client/utils"
+	"github.com/gridiron-zone/huddle/x/posts/types"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 func TestIntegrationTestSuite(t *testing.T) {

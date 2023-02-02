@@ -4,12 +4,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/desmos-labs/desmos/v4/testutil/profilestesting"
+	"github.com/gridiron-zone/huddle/testutil/profilestesting"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 func TestValidateGenesis(t *testing.T) {

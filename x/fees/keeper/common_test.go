@@ -12,9 +12,9 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	db "github.com/tendermint/tm-db"
 
-	"github.com/desmos-labs/desmos/v4/app"
-	"github.com/desmos-labs/desmos/v4/x/fees/keeper"
-	"github.com/desmos-labs/desmos/v4/x/fees/types"
+	"github.com/gridiron-zone/huddle/app"
+	"github.com/gridiron-zone/huddle/x/fees/keeper"
+	"github.com/gridiron-zone/huddle/x/fees/types"
 )
 
 func TestKeeperTestSuite(t *testing.T) {

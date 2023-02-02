@@ -15,8 +15,8 @@ import (
 	"github.com/golang/protobuf/proto"
 	tmcli "github.com/tendermint/tendermint/libs/cli"
 
-	"github.com/desmos-labs/desmos/v4/x/profiles/client/cli"
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/x/profiles/client/cli"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 func (s *IntegrationTestSuite) TestCmdQueryChainLinks() {
@@ -143,7 +143,7 @@ func (s *IntegrationTestSuite) TestCmdQueryChainLinkOwners() {
 		{
 			name: "empty array is returned properly",
 			args: []string{
-				"desmos",
+				"huddle",
 				fmt.Sprintf("--%s=json", tmcli.OutputFlag),
 			},
 			shouldErr: false,

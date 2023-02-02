@@ -39,22 +39,22 @@ if [ -z "$CHAIN_ID" ]; then
   exit 1
 fi
 
-TX_FLAGS="--from node0 --keyring-backend test --home ./build/node0/desmos --chain-id $CHAIN_ID --yes --fees 100udaric"
+TX_FLAGS="--from node0 --keyring-backend test --home ./build/node0/huddle --chain-id $CHAIN_ID --yes --fees 100udaric"
 
 # Import all nodes keys into node0
 echo ""
 echo "===> Importing keys into Node 0 keystore"
 for ((i = 1; i < $NODES; i++)); do
   echo "====> Node $i"
-  NODE_SECRET=$(cat "build/node$i/desmos/key_seed.json" | jq .secret -r)
-  echo $NODE_SECRET | desmos keys add "node$i" --recover --home ./build/node0/desmos --keyring-backend test >/dev/null 2>&1
+  NODE_SECRET=$(cat "build/node$i/huddle/key_seed.json" | jq .secret -r)
+  echo $NODE_SECRET | huddle keys add "node$i" --recover --home ./build/node0/huddle --keyring-backend test >/dev/null 2>&1
 done
 
 sleep $SLEEP
 
 echo ""
 echo "===> Submitting upgrade proposal"
-RESULT=$(desmos tx gov submit-proposal \
+RESULT=$(huddle tx gov submit-proposal \
   software-upgrade $UPGRADE_NAME \
   --title Upgrade \
   --description Description \
@@ -70,12 +70,12 @@ sleep 6s
 
 echo ""
 echo "===> Getting proposal id"
-PROPOSAL_ID=$(desmos q tx $TX_HASH --node $NODE --output json 2>&1 | jq .logs[0].events[4].attributes[0].value -r)
+PROPOSAL_ID=$(huddle q tx $TX_HASH --node $NODE --output json 2>&1 | jq .logs[0].events[4].attributes[0].value -r)
 echo "Proposal ID: $PROPOSAL_ID"
 
 echo ""
 echo "===> Depositing proposal"
-desmos tx gov deposit $PROPOSAL_ID 10000000udaric $TX_FLAGS >/dev/null 2>&1
+huddle tx gov deposit $PROPOSAL_ID 10000000udaric $TX_FLAGS >/dev/null 2>&1
 
 sleep 6s
 
@@ -83,7 +83,7 @@ echo ""
 echo "===> Voting proposal"
 for ((i = 0; i < $NODES; i++)); do
   echo "====> Node $i"
-  desmos tx gov vote $PROPOSAL_ID yes $TX_FLAGS --from "node$i" >/dev/null 2>&1
+  huddle tx gov vote $PROPOSAL_ID yes $TX_FLAGS --from "node$i" >/dev/null 2>&1
 done
 
 sleep 6s

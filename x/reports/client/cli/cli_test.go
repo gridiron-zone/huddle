@@ -14,15 +14,15 @@ import (
 	"github.com/gogo/protobuf/proto"
 	tmcli "github.com/tendermint/tendermint/libs/cli"
 
-	poststypes "github.com/desmos-labs/desmos/v4/x/posts/types"
-	"github.com/desmos-labs/desmos/v4/x/reports/client/cli"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	poststypes "github.com/gridiron-zone/huddle/x/posts/types"
+	"github.com/gridiron-zone/huddle/x/reports/client/cli"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 
 	"github.com/cosmos/cosmos-sdk/testutil/network"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/desmos-labs/desmos/v4/testutil"
-	"github.com/desmos-labs/desmos/v4/x/reports/types"
+	"github.com/gridiron-zone/huddle/testutil"
+	"github.com/gridiron-zone/huddle/x/reports/types"
 )
 
 func TestIntegrationTestSuite(t *testing.T) {

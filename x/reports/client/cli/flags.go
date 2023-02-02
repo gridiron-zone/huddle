@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/pflag"
 
-	"github.com/desmos-labs/desmos/v4/x/reports/types"
+	"github.com/gridiron-zone/huddle/x/reports/types"
 )
 
 const (

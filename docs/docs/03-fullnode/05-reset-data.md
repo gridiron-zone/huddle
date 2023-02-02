@@ -10,8 +10,8 @@ In case something goes wrong and your node can't be recovered, you can reset it 
 
 Reset the data:
 ```bash
-rm $HOME/.desmos/config/addrbook.json $HOME/.desmos/config/genesis.json
-desmos unsafe-reset-all
+rm $HOME/.huddle/config/addrbook.json $HOME/.huddle/config/genesis.json
+huddle unsafe-reset-all
 ```
     
 Your node is now in a pristine state while keeping the original `priv_validator.json` and `config.toml`. If you had any sentry nodes or full nodes setup before, your node will still try to connect to them, but may fail if they haven't also been upgraded.

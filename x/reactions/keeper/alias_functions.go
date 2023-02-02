@@ -3,10 +3,10 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	poststypes "github.com/desmos-labs/desmos/v4/x/posts/types"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	poststypes "github.com/gridiron-zone/huddle/x/posts/types"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 
-	"github.com/desmos-labs/desmos/v4/x/reactions/types"
+	"github.com/gridiron-zone/huddle/x/reactions/types"
 )
 
 // HasProfile returns true iff the given user has a profile, or an error if something is wrong.

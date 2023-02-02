@@ -4,10 +4,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 
-	profilesv4 "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v4"
-	"github.com/desmos-labs/desmos/v4/x/relationships/types"
+	profilesv4 "github.com/gridiron-zone/huddle/x/profiles/legacy/v4"
+	"github.com/gridiron-zone/huddle/x/relationships/types"
 )
 
 // MigrateStore performs in-place store migrations from v0 to v1

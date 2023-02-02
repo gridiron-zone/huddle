@@ -11,7 +11,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/desmos-labs/desmos/v4/x/posts/types"
+	"github.com/gridiron-zone/huddle/x/posts/types"
 )
 
 var _ types.QueryServer = &Keeper{}

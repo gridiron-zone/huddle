@@ -24,7 +24,7 @@ you can read the guide [here](../03-fullnode/02-setup.md).
 Proceed to step 2 only if your new node has caught up.
 
 ```
-desmos status 2>&1 | jq "{catching_up: .SyncInfo.catching_up}"
+huddle status 2>&1 | jq "{catching_up: .SyncInfo.catching_up}"
 ```
 
 ## 2. Migrate Data
@@ -32,7 +32,7 @@ desmos status 2>&1 | jq "{catching_up: .SyncInfo.catching_up}"
 In order to avoid as much side affects as possible we will be stopping both nodes.
 
 ```
-systemctl stop desmos
+systemctl stop huddle
 ```
 
 ### Backup the following data in the validator node
@@ -40,10 +40,10 @@ systemctl stop desmos
 In order to properly migrate our validator node to another server we will need to backup the following data:
 
 1. The validator private key.
-   This is located inside the `~/.desmos/config/priv_validator_key.json` file.
+   This is located inside the `~/.huddle/config/priv_validator_key.json` file.
 
 2. The validator consensus state.
-   This is located inside the `~/.desmos/data/priv_validator_state.json` file.
+   This is located inside the `~/.huddle/data/priv_validator_state.json` file.
 3. If you keep your keys on the node make sure you have the secret recovery phrase (mnemonic phrase) associated with your key(s).
 
 <!-- :::warning Do not move them in to the new fullnode just yet
@@ -54,7 +54,7 @@ Back them up somewhere save but don't
 <!-- In order to properly transfer your validator to another server, you first have to stop the running node. To do this, you can execute the following command:
 
 ```
-systemctl stop desmos
+systemctl stop huddle
 ``` -->
 
 <!-- Once you have done so, you need to back up the following data: -->
@@ -73,8 +73,8 @@ At this point, both nodes should not be running. This is to prevent any possible
 
 Transfer the following backed up files from the old node to the new node:
 
-- `~/.desmos/config/priv_validator_key.json`
-- `~/.desmos/data/priv_validator_state.json`
+- `~/.huddle/config/priv_validator_key.json`
+- `~/.huddle/data/priv_validator_state.json`
 
 
 ### Startup the new validator node
@@ -87,16 +87,16 @@ The `priv_validator_key` should only be online from a single instance. A good pr
 With the old validator node stopped, start up the new node:
 
 ```
-sudo systemctl start desmos
+sudo systemctl start huddle
 ```
 
 :::warning Wait before deleting the old node
-We suggest you to wait before deleting the old node. Instead of waiting only to see the blocks syncing, make sure your new node is actually signing blocks as your validator. You will see this by looking at your validator uptime on our [explorer](https://morpheus.desmos.network/validators). If everything is working properly, the uptime should slowly increase.
+We suggest you to wait before deleting the old node. Instead of waiting only to see the blocks syncing, make sure your new node is actually signing blocks as your validator. You will see this by looking at your validator uptime on our [explorer](https://morpheus.huddle.network/validators). If everything is working properly, the uptime should slowly increase.
 :::
 
 ### (Optional) Recover your key
 If you originally had your key in the previous server you can easily add it back using the secret recovery phrase (mnemonic phrase) you had backed up
 
 ```
-desmos keys add <key_name> --recover
+huddle keys add <key_name> --recover
 ```

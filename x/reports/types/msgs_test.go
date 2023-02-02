@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/desmos-labs/desmos/v4/x/reports/types"
+	"github.com/gridiron-zone/huddle/x/reports/types"
 )
 
 var msgCreateReport = types.NewMsgCreateReport(
@@ -107,7 +107,7 @@ func TestMsgCreateReport_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgCreateReport_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgCreateReport","value":{"message":"This post is spam","reasons_ids":[1],"reporter":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","subspace_id":"1","target":{"type":"desmos/PostTarget","value":{"post_id":"1"}}}}`
+	expected := `{"type":"huddle/MsgCreateReport","value":{"message":"This post is spam","reasons_ids":[1],"reporter":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","subspace_id":"1","target":{"type":"huddle/PostTarget","value":{"post_id":"1"}}}}`
 	require.Equal(t, expected, string(msgCreateReport.GetSignBytes()))
 }
 
@@ -186,7 +186,7 @@ func TestMsgDeleteReport_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgDeleteReport_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgDeleteReport","value":{"report_id":"1","signer":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgDeleteReport","value":{"report_id":"1","signer":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgDeleteReport.GetSignBytes()))
 }
 
@@ -265,7 +265,7 @@ func TestMsgSupportStandardReason_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgSupportStandardReason_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgSupportStandardReason","value":{"signer":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","standard_reason_id":1,"subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgSupportStandardReason","value":{"signer":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","standard_reason_id":1,"subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgSupportStandardReason.GetSignBytes()))
 }
 
@@ -348,7 +348,7 @@ func TestMsgAddReason_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgAddReason_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgAddReason","value":{"description":"This post is spam or the user is a spammer","signer":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","subspace_id":"1","title":"Spam"}}`
+	expected := `{"type":"huddle/MsgAddReason","value":{"description":"This post is spam or the user is a spammer","signer":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","subspace_id":"1","title":"Spam"}}`
 	require.Equal(t, expected, string(msgAddReason.GetSignBytes()))
 }
 
@@ -427,7 +427,7 @@ func TestMsgRemoveReason_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgRemoveReason_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgRemoveReason","value":{"reason_id":1,"signer":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgRemoveReason","value":{"reason_id":1,"signer":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgRemoveReason.GetSignBytes()))
 }
 

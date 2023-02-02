@@ -3,11 +3,11 @@ package keeper_test
 import (
 	"time"
 
-	relationshipstypes "github.com/desmos-labs/desmos/v4/x/relationships/types"
+	relationshipstypes "github.com/gridiron-zone/huddle/x/relationships/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/desmos-labs/desmos/v4/x/posts/types"
+	"github.com/gridiron-zone/huddle/x/posts/types"
 )
 
 func (suite *KeeperTestsuite) TestKeeper_SetNextPostID() {

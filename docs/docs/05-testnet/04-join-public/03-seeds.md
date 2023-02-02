@@ -17,7 +17,7 @@ To find the corresponding seeds nodes of each testnet visit the
 [testnet repo](https://github.com/desmos-labs/morpheus). The seed nodes
 are inside the folder having the name of the testnet of interest. 
 
-Add the seed nodes to the `~/.desmos/config/config.toml` file each one 
+Add the seed nodes to the `~/.huddle/config/config.toml` file each one 
 separated by a comma like following:
 ```toml
 seeds = "seed1,seed2,..."

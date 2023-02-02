@@ -8,7 +8,7 @@ slug: overview
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Desmos fullnode overview
+# Huddle fullnode overview
 
 A full-node is a program that fully validates transactions and blocks of a blockchain. It is distinct from a light-node
 that only processes block headers and a small subset of transactions. Running a full-node requires more resources than a
@@ -27,7 +27,7 @@ to use.
 *Pruning* is the term used to identify the periodic action that can be taken in order to free some disk space on your
 full node. This is done by removing old blocks data from the disk, freeing up space.
 
-Inside Desmos, there are various types of pruning strategies that can be applied. The main ones are:
+Inside Huddle, there are various types of pruning strategies that can be applied. The main ones are:
 
 - `default`: the last 100 states are kept in addition to every 500th state; pruning at 10 block intervals;
 
@@ -61,7 +61,7 @@ Apart from disk space, the following requirements should be met.
 
 ## 1. Setup your environment
 
-In order to run a fullnode, you need to build `desmos` which requires `Go`, `git`, `gcc` and `make` installed.
+In order to run a fullnode, you need to build `huddle` which requires `Go`, `git`, `gcc` and `make` installed.
 
 This process depends on your working environment.
 
@@ -147,7 +147,7 @@ be installing the [Chocolatey](https://chocolatey.org/) package manager.
 
 ## 2. Install the software
 
-Once you have set up your environment correctly, you are now ready to install the Desmos software and start your full
+Once you have set up your environment correctly, you are now ready to install the Huddle software and start your full
 node.
 
 In order to do so, you can follow our [setup guide](02-setup.md).

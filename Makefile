@@ -10,7 +10,7 @@ BINDIR ?= $(GOPATH)/bin
 BUILDDIR ?= $(CURDIR)/build
 SIMAPP = ./app
 MOCKS_DIR = $(CURDIR)/tests/mocks
-HTTPS_GIT := https://github.com/desmos-labs/desmos.git
+HTTPS_GIT := https://github.com/gridiron-zone/huddle.git
 DOCKER := $(shell which docker)
 DOCKER_BUF := $(DOCKER) run --rm -v $(CURDIR):/workspace --workdir /workspace bufbuild/buf
 BENCH_COUNT ?= 5
@@ -57,8 +57,8 @@ comma := ,
 build_tags_comma_sep := $(subst $(whitespace),$(comma),$(build_tags))
 
 # Process linker flags
-ldflags = -X 'github.com/cosmos/cosmos-sdk/version.Name=Desmos' \
- 	-X 'github.com/cosmos/cosmos-sdk/version.AppName=desmos' \
+ldflags = -X 'github.com/cosmos/cosmos-sdk/version.Name=Huddle' \
+ 	-X 'github.com/cosmos/cosmos-sdk/version.AppName=huddle' \
  	-X 'github.com/cosmos/cosmos-sdk/version.Version=$(VERSION)' \
     -X 'github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT)' \
   	-X "github.com/cosmos/cosmos-sdk/version.BuildTags=$(build_tags_comma_sep)" \
@@ -119,27 +119,27 @@ BUILD_TARGETS := build install
 build: BUILD_ARGS=-o $(BUILDDIR)/
 
 create-builder: go.sum
-	$(MAKE) -C contrib/images desmos-builder CONTEXT=$(CURDIR)
+	$(MAKE) -C contrib/images huddle-builder CONTEXT=$(CURDIR)
 
 build-alpine: create-builder
 	mkdir -p $(BUILDDIR)
-	$(DOCKER) build -f Dockerfile --rm --tag desmoslabs/desmos-alpine .
-	$(DOCKER) create --name desmos-alpine --rm desmoslabs/desmos-alpine
-	$(DOCKER) cp desmos-alpine:/usr/bin/desmos $(BUILDDIR)/desmos
-	$(DOCKER) rm desmos-alpine
+	$(DOCKER) build -f Dockerfile --rm --tag huddlelabs/huddle-alpine .
+	$(DOCKER) create --name huddle-alpine --rm huddlelabs/huddle-alpine
+	$(DOCKER) cp huddle-alpine:/usr/bin/huddle $(BUILDDIR)/huddle
+	$(DOCKER) rm huddle-alpine
 
 build-linux: create-builder
 	mkdir -p $(BUILDDIR)
-	$(DOCKER) build -f Dockerfile-ubuntu --rm --tag desmoslabs/desmos-linux .
-	$(DOCKER) create --name desmos-linux desmoslabs/desmos-linux
-	$(DOCKER) cp desmos-linux:/usr/bin/desmos $(BUILDDIR)/desmos
-	$(DOCKER) rm desmos-linux
+	$(DOCKER) build -f Dockerfile-ubuntu --rm --tag huddlelabs/huddle-linux .
+	$(DOCKER) create --name huddle-linux huddlelabs/huddle-linux
+	$(DOCKER) cp huddle-linux:/usr/bin/huddle $(BUILDDIR)/huddle
+	$(DOCKER) rm huddle-linux
 
 build-reproducible: go.sum
 	$(DOCKER) rm latest-build || true
 	$(DOCKER) run --volume=$(CURDIR):/sources:ro \
         --env TARGET_PLATFORMS='linux/amd64 linux/arm64 darwin/amd64 windows/amd64' \
-        --env APP=desmos \
+        --env APP=huddle \
         --env VERSION=$(VERSION) \
         --env COMMIT=$(COMMIT) \
         --env LEDGER_ENABLED=$(LEDGER_ENABLED) \
@@ -180,7 +180,7 @@ distclean: clean tools-clean
 ###############################################################################
 
 build-docs:
-	@cd docs && DOCS_DOMAIN=docs.desmos.network bash ./build-all.sh
+	@cd docs && DOCS_DOMAIN=docs.huddle.network bash ./build-all.sh
 
 .PHONY: build-docs
 
@@ -223,8 +223,8 @@ test-sim-nondeterminism:
 
 test-sim-custom-genesis-fast:
 	@echo "Running custom genesis simulation..."
-	@echo "By default, ${HOME}/.desmos/config/genesis.json will be used."
-	@go test -mod=readonly $(SIMAPP) -run TestFullAppSimulation -Genesis=${HOME}/.desmos/config/genesis.json \
+	@echo "By default, ${HOME}/.huddle/config/genesis.json will be used."
+	@go test -mod=readonly $(SIMAPP) -run TestFullAppSimulation -Genesis=${HOME}/.huddle/config/genesis.json \
 		-Enabled=true -NumBlocks=100 -BlockSize=200 -Commit=true -Seed=99 -Period=5 -v -timeout 24h
 
 test-sim-import-export: runsim
@@ -237,8 +237,8 @@ test-sim-after-import: runsim
 
 test-sim-custom-genesis-multi-seed: runsim
 	@echo "Running multi-seed custom genesis simulation..."
-	@echo "By default, ${HOME}/.desmos/config/genesis.json will be used."
-	@$(BINDIR)/runsim -Genesis=${HOME}/.desmos/config/genesis.json -SimAppPkg=$(SIMAPP) -ExitOnFail 400 5 TestFullAppSimulation
+	@echo "By default, ${HOME}/.huddle/config/genesis.json will be used."
+	@$(BINDIR)/runsim -Genesis=${HOME}/.huddle/config/genesis.json -SimAppPkg=$(SIMAPP) -ExitOnFail 400 5 TestFullAppSimulation
 
 test-sim-multi-seed-long: runsim
 	@echo "Running long multi-seed application simulation. This may take awhile!"
@@ -308,7 +308,7 @@ lint-fix:
 format:
 	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -name '*.pb.go' -not -path "./venv" | xargs gofmt -w -s
 	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -name '*.pb.go' -not -path "./venv" | xargs misspell -w
-	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -name '*.pb.go' -not -path "./venv" | xargs goimports -w -local github.com/desmos-labs/desmos
+	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -name '*.pb.go' -not -path "./venv" | xargs goimports -w -local github.com/gridiron-zone/huddle
 .PHONY: format
 
 ###############################################################################
@@ -448,12 +448,12 @@ proto-update-deps:
 ###                                Localnet                                 ###
 ###############################################################################
 
-build-docker-desmosnode:
+build-docker-huddlenode:
 	$(MAKE) -C networks/local
 
 # Setups 4 folders representing each one the genesis state of a testnet node
 setup-localnet: build-linux
-	if ! [ -f build/node0/desmos/config/genesis.json ]; then $(BUILDDIR)/desmos testnet \
+	if ! [ -f build/node0/huddle/config/genesis.json ]; then $(BUILDDIR)/huddle testnet \
 		-o ./build --starting-ip-address 192.168.10.2 --keyring-backend=test \
 		--v=$(if $(NODES),$(NODES),4) \
 		--gentx-coin-denom=$(if $(COIN_DENOM),$(COIN_DENOM),"stake") \
@@ -461,7 +461,7 @@ setup-localnet: build-linux
 
 # Starts a local 4-nodes testnet that should be used to test on-chain upgrades.
 # It requires 3 arguments to work:
-# 1. GENESIS_VERSION, which represents the Desmos version to be used when starting the testnet
+# 1. GENESIS_VERSION, which represents the Huddle version to be used when starting the testnet
 # 2. GENESIS_URL, which represents the URL from where to download the testnet genesis status
 # 3. UPGRADE_NAME, which represents the name of the upgrade to perform
 upgrade-testnet-start: upgrade-testnet-stop
@@ -473,7 +473,7 @@ upgrade-testnet-stop:
 
 # Run a 4-node testnet locally
 localnet-start: localnet-stop setup-localnet
-	$(if $(shell docker inspect -f '{{ .Id }}' desmoslabs/desmos-env 2>/dev/null),$(info found image desmoslabs/desmos-env),$(MAKE) -C contrib/images desmos-env)
+	$(if $(shell docker inspect -f '{{ .Id }}' huddlelabs/huddle-env 2>/dev/null),$(info found image huddlelabs/huddle-env),$(MAKE) -C contrib/images huddle-env)
 	docker-compose up -d
 
 # Stop testnet

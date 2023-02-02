@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 
 	"github.com/stretchr/testify/require"
 )
@@ -67,7 +67,7 @@ func TestMsgSaveProfile_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgSaveProfile_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgSaveProfile","value":{"bio":"biography","cover_picture":"https://shorturl.at/cgpyF","creator":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns","dtag":"monk","nickname":"nickname","profile_picture":"https://shorturl.at/adnX3"}}`
+	expected := `{"type":"huddle/MsgSaveProfile","value":{"bio":"biography","cover_picture":"https://shorturl.at/cgpyF","creator":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns","dtag":"monk","nickname":"nickname","profile_picture":"https://shorturl.at/adnX3"}}`
 	require.Equal(t, expected, string(msgEditProfile.GetSignBytes()))
 }
 
@@ -123,7 +123,7 @@ func TestMsgDeleteProfile_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgDeleteProfile_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgDeleteProfile","value":{"creator":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns"}}`
+	expected := `{"type":"huddle/MsgDeleteProfile","value":{"creator":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns"}}`
 	require.Equal(t, expected, string(msgDeleteProfile.GetSignBytes()))
 }
 

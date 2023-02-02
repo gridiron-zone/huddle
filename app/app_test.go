@@ -15,7 +15,7 @@ import (
 
 func TestSimAppExport(t *testing.T) {
 	db := dbm.NewMemDB()
-	app := NewDesmosApp(
+	app := NewHuddleApp(
 		log.NewTMLogger(log.NewSyncWriter(os.Stdout)), db, nil, true, map[int64]bool{},
 		DefaultNodeHome, 0, MakeTestEncodingConfig(), simapp.EmptyAppOptions{},
 	)
@@ -34,7 +34,7 @@ func TestSimAppExport(t *testing.T) {
 	app.Commit()
 
 	// Making a new app object with the db, so that initchain hasn't been called
-	app2 := NewDesmosApp(
+	app2 := NewHuddleApp(
 		log.NewTMLogger(log.NewSyncWriter(os.Stdout)), db, nil, true, map[int64]bool{},
 		DefaultNodeHome, 0, MakeTestEncodingConfig(), simapp.EmptyAppOptions{},
 	)

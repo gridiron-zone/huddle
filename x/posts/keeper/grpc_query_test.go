@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/query"
 
-	"github.com/desmos-labs/desmos/v4/x/posts/types"
+	"github.com/gridiron-zone/huddle/x/posts/types"
 )
 
 func (suite *KeeperTestsuite) TestQueryServer_SubspacePosts() {

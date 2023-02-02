@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  desmosnode0:
-    container_name: desmosnode0
-    image: "desmoslabs/desmos-cosmovisor:v3.2.0"
+  huddlenode0:
+    container_name: huddlenode0
+    image: "huddlelabs/huddle-cosmovisor:v3.2.0"
     command: "start --x-crisis-skip-assert-invariants"
     ports:
       - "26656-26657:26656-26657"
@@ -12,14 +12,14 @@ services:
     environment:
       - ID=0
     volumes:
-      - ./../../build:/desmos:Z
+      - ./../../build:/huddle:Z
     networks:
       devnet:
         ipv4_address: 192.168.10.2
 
-  desmosnode1:
-    container_name: desmosnode1
-    image: "desmoslabs/desmos-cosmovisor:v3.2.0"
+  huddlenode1:
+    container_name: huddlenode1
+    image: "huddlelabs/huddle-cosmovisor:v3.2.0"
     command: "start --x-crisis-skip-assert-invariants"
     ports:
       - "26666-26667:26656-26657"
@@ -28,14 +28,14 @@ services:
     environment:
       - ID=1
     volumes:
-      - ./../../build:/desmos:Z
+      - ./../../build:/huddle:Z
     networks:
       devnet:
         ipv4_address: 192.168.10.3
 
-  desmosnode2:
-    container_name: desmosnode2
-    image: "desmoslabs/desmos-cosmovisor:v3.2.0"
+  huddlenode2:
+    container_name: huddlenode2
+    image: "huddlelabs/huddle-cosmovisor:v3.2.0"
     command: "start --x-crisis-skip-assert-invariants"
     ports:
       - "26676-26677:26656-26657"
@@ -44,14 +44,14 @@ services:
     environment:
       - ID=2
     volumes:
-      - ./../../build:/desmos:Z
+      - ./../../build:/huddle:Z
     networks:
       devnet:
         ipv4_address: 192.168.10.4
 
-  desmosnode3:
-    container_name: desmosnode3
-    image: "desmoslabs/desmos-cosmovisor:v3.2.0"
+  huddlenode3:
+    container_name: huddlenode3
+    image: "huddlelabs/huddle-cosmovisor:v3.2.0"
     command: "start --x-crisis-skip-assert-invariants"
     ports:
       - "26686-26687:26656-26657"
@@ -60,7 +60,7 @@ services:
     environment:
       - ID=3
     volumes:
-      - ./../../build:/desmos:Z
+      - ./../../build:/huddle:Z
     networks:
       devnet:
         ipv4_address: 192.168.10.5

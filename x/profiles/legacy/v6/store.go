@@ -6,7 +6,7 @@ import (
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 
-	v5types "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v5/types"
+	v5types "github.com/gridiron-zone/huddle/x/profiles/legacy/v5/types"
 
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 
@@ -17,7 +17,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/types/tx/signing"
 
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 // MigrateStore performs in-place store migrations from v6 to v7.

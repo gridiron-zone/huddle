@@ -4,11 +4,11 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
 
-	v4 "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v4"
-	v5 "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v5"
-	v6 "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v6"
-	v7 "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v7"
-	v8 "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v8"
+	v4 "github.com/gridiron-zone/huddle/x/profiles/legacy/v4"
+	v5 "github.com/gridiron-zone/huddle/x/profiles/legacy/v5"
+	v6 "github.com/gridiron-zone/huddle/x/profiles/legacy/v6"
+	v7 "github.com/gridiron-zone/huddle/x/profiles/legacy/v7"
+	v8 "github.com/gridiron-zone/huddle/x/profiles/legacy/v8"
 )
 
 // DONTCOVER

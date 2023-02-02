@@ -9,7 +9,7 @@ import (
 	paramstypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/desmos-labs/desmos/v4/x/fees/types"
+	"github.com/gridiron-zone/huddle/x/fees/types"
 )
 
 type Keeper struct {

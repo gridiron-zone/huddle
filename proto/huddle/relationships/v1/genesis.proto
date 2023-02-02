@@ -1,0 +1,22 @@
+syntax = "proto3";
+package huddle.relationships.v1;
+
+import "gogoproto/gogo.proto";
+import "huddle/relationships/v1/models.proto";
+
+option go_package = "github.com/gridiron-zone/huddle/x/relationships/types";
+
+// GenesisState defines the profiles module's genesis state.
+message GenesisState {
+  option (gogoproto.goproto_getters) = false;
+
+  repeated huddle.relationships.v1.Relationship relationships = 1 [
+    (gogoproto.moretags) = "yaml:\"relationships\"",
+    (gogoproto.nullable) = false
+  ];
+
+  repeated huddle.relationships.v1.UserBlock blocks = 2 [
+    (gogoproto.moretags) = "yaml:\"blocks\"",
+    (gogoproto.nullable) = false
+  ];
+}

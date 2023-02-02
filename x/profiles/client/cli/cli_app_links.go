@@ -14,7 +14,7 @@ import (
 	clienttypes "github.com/cosmos/ibc-go/v3/modules/core/02-client/types"
 	channelutils "github.com/cosmos/ibc-go/v3/modules/core/04-channel/client/utils"
 
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 const (
@@ -27,8 +27,8 @@ const (
 func GetCmdLinkApplication() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "link-app [src-port] [src-channel] [application] [username] [verification-call-data]",
-		Short: "Link a centralized application account to your Desmos profile",
-		Long: strings.TrimSpace(`Connect a Desmos profile to a centralized social network account through IBC. 
+		Short: "Link a centralized application account to your Huddle profile",
+		Long: strings.TrimSpace(`Connect a Huddle profile to a centralized social network account through IBC. 
 Timeouts can be specified as absolute or relative using the "absolute-timeouts" flag. 
 Timeout height can be set by passing in the height string in the form {revision}-{height} using the "packet-timeout-height" flag. 
 Relative timeouts are added to the block height and block timestamp queried from the latest consensus state corresponding 
@@ -106,11 +106,11 @@ to the counterparty channel. Any timeout set to 0 is disabled.`),
 	return cmd
 }
 
-// GetCmdUnlinkApplication returns the command allowing to unlink a centralized application from a Desmos profile
+// GetCmdUnlinkApplication returns the command allowing to unlink a centralized application from a Huddle profile
 func GetCmdUnlinkApplication() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "unlink-app [application] [username]",
-		Short:   "Unlink a centralized application account from your Desmos profile",
+		Short:   "Unlink a centralized application account from your Huddle profile",
 		Example: fmt.Sprintf(`%s tx profiles unlink-app "twitter" "twitter_user"`, version.AppName),
 		Args:    cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -142,9 +142,9 @@ func GetCmdQueryApplicationsLinks() *cobra.Command {
 		Use:   "app-links [[user]] [[application]] [[username]]",
 		Short: "Get all the application links with optional user address, application, username and pagination",
 		Example: fmt.Sprintf(`%s query profiles app-links --page=2 --limit=100
-%s query profiles app-links desmos13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud
-%s query profiles app-links desmos13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud "twitter"
-%s query profiles app-links desmos13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud "twitter" "twitter_user"
+%s query profiles app-links huddle13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud
+%s query profiles app-links huddle13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud "twitter"
+%s query profiles app-links huddle13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud "twitter" "twitter_user"
 `, version.AppName, version.AppName, version.AppName, version.AppName),
 		Args: cobra.RangeArgs(0, 3),
 		RunE: func(cmd *cobra.Command, args []string) error {

@@ -1,0 +1,15 @@
+syntax = "proto3";
+package huddle.fees.v1;
+
+import "gogoproto/gogo.proto";
+import "huddle/fees/v1/min_fee.proto";
+
+option go_package = "github.com/gridiron-zone/huddle/x/fees/types";
+
+// Params contains the parameters for the fees module
+message Params {
+  repeated huddle.fees.v1.MinFee min_fees = 1 [
+    (gogoproto.nullable) = false,
+    (gogoproto.moretags) = "yaml:\"min_fees\""
+  ];
+}

@@ -174,7 +174,7 @@ syntax = "proto3";
 service Query {
   // Sections allows to query for the sections of a specific subspace
   rpc Sections(QuerySectionsRequest) returns (QuerySectionsResponse) {
-    option (google.api.http).get = "/desmos/subspaces/v2/{subspace_id}/sections";
+    option (google.api.http).get = "/huddle/subspaces/v2/{subspace_id}/sections";
   }
 }
 
@@ -207,7 +207,7 @@ Also, posts will need to be put inside a particular section (by default the `0` 
 ### Positive
 
 - DApp developers will be able to manage the contents of their apps more easily
-- Subspace sections will allow to create forum-like applications, opening up Desmos to even more use cases
+- Subspace sections will allow to create forum-like applications, opening up Huddle to even more use cases
 
 ### Negative
 
@@ -217,4 +217,4 @@ Also, posts will need to be put inside a particular section (by default the `0` 
 
 ## References
 
-- Issue [#856](https://github.com/desmos-labs/desmos/issues/856).
+- Issue [#856](https://github.com/gridiron-zone/huddle/issues/856).

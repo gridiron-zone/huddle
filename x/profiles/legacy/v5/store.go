@@ -5,9 +5,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	v5types "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v5/types"
+	v5types "github.com/gridiron-zone/huddle/x/profiles/legacy/v5/types"
 
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 // MigrateStore performs in-place store migrations from v5 to v6.

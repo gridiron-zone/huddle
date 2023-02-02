@@ -1,13 +1,13 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Desmos - REST and gRPC Gateway docs",
+    "title": "Huddle - REST and gRPC Gateway docs",
     "description": "A REST interface for state queries",
     "version": "3.0.0"
   },
   "apis": [
     {
-      "url": "./tmp-swagger-gen/desmos/profiles/v3/query.swagger.json",
+      "url": "./tmp-swagger-gen/huddle/profiles/v3/query.swagger.json",
       "operationIds": {
         "rename": {
           "Params": "ProfilesParams"
@@ -15,13 +15,13 @@
       }
     },
     {
-      "url": "./tmp-swagger-gen/desmos/relationships/v1/query.swagger.json"
+      "url": "./tmp-swagger-gen/huddle/relationships/v1/query.swagger.json"
     },
     {
-      "url": "./tmp-swagger-gen/desmos/subspaces/v3/query.swagger.json"
+      "url": "./tmp-swagger-gen/huddle/subspaces/v3/query.swagger.json"
     },
     {
-      "url": "./tmp-swagger-gen/desmos/posts/v2/query.swagger.json",
+      "url": "./tmp-swagger-gen/huddle/posts/v2/query.swagger.json",
       "operationIds": {
         "rename": {
           "Params": "PostsParams"
@@ -29,10 +29,10 @@
       }
     },
     {
-      "url": "./tmp-swagger-gen/desmos/reactions/v1/query.swagger.json"
+      "url": "./tmp-swagger-gen/huddle/reactions/v1/query.swagger.json"
     },
     {
-      "url": "./tmp-swagger-gen/desmos/reports/v1/query.swagger.json",
+      "url": "./tmp-swagger-gen/huddle/reports/v1/query.swagger.json",
       "operationIds": {
         "rename": {
           "Params": "ReportsParams"
@@ -40,7 +40,7 @@
       }
     },
     {
-      "url": "./tmp-swagger-gen/desmos/fees/v1/query.swagger.json",
+      "url": "./tmp-swagger-gen/huddle/fees/v1/query.swagger.json",
       "operationIds": {
         "rename": {
           "Params": "FeesParams"
@@ -48,7 +48,7 @@
       }
     },
     {
-      "url": "./tmp-swagger-gen/desmos/supply/v1/query.swagger.json"
+      "url": "./tmp-swagger-gen/huddle/supply/v1/query.swagger.json"
     }
   ]
 }

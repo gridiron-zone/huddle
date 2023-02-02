@@ -10,15 +10,15 @@ ACCEPTED Implemented
 
 ## Abstract
 
-This ADR contains the specification of _per-chain default external addresses_, a new feature that will allow users to specify which external address should be used as the default one for each external chain they have linked to their Desmos profile.
+This ADR contains the specification of _per-chain default external addresses_, a new feature that will allow users to specify which external address should be used as the default one for each external chain they have linked to their Huddle profile.
 
 ## Context
 
-Currently, Desmos allows users to link external chain accounts to their profile by specifying a chain name and an external address associated to such chain. For each chain, each user can link multiple external addresses to the same profile. Although this allows for greater extensibility and usability, there are some occasions in which it might make it harder to properly use this feature. For example, one application might want to deal with a single external address per chain. Right now this is not easy to do as there are many ways in which that single chain link can be chosen among multiple ones (e.g. the first created, or the last one). 
+Currently, Huddle allows users to link external chain accounts to their profile by specifying a chain name and an external address associated to such chain. For each chain, each user can link multiple external addresses to the same profile. Although this allows for greater extensibility and usability, there are some occasions in which it might make it harder to properly use this feature. For example, one application might want to deal with a single external address per chain. Right now this is not easy to do as there are many ways in which that single chain link can be chosen among multiple ones (e.g. the first created, or the last one). 
 
 ## Decision
 
-We will allow users to specify a _default address_ for each external chain they have connected to their Desmos profile. Initially, when creating an external chain link, the first link will be set as the default one. Later, each user will be able to set a specific link as the default one to be used when dealing with a specific chain.
+We will allow users to specify a _default address_ for each external chain they have connected to their Huddle profile. Initially, when creating an external chain link, the first link will be set as the default one. Later, each user will be able to set a specific link as the default one to be used when dealing with a specific chain.
 
 ### Store
 
@@ -67,7 +67,7 @@ syntax = "proto3";
 service Query {
   //  DefaultExternalAddresses queries the default addresses associated to the given user and (optionally) chain name
   rpc DefaultExternalAddresses(QueryDefaultExternalAddressesRequest) returns (QueryDefaultExternalAddressesResponse) {
-    option (google.api.http).get = "/desmos/profiles/v2/default-addresses";
+    option (google.api.http).get = "/huddle/profiles/v2/default-addresses";
   }
 }
 
@@ -112,4 +112,4 @@ As the only major change will be to introduce a new set of store keys, this chan
 
 ## References
 
-- Issue [#853](https://github.com/desmos-labs/desmos/issues/853).
+- Issue [#853](https://github.com/gridiron-zone/huddle/issues/853).

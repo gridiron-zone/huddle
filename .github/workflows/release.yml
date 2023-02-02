@@ -54,7 +54,7 @@ jobs:
 #      - name: Build the binary 🏭
 #        run: |
 #          LEDGER_ENABLED=true make build
-#          mv build/desmos "build/desmos-$VERSION-darwin-amd64"
+#          mv build/huddle "build/huddle-$VERSION-darwin-amd64"
 #
 #      - name: Upload the artifacts 📤
 #        uses: actions/upload-artifact@v3
@@ -96,7 +96,7 @@ jobs:
 #      - name: Build 🔨
 #        run: |
 #          GOARCH=${{ matrix.go-arch }} LEDGER_ENABLED=true make build
-#          mv build/desmos "build/desmos-$VERSION-linux-${{ matrix.go-arch }}"
+#          mv build/huddle "build/huddle-$VERSION-linux-${{ matrix.go-arch }}"
 #
 #      - name: Upload the linux/amd64 artifact 📤
 #        uses: actions/upload-artifact@v3
@@ -136,8 +136,8 @@ jobs:
 #      - name: Build the binary 🏭
 #        run: |
 #          make LEDGER_ENABLED=true build
-#          echo "build/desmos-$env:VERSION-$env:COMMIT-windows-amd64.exe"
-#          mv build/desmos.exe "build/desmos-$env:VERSION-windows-amd64.exe"
+#          echo "build/huddle-$env:VERSION-$env:COMMIT-windows-amd64.exe"
+#          mv build/huddle.exe "build/huddle-$env:VERSION-windows-amd64.exe"
 #
 #      - name: Upload the artifacts 📤
 #        uses: actions/upload-artifact@v3

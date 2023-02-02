@@ -16,14 +16,14 @@ This policy presently applies *only* to the following release series:
 
 ### Point Releases
 
-Once a Desmos release has been completed and published, updates for it are released under certain circumstances
+Once a Huddle release has been completed and published, updates for it are released under certain circumstances
 and must follow the [Point Release Procedure](CONTRIBUTING.md).
 
 ### Rationale
 
-Unlike in-development `master` branch snapshots, **Desmos** releases are subject to much wider adoption,
+Unlike in-development `master` branch snapshots, **Huddle** releases are subject to much wider adoption,
 and by a significantly different demographic of users. During development, changes in the `master` branch
-affect Desmos users, application developers, early adopters, and other advanced users that elect to use
+affect Huddle users, application developers, early adopters, and other advanced users that elect to use
 unstable experimental software at their own risk.
 
 Conversely, users of a stable release expect a high degree of stability. They build their applications on it, and the
@@ -46,13 +46,13 @@ ways in stable releases and `master` branch.
 
 ### Migrations
 
-To smoothen the update to the latest stable release, Desmos includes a set of CLI commands for managing migrations between Desmos versions, under the `migrate` subcommand. Only migration scripts between stable releases are included.
+To smoothen the update to the latest stable release, Huddle includes a set of CLI commands for managing migrations between Huddle versions, under the `migrate` subcommand. Only migration scripts between stable releases are included.
 
 ### What qualifies as a Stable Release Update (SRU)
 
 * **High-impact bugs**
     * Bugs that may directly cause a security vulnerability.
-    * *Severe regressions* from a Desmos' previous release. This includes all sort of issues
+    * *Severe regressions* from a Huddle' previous release. This includes all sort of issues
       that may cause the core packages or the `x/` modules unusable.
     * Bugs that may cause **loss of user's data**.
 * Other safe cases:
@@ -96,7 +96,7 @@ In some circumstances, PRs that don't meet the aforementioned criteria might be 
 
 ## Stable Release Exception - Procedure
 
-1. Check that the bug is either fixed or not reproducible in `master`. It is, in general, not appropriate to release bug fixes for stable releases without first testing them in `master`. Please apply the label [v1.0](https://github.com/desmos-labs/desmos/milestone/30) to the issue.
+1. Check that the bug is either fixed or not reproducible in `master`. It is, in general, not appropriate to release bug fixes for stable releases without first testing them in `master`. Please apply the label [v1.0](https://github.com/gridiron-zone/huddle/milestone/30) to the issue.
 2. Add a comment to the issue and ensure it contains the following information (see the bug template below):
 
 * **[Impact]** An explanation of the bug on users and justification for backporting the fix to the stable release.
@@ -125,7 +125,7 @@ It's crucial to make the effort of thinking about what could happen in case a re
 
 ## Stable Release Managers
 
-The **Stable Release Managers** evaluate and approve or reject updates and backports to Desmos Stable Release series,
+The **Stable Release Managers** evaluate and approve or reject updates and backports to Huddle Stable Release series,
 according to the [stable release policy](#stable-release-policy) and [release procedure](#stable-release-exception---procedure).
 Decisions are made by consensus.
 
@@ -135,6 +135,6 @@ Their responsibilities include:
 * Approving/rejecting proposed changes to a stable release series.
 * Executing the release process of stable point-releases in compliance with the [Point Release Procedure](CONTRIBUTING.md).
 
-The Stable Release Managers are appointed by the Desmos Foundation. Currently residing Stable Release Managers:
+The Stable Release Managers are appointed by the Huddle Foundation. Currently residing Stable Release Managers:
 
 * @riccardom - Riccardo Montagnin

@@ -12,7 +12,7 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 	registry.RegisterImplementations((*authtypes.AccountI)(nil), &Profile{})
 	registry.RegisterImplementations((*exported.VestingAccount)(nil), &Profile{})
 	registry.RegisterInterface(
-		"desmos.profiles.v1beta1.AddressData",
+		"huddle.profiles.v1beta1.AddressData",
 		(*AddressData)(nil),
 		&Bech32Address{},
 		&Base58Address{},

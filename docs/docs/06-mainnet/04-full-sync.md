@@ -8,15 +8,15 @@ slug: full-sync
 ## Software downgrade 
 
 :::note   
-You will need to build the first version of the Desmos mainnet in order to be able to sync the chain from scratch.
+You will need to build the first version of the Huddle mainnet in order to be able to sync the chain from scratch.
 :::
 
 ```bash
 # Make sure we are inside the home directory
 cd $HOME
 
-# Clone the Desmos software
-git clone https://github.com/desmos-labs/desmos.git && cd desmos
+# Clone the Huddle software
+git clone https://github.com/gridiron-zone/huddle.git && cd huddle
 
 # Checkout the correct tag
 git checkout tags/v1.0.3

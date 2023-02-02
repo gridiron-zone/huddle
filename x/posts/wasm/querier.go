@@ -5,13 +5,13 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/codec"
 
-	postskeeper "github.com/desmos-labs/desmos/v4/x/posts/keeper"
-	"github.com/desmos-labs/desmos/v4/x/posts/types"
+	postskeeper "github.com/gridiron-zone/huddle/x/posts/keeper"
+	"github.com/gridiron-zone/huddle/x/posts/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/desmos-labs/desmos/v4/cosmwasm"
+	"github.com/gridiron-zone/huddle/cosmwasm"
 )
 
 var _ cosmwasm.Querier = PostsWasmQuerier{}

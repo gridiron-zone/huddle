@@ -9,11 +9,11 @@ import (
 
 	capabilitytypes "github.com/cosmos/cosmos-sdk/x/capability/types"
 
-	profileskeeper "github.com/desmos-labs/desmos/v4/x/profiles/keeper"
-	profilestypes "github.com/desmos-labs/desmos/v4/x/profiles/types"
+	profileskeeper "github.com/gridiron-zone/huddle/x/profiles/keeper"
+	profilestypes "github.com/gridiron-zone/huddle/x/profiles/types"
 
-	postskeeper "github.com/desmos-labs/desmos/v4/x/posts/keeper"
-	poststypes "github.com/desmos-labs/desmos/v4/x/posts/types"
+	postskeeper "github.com/gridiron-zone/huddle/x/posts/keeper"
+	poststypes "github.com/gridiron-zone/huddle/x/posts/types"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	"github.com/cosmos/cosmos-sdk/store"
@@ -25,13 +25,13 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	db "github.com/tendermint/tm-db"
 
-	"github.com/desmos-labs/desmos/v4/app"
-	"github.com/desmos-labs/desmos/v4/x/reactions/keeper"
-	"github.com/desmos-labs/desmos/v4/x/reactions/types"
-	relationshipskeeper "github.com/desmos-labs/desmos/v4/x/relationships/keeper"
-	relationshipstypes "github.com/desmos-labs/desmos/v4/x/relationships/types"
-	subspaceskeeper "github.com/desmos-labs/desmos/v4/x/subspaces/keeper"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/app"
+	"github.com/gridiron-zone/huddle/x/reactions/keeper"
+	"github.com/gridiron-zone/huddle/x/reactions/types"
+	relationshipskeeper "github.com/gridiron-zone/huddle/x/relationships/keeper"
+	relationshipstypes "github.com/gridiron-zone/huddle/x/relationships/types"
+	subspaceskeeper "github.com/gridiron-zone/huddle/x/subspaces/keeper"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 func buildAddReactionRequest(cdc codec.Codec, msg sdk.Msg) json.RawMessage {

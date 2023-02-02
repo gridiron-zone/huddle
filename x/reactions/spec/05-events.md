@@ -20,7 +20,7 @@ The reactions module emits the following events:
 | add_reaction | reaction_id       | {reactionID}                       |
 | add_reaction | user              | {userAddress}                      |
 | message      | module            | reactions                          |
-| message      | action            | desmos.reactions.v1.MsgAddReaction |
+| message      | action            | huddle.reactions.v1.MsgAddReaction |
 | message      | sender            | {userAddress}                      |
 
 ### MsgRemoveReaction
@@ -31,7 +31,7 @@ The reactions module emits the following events:
 | remove_reaction | post_id           | {postID}                              |
 | remove_reaction | reaction_id       | {reaction_id}                         |
 | message         | module            | reactions                             |
-| message         | action            | desmos.reactions.v1.MsgRemoveReaction |
+| message         | action            | huddle.reactions.v1.MsgRemoveReaction |
 | message         | sender            | {userAddress}                         |
 
 ### MsgAddRegisteredReaction
@@ -41,7 +41,7 @@ The reactions module emits the following events:
 | add_registered_reaction | subspace_id            | {subspaceID}                                 |
 | add_registered_reaction | registered_reaction_id | {registeredReactionID}                       |
 | message                 | module                 | reactions                                    |
-| message                 | action                 | desmos.reactions.v1.MsgAddRegisteredReaction |
+| message                 | action                 | huddle.reactions.v1.MsgAddRegisteredReaction |
 | message                 | sender                 | {userAddress}                                |
 
 ### MsgEditRegisteredReaction
@@ -51,7 +51,7 @@ The reactions module emits the following events:
 | edit_registered_reaction | subspace_id            | {subspaceID}                                  |
 | edit_registered_reaction | registered_reaction_id | {registeredReactionID}                        |
 | message                  | module                 | reactions                                     |
-| message                  | action                 | desmos.reactions.v1.MsgEditRegisteredReaction |
+| message                  | action                 | huddle.reactions.v1.MsgEditRegisteredReaction |
 | message                  | sender                 | {userAddress}                                 |
 
 ### MsgRemoveRegisteredReaction
@@ -61,7 +61,7 @@ The reactions module emits the following events:
 | remove_registered_reaction | subspace_id            | {subspaceID}                                    |
 | remove_registered_reaction | registered_reaction_id | {registeredReactionID}                          |
 | message                    | module                 | reactions                                       |
-| message                    | action                 | desmos.reactions.v1.MsgRemoveRegisteredReaction |
+| message                    | action                 | huddle.reactions.v1.MsgRemoveRegisteredReaction |
 | message                    | sender                 | {userAddress}                                   |
 
 ### MsgSetReactionsParams
@@ -70,5 +70,5 @@ The reactions module emits the following events:
 |:---------------------|:------------------|:------------------------------------------|
 | set_reactions_params | subspace_id       | {subspaceID}                              |
 | message              | module            | reactions                                 |
-| message              | action            | desmos.reactions.v1.MsgSetReactionsParams |
+| message              | action            | huddle.reactions.v1.MsgSetReactionsParams |
 | message              | sender            | {userAddress}                             | 

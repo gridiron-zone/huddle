@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	v8 "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v8"
+	v8 "github.com/gridiron-zone/huddle/x/profiles/legacy/v8"
 
 	"github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 
@@ -20,8 +20,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/desmos-labs/desmos/v4/app"
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/app"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 func buildContext(
@@ -218,19 +218,19 @@ func TestMigrateStore(t *testing.T) {
 				kvStore := ctx.KVStore(keys[types.StoreKey])
 
 				var signatureJSON = `{
-				  "@type": "/desmos.profiles.v3.CosmosMultiSignature",
+				  "@type": "/huddle.profiles.v3.CosmosMultiSignature",
 				  "bit_array": {
 					"extra_bits_stored": 3,
 					"elems": "wA=="
 				  },
 				  "signatures": [
 					{
-					  "@type": "/desmos.profiles.v3.SingleSignature",
+					  "@type": "/huddle.profiles.v3.SingleSignature",
 					  "value_type": "SIGNATURE_VALUE_TYPE_COSMOS_DIRECT",
 					  "signature": "o/8Z4KeRtihOrG0pyW+0xQXUrRDq2kcA1FhvImGFgjtUG8Nxb10e6kx9m8pHCU6KZcwb0vaBso7jhTHlIy5zfA=="
 					},
 					{
-					  "@type": "/desmos.profiles.v3.SingleSignature",
+					  "@type": "/huddle.profiles.v3.SingleSignature",
 					  "value_type": "SIGNATURE_VALUE_TYPE_COSMOS_DIRECT",
 					  "signature": "o/8Z4KeRtihOrG0pyW+0xQXUrRDq2kcA1FhvImGFgjtUG8Nxb10e6kx9m8pHCU6KZcwb0vaBso7jhTHlIy5zfA=="
 					}

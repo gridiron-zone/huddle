@@ -1,0 +1,14 @@
+syntax = "proto3";
+package huddle.fees.v1;
+
+import "gogoproto/gogo.proto";
+import "huddle/fees/v1/params.proto";
+
+option go_package = "github.com/gridiron-zone/huddle/x/fees/types";
+
+// GenesisState contains the data of the genesis state for the fees module
+message GenesisState {
+  option (gogoproto.goproto_getters) = false;
+
+  huddle.fees.v1.Params params = 1 [ (gogoproto.nullable) = false ];
+}

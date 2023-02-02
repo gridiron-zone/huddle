@@ -13,8 +13,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/version"
 	"github.com/spf13/cobra"
 
-	"github.com/desmos-labs/desmos/v4/x/posts/types"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/x/posts/types"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 // GetQueryCmd returns the command allowing to perform queries
@@ -180,7 +180,7 @@ If a user address is provided, only the answer of that user will be returned (if
 `,
 		Example: fmt.Sprintf(`
 %s query posts answers 1 1 1 --page=2 --limit=100
-%s query posts answers 1 1 1 desmos1mc0mrx23aawryc6gztvdyrupph00yz8lk42v40 --page=2 --limit=100
+%s query posts answers 1 1 1 huddle1mc0mrx23aawryc6gztvdyrupph00yz8lk42v40 --page=2 --limit=100
 `, version.AppName, version.AppName),
 		Args: cobra.RangeArgs(3, 4),
 		RunE: func(cmd *cobra.Command, args []string) error {

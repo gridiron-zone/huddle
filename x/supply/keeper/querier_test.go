@@ -4,8 +4,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/desmos-labs/desmos/v4/x/supply/keeper"
-	"github.com/desmos-labs/desmos/v4/x/supply/types"
+	"github.com/gridiron-zone/huddle/x/supply/keeper"
+	"github.com/gridiron-zone/huddle/x/supply/types"
 )
 
 func (suite *KeeperTestSuite) TestQuerier_QueryTotalSupply() {

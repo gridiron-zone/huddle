@@ -8,7 +8,7 @@ slug: concepts
 # Concepts 
 
 ## Post
-Inside Desmos, a post represents a single piece of content within a subspace. This can be used to represent things such as a blog post, a tweet, or anything else. A post can also be used to represents a quote of another post, a comment or a re-post of another content.
+Inside Huddle, a post represents a single piece of content within a subspace. This can be used to represent things such as a blog post, a tweet, or anything else. A post can also be used to represents a quote of another post, a comment or a re-post of another content.
 
 Aside from the inner text, developers can put on chain some metadata that can be useful during the visualization of the post, such as (but not limited to): links, users mentions or hashtags.
 
@@ -19,7 +19,7 @@ The subspace id specifies the id of the subspace inside which the post is placed
 The section id specifies the id of the subspace section where the post is placed.
 
 ### ID
-A post id is the unique identifier of that post within the subspace. Each post id is generated automatically when handling a `MsgCreatePost` and can be used along with the subspace id itself to uniquely identify a post within Desmos.
+A post id is the unique identifier of that post within the subspace. Each post id is generated automatically when handling a `MsgCreatePost` and can be used along with the subspace id itself to uniquely identify a post within Huddle.
 
 ### External ID (Optional)
 A post external id is an optional text field that can be useful to developers that want to link this post to an external data storage. As an example, if a developer wants to store the post content on their own data storage what they can do is use the external id field to tell how the content should be retrieved.
@@ -44,7 +44,7 @@ Index within the post text at which the tag ends.
 The actual value of the tag. Usually this is going to be either the hashtag value, or the address of the mentioned user (if within the post text the DTag is used to reference the user).
 
 #### Url
-Within Desmos there is no URL validation, so this type can be used to represent any kind of URL that might be present inside the post text.
+Within Huddle there is no URL validation, so this type can be used to represent any kind of URL that might be present inside the post text.
 
 ##### Start
 Index within the post text at which the URL starts.
@@ -68,7 +68,7 @@ Address of the post author.
 In order to be able to display a conversation properly, you can use the conversation id to specify the id of the post that should be considered as the first post of the conversation itself. As an example, if a thread is started then all posts referring to that thread should have the same conversation, even if they are answering other posts. This is to make sure they can be connected to the original conversation and displayed within it.
 
 ### Referenced Posts
-In order to represent various interactions with a post, inside Desmos we use post references. All the references that a post has to other posts should be placed inside the referenced posts array.
+In order to represent various interactions with a post, inside Huddle we use post references. All the references that a post has to other posts should be placed inside the referenced posts array.
 
 #### PostReference
 A reference to an external post. This can be used to represent a reply (comment), repost or quote of another post.
@@ -116,7 +116,7 @@ The subspace id specifies the id of the subspace inside which the post related t
 The post id specifies the id of the post to which the attachment is associated.
 
 ### ID
-An attachment id is the unique identifier within a specific post. This is automatically created when handling a `MsgCreatePost` or `MsgAddPostAttachment`. With the subspace id and post id, it can be used to uniquely identify an attachment within Desmos.
+An attachment id is the unique identifier within a specific post. This is automatically created when handling a `MsgCreatePost` or `MsgAddPostAttachment`. With the subspace id and post id, it can be used to uniquely identify an attachment within Huddle.
 
 ### Content
 The content of the attachment. It can be either a media content (e.g. a picture, a video, a GIF, etc), or a poll.

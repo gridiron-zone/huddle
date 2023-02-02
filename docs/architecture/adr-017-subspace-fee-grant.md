@@ -15,7 +15,7 @@ This ADR introduces a new subspace-based fee grant method, which allows subspace
 
 ## Context
 
-One of the major problems of current Web3-based applications that make them complicated to use by common people is the fact that they require users to have some tokens in order to pay transaction fees to perform various operations. For instance, in order to create a post on any Desmos-based social network, users have to:
+One of the major problems of current Web3-based applications that make them complicated to use by common people is the fact that they require users to have some tokens in order to pay transaction fees to perform various operations. For instance, in order to create a post on any Huddle-based social network, users have to:
 1. understand what a _transaction_ is and why they need some DSM to broadcast it;
 2. get some DSM either via an on-ramp service or by swapping existing funds.
 
@@ -206,11 +206,11 @@ In order to allow clients to easily query for allowances we will implement the f
 service Query {
     // UserAllowances returns all the grants for users.
     rpc UserAllowances(QueryUserAllowancesRequest) returns (QueryAllowancesResponse) {
-        option (google.api.http).get = "/desmos/subspaces/v3/subspaces/{subspace_id}/allowances/users";
+        option (google.api.http).get = "/huddle/subspaces/v3/subspaces/{subspace_id}/allowances/users";
     }
     // GroupAllowances returns all the grants for groups.
     rpc GroupAllowances(QueryGroupAllowancesRequest) returns(QueryGroupAllowancesResponse) {
-        option (google.api.http).get = "/desmos/subspaces/v3/subspaces/{subspace_id}/allowances/groups";
+        option (google.api.http).get = "/huddle/subspaces/v3/subspaces/{subspace_id}/allowances/groups";
     }
 }
 

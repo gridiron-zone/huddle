@@ -6,11 +6,11 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 
-	poststypes "github.com/desmos-labs/desmos/v4/x/posts/types"
-	reactionstypes "github.com/desmos-labs/desmos/v4/x/reactions/types"
-	reportstypes "github.com/desmos-labs/desmos/v4/x/reports/types"
+	poststypes "github.com/gridiron-zone/huddle/x/posts/types"
+	reactionstypes "github.com/gridiron-zone/huddle/x/reactions/types"
+	reportstypes "github.com/gridiron-zone/huddle/x/reports/types"
 
-	"github.com/desmos-labs/desmos/v4/app/upgrades"
+	"github.com/gridiron-zone/huddle/app/upgrades"
 )
 
 var (

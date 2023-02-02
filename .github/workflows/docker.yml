@@ -1,5 +1,5 @@
 name: Docker
-# Docker workflow allows the creation and publishing of new Desmos Docker tags.
+# Docker workflow allows the creation and publishing of new Huddle Docker tags.
 # This workflow is run only when a new commit is pushed to master, or a new tag is created.
 on:
   pull_request:
@@ -23,9 +23,9 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./contrib/images/desmos-builder/Dockerfile
+          file: ./contrib/images/huddle-builder/Dockerfile
           load: true
-          tags: desmoslabs/builder:latest
+          tags: huddlelabs/builder:latest
 
       - name: Login to DockerHub 👤
         if: github.event_name != 'pull_request'
@@ -37,7 +37,7 @@ jobs:
       - name: Prepare tags 🏷️
         id: prep
         run: |
-          DOCKER_IMAGE=desmoslabs/desmos
+          DOCKER_IMAGE=huddlelabs/huddle
           VERSION=edge
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/}

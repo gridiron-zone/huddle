@@ -16,7 +16,7 @@ A user can query the `supply` module using the CLI.
 The `query` commands allow users to query the `supply` state. 
 
 ```
-desmos query supply --help
+huddle query supply --help
 ```
 
 ##### About the divider exponent
@@ -35,12 +35,12 @@ The `total` command allows users to query the total supply of a token given a de
 If a divider exponent is provided, the resulting supply amount will be divided by `10^(divider_exponent)`.  
 
 ```bash
-desmos query supply total [denom] [[divider_exponent]] [flags]
+huddle query supply total [denom] [[divider_exponent]] [flags]
 ```
 
 Example: 
 ```bash
-desmos query supply total udsm 2
+huddle query supply total udsm 2
 ```
 
 Example Output: 
@@ -52,12 +52,12 @@ total_supply: "100003895600953035670"
 The `circulating` command allows users to query the circulating supply of a token given a denomination. 
 
 ```bash
-desmos query supply circulating [denom] [[divider_exponent]] [flags]
+huddle query supply circulating [denom] [[divider_exponent]] [flags]
 ```
 
 Example:
 ```bash
-desmos query supply circulating udsm 2
+huddle query supply circulating udsm 2
 ```
 
 Example Output:
@@ -72,13 +72,13 @@ A user can query the `supply` module gRPC endpoints.
 The `Total` endpoint allows users to query for the total supply of a token given a denomination. 
 
 ```bash
-desmos.supply.v1.Query/Total
+huddle.supply.v1.Query/Total
 ```
 
 Example:
 ```bash
 grpcurl -plaintext \
-  -d '{"denom": "stake", "divider_exponent": "2"}' localhost:9090 desmos.supply.v1.Query/Total
+  -d '{"denom": "stake", "divider_exponent": "2"}' localhost:9090 huddle.supply.v1.Query/Total
 ```
 
 Example Output:
@@ -92,13 +92,13 @@ Example Output:
 The `Circulating` endpoint allows users to query for the circulating supply of a token given a denomination.
 
 ```bash
-desmos.supply.v1.Query/Circulating
+huddle.supply.v1.Query/Circulating
 ```
 
 Example:
 ```bash
 grpcurl -plaintext \
-  -d '{"denom": "stake", "divider_exponent": "2"}' localhost:9090 desmos.supply.v1.Query/Circulating
+  -d '{"denom": "stake", "divider_exponent": "2"}' localhost:9090 huddle.supply.v1.Query/Circulating
 ```
 
 Example Output:

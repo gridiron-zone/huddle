@@ -82,4 +82,4 @@ We will need to add the following test cases:
 ## References
 
 - [Ante Handlers](https://docs.cosmos.network/v0.44/modules/auth/03_antehandlers.html#antehandlers);
-- [First issue about min fees](https://github.com/desmos-labs/desmos/issues/230).
+- [First issue about min fees](https://github.com/gridiron-zone/huddle/issues/230).

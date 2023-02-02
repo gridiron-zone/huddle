@@ -16,9 +16,9 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmcli "github.com/tendermint/tendermint/libs/cli"
 
-	"github.com/desmos-labs/desmos/v4/testutil"
-	"github.com/desmos-labs/desmos/v4/x/supply/client/cli"
-	"github.com/desmos-labs/desmos/v4/x/supply/types"
+	"github.com/gridiron-zone/huddle/testutil"
+	"github.com/gridiron-zone/huddle/x/supply/client/cli"
+	"github.com/gridiron-zone/huddle/x/supply/types"
 )
 
 type IntegrationTestSuite struct {

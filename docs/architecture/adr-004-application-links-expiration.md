@@ -15,13 +15,13 @@ ACCEPTED Implemented
 
 ## Abstract
 
-Currently, when a user links a centralized application with their Desmos profile, the created link contains a timestamp of when it has been created.   
+Currently, when a user links a centralized application with their Huddle profile, the created link contains a timestamp of when it has been created.   
 Since centralized applications' username can be switched and sold, we SHOULD implement an "expiration date" system on links. 
 This means that after a certain amount of time passes, the link will be automatically marked deleted and the user has to connect it again in order to keep it valid.
 
 ## Context
 
-Desmos `x/profiles` module gives users the possibility to link their Desmos profile with both centralized application and 
+Huddle `x/profiles` module gives users the possibility to link their Huddle profile with both centralized application and 
 other blockchains accounts. By doing this, a user can be verified as the owner of those accounts and prove to the system
 that they're not impersonating anyone else. This verification however remains valid only if the user
 never trades or sells their centralized-app username to someone else. If they do, the link to such username MUST be invalidated. 
@@ -67,5 +67,5 @@ from the previous versions to the one that will include the additions contained 
 
 ## References
 
-- Issue [#516](https://github.com/desmos-labs/desmos/issues/516)
-- PR [#562](https://github.com/desmos-labs/desmos/pull/562)
+- Issue [#516](https://github.com/gridiron-zone/huddle/issues/516)
+- PR [#562](https://github.com/gridiron-zone/huddle/pull/562)

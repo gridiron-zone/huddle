@@ -16,7 +16,7 @@ This ADR contains the specification of the `x/reactions` module which will allow
 
 One of the most commonly used features of any centralized social network are the so-called _reactions_. Initially known as _like_, this feature allows users to react to different posts with a limited set of emojis or a free text limited in length (in order to distinguish it from a comment).
 
-Inside Desmos we MUST give all subspace owners the ability to decide whether reactions should be enabled or not inside their subspaces, and if each reaction should be composed of only emojis or allow even for texts. We SHOULD also allow subspace owners to register custom reactions the same way that Discord does, so that they can provide a customized user experience inside their platforms. 
+Inside Huddle we MUST give all subspace owners the ability to decide whether reactions should be enabled or not inside their subspaces, and if each reaction should be composed of only emojis or allow even for texts. We SHOULD also allow subspace owners to register custom reactions the same way that Discord does, so that they can provide a customized user experience inside their platforms. 
 
 ## Decision
 
@@ -260,17 +260,17 @@ syntax = "proto3";
 service Query {
   // Reactions allows to query the reactions present inside a subspace
   rpc Reactions(QueryReactionsRequest) returns (QueryReactionsResponse) {
-    option (google.api.http).get = "/desmos/reactions/v1/{subspace_id}/reactions";
+    option (google.api.http).get = "/huddle/reactions/v1/{subspace_id}/reactions";
   }
 
   // RegisteredReactions allows to query the registered reaction of a subspace
   rpc RegisteredReactions(QueryRegisteredReactionsRequest) returns (QueryRegisteredReactionsResponse) {
-    option (google.api.http).get = "/desmos/reactions/v1/{subspace_id}/registered-reactions";
+    option (google.api.http).get = "/huddle/reactions/v1/{subspace_id}/registered-reactions";
   }
 
   // ReactionsParams allows to query the reaction params of a subspace
   rpc ReactionsParams(QueryReactionsParamsRequest) returns (QueryReactionsParamsResponse) {
-    option (google.api.http).get = "/desmos/reactions/v1/{subspace_id}/params";
+    option (google.api.http).get = "/huddle/reactions/v1/{subspace_id}/params";
   }
 }
 
@@ -352,5 +352,5 @@ The changes described inside this ADR are **not** backward compatible. To solve 
 
 ## References
 
-- [Issue #890](https://github.com/desmos-labs/desmos/issues/890)
+- [Issue #890](https://github.com/gridiron-zone/huddle/issues/890)
 - [Discord reactions](https://support.discord.com/hc/en-us/articles/360041139231-Adding-Emojis-and-Reactions)

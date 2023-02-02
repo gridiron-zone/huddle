@@ -20,7 +20,7 @@ The reports module emits the following events:
 | create_report | reporter          | {userAddress}                     |
 | create_report | creation_time     | {creationTime}                    |
 | message       | module            | reports                           |
-| message       | action            | desmos.reports.v1.MsgCreateReport |
+| message       | action            | huddle.reports.v1.MsgCreateReport |
 | message       | reporter          | {userAddress}                     |
 
 Other events attributes depending on the type of the report target are attached.
@@ -48,7 +48,7 @@ Other events attributes depending on the type of the report target are attached.
 | delete_report | subspace_id       | {subspaceID}                      |
 | delete_report | report_id         | {reportID}                        |
 | message       | module            | reports                           |
-| message       | action            | desmos.reports.v1.MsgDeleteReport |
+| message       | action            | huddle.reports.v1.MsgDeleteReport |
 | message       | signer            | {userAddress}                     |
 
 ### MsgSupportStandardReason
@@ -59,7 +59,7 @@ Other events attributes depending on the type of the report target are attached.
 | support_standard_reason | standard_reason_id | {reasonID}                                 |
 | support_standard_reason | reason_id          | {reasonID}                                 |
 | message                 | module             | reports                                    |
-| message                 | action             | desmos.reports.v1.MsgSupportStandardReason |
+| message                 | action             | huddle.reports.v1.MsgSupportStandardReason |
 | message                 | signer             | {userAddress}                              |
 
 ### MsgAddReason
@@ -69,7 +69,7 @@ Other events attributes depending on the type of the report target are attached.
 | add_reason | subspace_id       | {subspaceID}                   |
 | add_reason | reason_id         | {reasonID}                     |
 | message    | module            | reports                        |
-| message    | action            | desmos.reports.v1.MsgAddReason |
+| message    | action            | huddle.reports.v1.MsgAddReason |
 | message    | signer            | {userAddress}                  |
 
 
@@ -80,4 +80,4 @@ Other events attributes depending on the type of the report target are attached.
 | remove_reason | subspace_id       | {subspaceID}                      |
 | remove_reason | reason_id         | {reasonID}                        |
 | message       | module            | reports                           |
-| message       | action            | desmos.reports.v1.MsgRemoveReason |
+| message       | action            | huddle.reports.v1.MsgRemoveReason |

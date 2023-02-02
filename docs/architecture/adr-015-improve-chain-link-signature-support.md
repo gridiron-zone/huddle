@@ -15,13 +15,13 @@ This ADR contains the specifications about new signature methods that should be 
 
 ## Context
 
-Currently, when creating a chain link there are only two kind of signatures that are supported: Cosmos single signature (obtained using `sign(sha256(value))`) and Cosmos multi signatures. Although this allows to connect any Cosmos chain to a Desmos profile, it does not support external chains that might be using different signature algorithms and specifications. As an example, right now it's not possible to link Ethereum address using MetaMask as this uses the `personal_sign` algorithm which consists of the following: 
+Currently, when creating a chain link there are only two kind of signatures that are supported: Cosmos single signature (obtained using `sign(sha256(value))`) and Cosmos multi signatures. Although this allows to connect any Cosmos chain to a Huddle profile, it does not support external chains that might be using different signature algorithms and specifications. As an example, right now it's not possible to link Ethereum address using MetaMask as this uses the `personal_sign` algorithm which consists of the following: 
 
 ```
 sign(keccak256("\x19Ethereum Signed Message:\n" + len(message) + message)))
 ```
 
-Considering each ecosystem usually has a third party wallet as a reference (let's think about Keplr for Cosmos, MetaMask for Ethereum and SolWallet for Solana), it's important that we support the signature specifications that such widely used wallets use. This will allow users to connect their addresses to their Desmos profile more safely without needing any DApp to request them their secret (aka mnemonic) phrase to generate a valid signature.       
+Considering each ecosystem usually has a third party wallet as a reference (let's think about Keplr for Cosmos, MetaMask for Ethereum and SolWallet for Solana), it's important that we support the signature specifications that such widely used wallets use. This will allow users to connect their addresses to their Huddle profile more safely without needing any DApp to request them their secret (aka mnemonic) phrase to generate a valid signature.       
 
 ## Decision
 

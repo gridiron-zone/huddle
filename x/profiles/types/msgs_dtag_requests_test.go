@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 
 	"github.com/stretchr/testify/require"
 )
@@ -69,7 +69,7 @@ func TestMsgRequestDTagTransfer_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgRequestDTagTransfer_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgRequestDTagTransfer","value":{"receiver":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","sender":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns"}}`
+	expected := `{"type":"huddle/MsgRequestDTagTransfer","value":{"receiver":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","sender":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns"}}`
 	require.Equal(t, expected, string(msgRequestTransferDTag.GetSignBytes()))
 }
 
@@ -158,7 +158,7 @@ func TestMsgAcceptDTagTransferRequest_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgAcceptDTagTransferRequest_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgAcceptDTagTransferRequest","value":{"new_dtag":"dtag","receiver":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns","sender":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47"}}`
+	expected := `{"type":"huddle/MsgAcceptDTagTransferRequest","value":{"new_dtag":"dtag","receiver":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns","sender":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47"}}`
 	require.Equal(t, expected, string(msgAcceptDTagTransfer.GetSignBytes()))
 }
 
@@ -237,7 +237,7 @@ func TestMsgRejectDTagTransferRequest_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgRejectDTagTransferRequest_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgRefuseDTagTransferRequest","value":{"receiver":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns","sender":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47"}}`
+	expected := `{"type":"huddle/MsgRefuseDTagTransferRequest","value":{"receiver":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns","sender":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47"}}`
 	require.Equal(t, expected, string(msgRejectDTagTransfer.GetSignBytes()))
 }
 
@@ -313,7 +313,7 @@ func TestMsgCancelDTagTransferRequest_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgCancelDTagTransferRequest_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgCancelDTagTransferRequest","value":{"receiver":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","sender":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns"}}`
+	expected := `{"type":"huddle/MsgCancelDTagTransferRequest","value":{"receiver":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","sender":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns"}}`
 	require.Equal(t, expected, string(msgCancelDTagTransferReq.GetSignBytes()))
 }
 

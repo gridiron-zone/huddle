@@ -3,7 +3,7 @@ package types_test
 import (
 	"encoding/hex"
 
-	"github.com/desmos-labs/desmos/v4/testutil/profilestesting"
+	"github.com/gridiron-zone/huddle/testutil/profilestesting"
 
 	"github.com/mr-tron/base58"
 
@@ -22,17 +22,17 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/tx/signing"
 	"github.com/cosmos/cosmos-sdk/x/auth/legacy/legacytx"
 
-	"github.com/desmos-labs/desmos/v4/app"
+	"github.com/gridiron-zone/huddle/app"
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 func TestUnmarshalSignature(t *testing.T) {
 	_, amino := app.MakeCodecs()
 
-	expectedMemo := "desmos16c60y8t8vra27zjg2arlcd58dck9cwn7p6fwtd"
+	expectedMemo := "huddle16c60y8t8vra27zjg2arlcd58dck9cwn7p6fwtd"
 
 	aminoSigBytes := "7b226163636f756e745f6e756d626572223a2230222c22636861696e5f6964223a22616b6173686e65742d32222c22666565223a7b22616d6f756e74223a5b7b22616d6f756e74223a2230222c2264656e6f6d223a22616b74227d5d2c22676173223a2231227d2c226d656d6f223a226465736d6f7331366336307938743876726132377a6a673261726c6364353864636b3963776e37703666777464222c226d736773223a5b5d2c2273657175656e6365223a2230227d"
 	aminoSigBz, err := hex.DecodeString(aminoSigBytes)
@@ -462,8 +462,8 @@ func TestValidatePersonalSignValue(t *testing.T) {
 		},
 		{
 			name:          "correct value returns no error",
-			value:         []byte("\x19Ethereum Signed Message:\n45desmos16c60y8t8vra27zjg2arlcd58dck9cwn7p6fwtd"),
-			expectedValue: "desmos16c60y8t8vra27zjg2arlcd58dck9cwn7p6fwtd",
+			value:         []byte("\x19Ethereum Signed Message:\n45huddle16c60y8t8vra27zjg2arlcd58dck9cwn7p6fwtd"),
+			expectedValue: "huddle16c60y8t8vra27zjg2arlcd58dck9cwn7p6fwtd",
 			shouldErr:     false,
 		},
 	}
@@ -828,12 +828,12 @@ func TestBech32Address_Validate(t *testing.T) {
 		},
 		{
 			name:      "wrong prefix returns error",
-			address:   types.NewBech32Address("desmos1tdgrkvx2qgjk0uqsmdhm6dcz6wvwh9f8t37x0k", "cosmos"),
+			address:   types.NewBech32Address("huddle1tdgrkvx2qgjk0uqsmdhm6dcz6wvwh9f8t37x0k", "cosmos"),
 			shouldErr: true,
 		},
 		{
 			name:      "invalid address returns error",
-			address:   types.NewBech32Address("desmos1tdgrkvx2qgjk0uqsmdhm6dcz6wvwh9f8t37x0", "desmos"),
+			address:   types.NewBech32Address("huddle1tdgrkvx2qgjk0uqsmdhm6dcz6wvwh9f8t37x0", "huddle"),
 			shouldErr: true,
 		},
 		{

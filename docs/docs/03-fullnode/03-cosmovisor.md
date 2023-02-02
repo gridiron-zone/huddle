@@ -46,8 +46,8 @@ strings $(which cosmovisor) | egrep -e "mod\s+github.com/cosmos/cosmos-sdk/cosmo
 ### 2. Setting up environmental variables
 Cosmovisor relies on the following environmental variables to work properly:
 
-* `DAEMON_HOME` is the location where upgrade binaries should be kept (e.g. `$HOME/.desmos`).
-* `DAEMON_NAME` is the name of the binary itself (eg. `desmos`).
+* `DAEMON_HOME` is the location where upgrade binaries should be kept (e.g. `$HOME/.huddle`).
+* `DAEMON_NAME` is the name of the binary itself (eg. `huddle`).
 * `DAEMON_ALLOW_DOWNLOAD_BINARIES` (*optional*, default = `false`) if set to `true` will enable auto-downloading of new binaries
   (for security reasons, this is intended for full nodes rather than validators).
 * `DAEMON_RESTART_AFTER_UPGRADE` (*optional*, default = `true`) if set to `true` it will restart the sub-process with the same
@@ -66,8 +66,8 @@ sudo nano ~/.profile
 Once you're in, we suggest you to set the following values: 
 
 ```
-export DAEMON_HOME=$HOME/.desmos
-export DAEMON_NAME=desmos
+export DAEMON_HOME=$HOME/.huddle
+export DAEMON_NAME=huddle
 export DAEMON_ALLOW_DOWNLOAD_BINARIES=true
 export DAEMON_RESTART_AFTER_UPGRADE=true
 export UNSAFE_SKIP_BACKUP=false
@@ -87,14 +87,14 @@ You can verify the values set by running
 echo $DAEMON_NAME
 ```
 
-If this outputs `desmos` you are ready to go.
+If this outputs `huddle` you are ready to go.
 
-### 3. Copying Desmos files in the proper folders
-In order to work properly, Cosmovisor needs the `desmos` binary to be placed in the `~/.desmos/cosmovisor/genesis/bin` folder. To do this you can simply run the following command: 
+### 3. Copying Huddle files in the proper folders
+In order to work properly, Cosmovisor needs the `huddle` binary to be placed in the `~/.huddle/cosmovisor/genesis/bin` folder. To do this you can simply run the following command: 
 
 ```shell
-mkdir -p ~/.desmos/cosmovisor/genesis/bin/
-cp $(which desmos) ~/.desmos/cosmovisor/genesis/bin/
+mkdir -p ~/.huddle/cosmovisor/genesis/bin/
+cp $(which huddle) ~/.huddle/cosmovisor/genesis/bin/
 ```
 
 To verify that you have setup everything correctly, you can run the following command: 
@@ -103,22 +103,22 @@ To verify that you have setup everything correctly, you can run the following co
 cosmovisor version
 ```
 
-This should output the Desmos version.
+This should output the Huddle version.
 
 ### 4. Restarting your node
-Finally, if you've setup everything correctly you can now restart your node. To do this you can simply stop the running `desmos start` and re-start your Desmos node using the following command: 
+Finally, if you've setup everything correctly you can now restart your node. To do this you can simply stop the running `huddle start` and re-start your Huddle node using the following command: 
 
 ```
 cosmovisor start
 ```
 
 #### Updating the service file
-If you are running your node using a service, you need to update your service file to use `cosmovisor` instead of `desmos`. To do this you can simply run the following command:
+If you are running your node using a service, you need to update your service file to use `cosmovisor` instead of `huddle`. To do this you can simply run the following command:
 
 ```shell
-sudo tee /etc/systemd/system/desmosd.service > /dev/null <<EOF  
+sudo tee /etc/systemd/system/huddled.service > /dev/null <<EOF  
 [Unit]
-Description=Desmos Full Node
+Description=Huddle Full Node
 After=network-online.target
 
 [Service]
@@ -128,8 +128,8 @@ Restart=always
 RestartSec=3
 LimitNOFILE=4096
 
-Environment="DAEMON_HOME=$HOME/.desmos"
-Environment="DAEMON_NAME=desmos"
+Environment="DAEMON_HOME=$HOME/.huddle"
+Environment="DAEMON_NAME=huddle"
 Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
 Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 Environment="UNSAFE_SKIP_BACKUP=false"
@@ -150,5 +150,5 @@ sudo systemctl daemon-reload
 Finally, you can restart is as follows: 
 
 ```shell
-sudo systemctl restart desmosd
+sudo systemctl restart huddled
 ```

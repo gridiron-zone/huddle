@@ -16,7 +16,7 @@ This ADR contains the specification of the `x/reports` module which will allow u
 
 One of the most important parts of a functional social network is the set of rules that constitute the Terms of Service, and how they are enforced. In most social networks the key for a good user experience is the reporting system: users are able to report misbehaving users or inappropriate content that gets later reviewed and taken care of by moderators. 
 
-Inside Desmos we MUST give users a set of tools that allow them to perform the same actions on all the social networks that they will have access to. At the same time, we SHOULD NOT enforce any high-level Term of Service since each subspace that will be built on Desmos might want to have very different rules from the other ones (i.e. an adult content social network will most likely have a very different set of rules from a kids social network). Instead, we should allow subspace owners and admins to register the various reasons a user/content can be reported for.
+Inside Huddle we MUST give users a set of tools that allow them to perform the same actions on all the social networks that they will have access to. At the same time, we SHOULD NOT enforce any high-level Term of Service since each subspace that will be built on Huddle might want to have very different rules from the other ones (i.e. an adult content social network will most likely have a very different set of rules from a kids social network). Instead, we should allow subspace owners and admins to register the various reasons a user/content can be reported for.
 
 ## Decision
 
@@ -224,17 +224,17 @@ message MsgRemoveReasonResponse {
 service Query {
   // Reports allows to query the reports for a specific target
   rpc Reports(QueryReportsRequest) returns (QueryReportsResponse) {
-    option (google.api.http).get = "/desmos/reports/v1/{subspace_id}/reports";
+    option (google.api.http).get = "/huddle/reports/v1/{subspace_id}/reports";
   }
   
   // Reasons allows to query the supported reporting reasons for a subspace
   rpc Reasons(QueryReasonsRequest) returns (QueryReasonsResponse) {
-    option (google.api.http).get = "/desmos/reports/v1/{subspace_id}/reasons";
+    option (google.api.http).get = "/huddle/reports/v1/{subspace_id}/reasons";
   }
   
   // Params allows to query the module parameters
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/desmos/reports/v1/params";
+    option (google.api.http).get = "/huddle/reports/v1/params";
   }
 }
 

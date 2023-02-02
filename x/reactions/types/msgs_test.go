@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/desmos-labs/desmos/v4/x/reactions/types"
+	"github.com/gridiron-zone/huddle/x/reactions/types"
 )
 
 var msgAddReaction = types.NewMsgAddReaction(
@@ -90,7 +90,7 @@ func TestMsgAddReaction_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgAddReaction_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgAddReaction","value":{"post_id":"1","subspace_id":"1","user":"cosmos1qewk97fp49vzssrfnc997jpztc5nzr7xsd8zdc","value":{"type":"desmos/RegisteredReactionValue","value":{"registered_reaction_id":1}}}}`
+	expected := `{"type":"huddle/MsgAddReaction","value":{"post_id":"1","subspace_id":"1","user":"cosmos1qewk97fp49vzssrfnc997jpztc5nzr7xsd8zdc","value":{"type":"huddle/RegisteredReactionValue","value":{"registered_reaction_id":1}}}}`
 	require.Equal(t, expected, string(msgAddReaction.GetSignBytes()))
 }
 
@@ -182,7 +182,7 @@ func TestMsgRemoveReaction_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgRemoveReaction_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgRemoveReaction","value":{"post_id":"1","reaction_id":1,"subspace_id":"1","user":"cosmos1qewk97fp49vzssrfnc997jpztc5nzr7xsd8zdc"}}`
+	expected := `{"type":"huddle/MsgRemoveReaction","value":{"post_id":"1","reaction_id":1,"subspace_id":"1","user":"cosmos1qewk97fp49vzssrfnc997jpztc5nzr7xsd8zdc"}}`
 	require.Equal(t, expected, string(msgRemoveReaction.GetSignBytes()))
 }
 
@@ -274,7 +274,7 @@ func TestMsgAddRegisteredReaction_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgAddRegisteredReaction_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgAddRegisteredReaction","value":{"display_value":"https://example.com?images=hello.png","shorthand_code":":hello:","subspace_id":"1","user":"cosmos1qewk97fp49vzssrfnc997jpztc5nzr7xsd8zdc"}}`
+	expected := `{"type":"huddle/MsgAddRegisteredReaction","value":{"display_value":"https://example.com?images=hello.png","shorthand_code":":hello:","subspace_id":"1","user":"cosmos1qewk97fp49vzssrfnc997jpztc5nzr7xsd8zdc"}}`
 	require.Equal(t, expected, string(msgAddRegisteredReaction.GetSignBytes()))
 }
 
@@ -382,7 +382,7 @@ func TestMsgEditRegisteredReaction_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgEditRegisteredReaction_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgEditRegisteredReaction","value":{"display_value":"https://example.com?images=hello.png","registered_reaction_id":1,"shorthand_code":":hello:","subspace_id":"1","user":"cosmos1qewk97fp49vzssrfnc997jpztc5nzr7xsd8zdc"}}`
+	expected := `{"type":"huddle/MsgEditRegisteredReaction","value":{"display_value":"https://example.com?images=hello.png","registered_reaction_id":1,"shorthand_code":":hello:","subspace_id":"1","user":"cosmos1qewk97fp49vzssrfnc997jpztc5nzr7xsd8zdc"}}`
 	require.Equal(t, expected, string(msgEditRegisteredReaction.GetSignBytes()))
 }
 
@@ -460,7 +460,7 @@ func TestMsgRemoveRegisteredReaction_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgRemoveRegisteredReaction_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgRemoveRegisteredReaction","value":{"registered_reaction_id":1,"subspace_id":"1","user":"cosmos1qewk97fp49vzssrfnc997jpztc5nzr7xsd8zdc"}}`
+	expected := `{"type":"huddle/MsgRemoveRegisteredReaction","value":{"registered_reaction_id":1,"subspace_id":"1","user":"cosmos1qewk97fp49vzssrfnc997jpztc5nzr7xsd8zdc"}}`
 	require.Equal(t, expected, string(msgRemoveRegisteredReaction.GetSignBytes()))
 }
 
@@ -542,7 +542,7 @@ func TestMsgSetReactionsParams_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgSetReactionsParams_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgSetReactionsParams","value":{"free_text":{"enabled":true,"max_length":100,"reg_ex":"[a-zA-Z]"},"registered_reaction":{"enabled":true},"subspace_id":"1","user":"cosmos1qewk97fp49vzssrfnc997jpztc5nzr7xsd8zdc"}}`
+	expected := `{"type":"huddle/MsgSetReactionsParams","value":{"free_text":{"enabled":true,"max_length":100,"reg_ex":"[a-zA-Z]"},"registered_reaction":{"enabled":true},"subspace_id":"1","user":"cosmos1qewk97fp49vzssrfnc997jpztc5nzr7xsd8zdc"}}`
 	require.Equal(t, expected, string(msgSetReactionsParams.GetSignBytes()))
 }
 

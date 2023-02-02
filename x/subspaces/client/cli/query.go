@@ -9,7 +9,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/version"
 	"github.com/spf13/cobra"
 
-	"github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 // DONTCOVER
@@ -368,7 +368,7 @@ func GetCmdQueryUserPermissions() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "permissions [subspace-id] [section-id] [user]",
 		Short:   "Query permissions of the given user",
-		Example: fmt.Sprintf(`%s query subspaces permissions 1 0 desmos13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud`, version.AppName),
+		Example: fmt.Sprintf(`%s query subspaces permissions 1 0 huddle13p5pamrljhza3fp4es5m3llgmnde5fzcpq6nud`, version.AppName),
 		Args:    cobra.ExactArgs(3),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientQueryContext(cmd)

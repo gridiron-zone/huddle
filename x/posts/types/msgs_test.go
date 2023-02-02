@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/desmos-labs/desmos/v4/x/posts/types"
+	"github.com/gridiron-zone/huddle/x/posts/types"
 )
 
 var attachments = []types.AttachmentContent{
@@ -214,7 +214,7 @@ func TestMsgCreatePost_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgCreatePost_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgCreatePost","value":{"attachments":[{"type":"desmos/Media","value":{"mime_type":"image/png","uri":"ftp://user:password@example.com/image.png"}},{"type":"desmos/Poll","value":{"end_date":"2020-01-01T12:00:00Z","provided_answers":[{"attachments":null,"text":"Cat"},{"attachments":null,"text":"Dog"}],"question":"What animal is best?"}}],"author":"cosmos13t6y2nnugtshwuy0zkrq287a95lyy8vzleaxmd","conversation_id":"1","entities":{"hashtags":[{"end":"3","start":"1","tag":"tag"}],"mentions":[{"end":"6","start":"4","tag":"tag"}],"urls":[{"display_url":"Display URL","end":"9","start":"7","url":"URL"}]},"external_id":"External ID","referenced_posts":[{"post_id":"1","type":2}],"reply_settings":1,"section_id":1,"subspace_id":"1","tags":["general"],"text":"This is a text"}}`
+	expected := `{"type":"huddle/MsgCreatePost","value":{"attachments":[{"type":"huddle/Media","value":{"mime_type":"image/png","uri":"ftp://user:password@example.com/image.png"}},{"type":"huddle/Poll","value":{"end_date":"2020-01-01T12:00:00Z","provided_answers":[{"attachments":null,"text":"Cat"},{"attachments":null,"text":"Dog"}],"question":"What animal is best?"}}],"author":"cosmos13t6y2nnugtshwuy0zkrq287a95lyy8vzleaxmd","conversation_id":"1","entities":{"hashtags":[{"end":"3","start":"1","tag":"tag"}],"mentions":[{"end":"6","start":"4","tag":"tag"}],"urls":[{"display_url":"Display URL","end":"9","start":"7","url":"URL"}]},"external_id":"External ID","referenced_posts":[{"post_id":"1","type":2}],"reply_settings":1,"section_id":1,"subspace_id":"1","tags":["general"],"text":"This is a text"}}`
 	require.Equal(t, expected, string(msgCreatePost.GetSignBytes()))
 }
 
@@ -341,7 +341,7 @@ func TestMsgEditPost_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgEditPost_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgEditPost","value":{"editor":"cosmos13t6y2nnugtshwuy0zkrq287a95lyy8vzleaxmd","entities":{"hashtags":[{"end":"3","start":"1","tag":"tag"}],"mentions":[{"end":"6","start":"4","tag":"tag"}],"urls":[{"display_url":"Display URL","end":"9","start":"7","url":"URL"}]},"post_id":"1","subspace_id":"1","tags":["general"],"text":"Edited text"}}`
+	expected := `{"type":"huddle/MsgEditPost","value":{"editor":"cosmos13t6y2nnugtshwuy0zkrq287a95lyy8vzleaxmd","entities":{"hashtags":[{"end":"3","start":"1","tag":"tag"}],"mentions":[{"end":"6","start":"4","tag":"tag"}],"urls":[{"display_url":"Display URL","end":"9","start":"7","url":"URL"}]},"post_id":"1","subspace_id":"1","tags":["general"],"text":"Edited text"}}`
 	require.Equal(t, expected, string(msgEditPost.GetSignBytes()))
 }
 
@@ -438,7 +438,7 @@ func TestMsgAddPostAttachment_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgAddPostAttachment_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgAddPostAttachment","value":{"content":{"type":"desmos/Media","value":{"mime_type":"image/png","uri":"ftp://user:password@example.com/image.png"}},"editor":"cosmos13t6y2nnugtshwuy0zkrq287a95lyy8vzleaxmd","post_id":"1","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgAddPostAttachment","value":{"content":{"type":"huddle/Media","value":{"mime_type":"image/png","uri":"ftp://user:password@example.com/image.png"}},"editor":"cosmos13t6y2nnugtshwuy0zkrq287a95lyy8vzleaxmd","post_id":"1","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgAddPostAttachment.GetSignBytes()))
 }
 
@@ -530,7 +530,7 @@ func TestMsgRemovePostAttachment_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgRemovePostAttachment_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgRemovePostAttachment","value":{"attachment_id":1,"editor":"cosmos13t6y2nnugtshwuy0zkrq287a95lyy8vzleaxmd","post_id":"1","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgRemovePostAttachment","value":{"attachment_id":1,"editor":"cosmos13t6y2nnugtshwuy0zkrq287a95lyy8vzleaxmd","post_id":"1","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgRemovePostAttachment.GetSignBytes()))
 }
 
@@ -608,7 +608,7 @@ func TestMsgDeletePost_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgDeletePost_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgDeletePost","value":{"post_id":"1","signer":"cosmos13t6y2nnugtshwuy0zkrq287a95lyy8vzleaxmd","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgDeletePost","value":{"post_id":"1","signer":"cosmos13t6y2nnugtshwuy0zkrq287a95lyy8vzleaxmd","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgDeletePost.GetSignBytes()))
 }
 
@@ -727,7 +727,7 @@ func TestMsgAnswerPoll_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgAnswerPoll_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgAnswerPoll","value":{"answers_indexes":[1,2,3],"poll_id":1,"post_id":"1","signer":"cosmos13t6y2nnugtshwuy0zkrq287a95lyy8vzleaxmd","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgAnswerPoll","value":{"answers_indexes":[1,2,3],"poll_id":1,"post_id":"1","signer":"cosmos13t6y2nnugtshwuy0zkrq287a95lyy8vzleaxmd","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgAnswerPoll.GetSignBytes()))
 }
 

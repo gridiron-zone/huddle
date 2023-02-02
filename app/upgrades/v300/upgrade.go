@@ -7,9 +7,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 
-	"github.com/desmos-labs/desmos/v4/app/upgrades"
-	relationshipstypes "github.com/desmos-labs/desmos/v4/x/relationships/types"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/app/upgrades"
+	relationshipstypes "github.com/gridiron-zone/huddle/x/relationships/types"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 var (
@@ -55,7 +55,7 @@ func (u *Upgrade) StoreUpgrades() *storetypes.StoreUpgrades {
 		},
 
 		// The subspaces key is here because it was already registered (due to an error) inside v2.3.1
-		// https://github.com/desmos-labs/desmos/blob/v2.3.1/app/app.go#L270
+		// https://github.com/gridiron-zone/huddle/blob/v2.3.1/app/app.go#L270
 		Renamed: []storetypes.StoreRename{
 			{
 				OldKey: "subspaces",

@@ -11,8 +11,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/version"
 	"github.com/spf13/cobra"
 
-	"github.com/desmos-labs/desmos/v4/x/reports/types"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/x/reports/types"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 // NewTxCmd returns a new command to perform reports transactions
@@ -48,7 +48,7 @@ To report a user, --%s must be used.
 To report a post, --%s must be used instead.`, FlagUser, FlagPostID),
 		Example: fmt.Sprintf(`
 %[1]s tx reports report 1 1,2,3 \
-  --%s desmos1cs0gu6006rz9wnmltjuhnuz8k3a2wg6jzmmgyu \
+  --%s huddle1cs0gu6006rz9wnmltjuhnuz8k3a2wg6jzmmgyu \
   --message "This user is spammer" \
   --from alice
 

@@ -8,8 +8,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	v2 "github.com/desmos-labs/desmos/v4/x/posts/legacy/v2"
-	"github.com/desmos-labs/desmos/v4/x/posts/types"
+	v2 "github.com/gridiron-zone/huddle/x/posts/legacy/v2"
+	"github.com/gridiron-zone/huddle/x/posts/types"
 )
 
 // MigrateStore performs in-place store migrations from v2 to v3.

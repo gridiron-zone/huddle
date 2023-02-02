@@ -11,7 +11,7 @@ The fees module contains the following parameters:
 
 | Key     | Type     | Example                                                                                                         |
 |---------|----------|-----------------------------------------------------------------------------------------------------------------|
-| MinFees | []MinFee | `[{ "message_type": "/desmos.profiles.v2.SaveProfile", "amount": [ { "amount": "100", "denom": "tokenA" } ] }]` |
+| MinFees | []MinFee | `[{ "message_type": "/huddle.profiles.v2.SaveProfile", "amount": [ { "amount": "100", "denom": "tokenA" } ] }]` |
 
 ## MinFees 
 The `MinFees` is an array of `MinFee` object, each one made of two different fields: 

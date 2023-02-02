@@ -8,7 +8,7 @@ slug: overview
 # `x/profiles`
 
 ## Abstract 
-This document specifies the profiles module of Desmos.  
+This document specifies the profiles module of Huddle.  
 
 This module allows the creation and management of an on-chain social profile that can be connected to external chains and services.
 

@@ -11,10 +11,10 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/desmos-labs/desmos/v4/app"
-	"github.com/desmos-labs/desmos/v4/testutil/profilestesting"
-	"github.com/desmos-labs/desmos/v4/x/profiles/client/utils"
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/app"
+	"github.com/gridiron-zone/huddle/testutil/profilestesting"
+	"github.com/gridiron-zone/huddle/x/profiles/client/utils"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 func TestParseLinkAccountJSON(t *testing.T) {

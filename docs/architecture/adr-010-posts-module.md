@@ -14,11 +14,11 @@ ACCEPTED Implemented
 
 ## Abstract
 
-This ADR contains the definition of the `x/posts` module which will allow users to post text contents inside Desmos  subspaces.
+This ADR contains the definition of the `x/posts` module which will allow users to post text contents inside Huddle  subspaces.
 
 ## Context
 
-As Desmos is thought to be a protocol to build decentralized socially-enabled applications (or social networks), one of the main features that we MUST make sure exists is the ability for users to create content inside such social networks. When designing this feature, we SHOULD consider the following:
+As Huddle is thought to be a protocol to build decentralized socially-enabled applications (or social networks), one of the main features that we MUST make sure exists is the ability for users to create content inside such social networks. When designing this feature, we SHOULD consider the following:
 
 1. a post will always be submitted inside a _subspace_;
 2. a post should allow to specify the minimum amount of information so that any DApp can make use of them;
@@ -448,27 +448,27 @@ syntax = "proto3";
 service Query {
   // Posts queries all the posts inside a given subspace
   rpc Posts(QueryPostsRequest) returns (QueryPostsResponse) {
-    option (google.api.http).get = "/desmos/posts/v1/{subspace_id}/posts";
+    option (google.api.http).get = "/huddle/posts/v1/{subspace_id}/posts";
   }
   
   // Post queries for a single post inside a given subspace
   rpc Post(QueryPostRequest) returns (QueryPostResponse) {
-    option (google.api.http).get = "/desmos/posts/v1/{subspace_id}/posts/{post_id}";
+    option (google.api.http).get = "/huddle/posts/v1/{subspace_id}/posts/{post_id}";
   }
   
   // PostAttachments queries the attachments of the post having the given id
   rpc PostAttachments(QueryPostAttachmentsRequest) returns (QueryPostAttachmentsResponse) {
-    option (google.api.http).get = "/desmos/posts/v1/{subspace_id}/posts/{post_id}/attachments";
+    option (google.api.http).get = "/huddle/posts/v1/{subspace_id}/posts/{post_id}/attachments";
   }
   
   // PollAnswers queries the answers for the poll having the given id
   rpc PollAnswers(QueryPollAnswersRequest) returns (QueryPollAnswersResponse) {
-    option (google.api.http).get = "/desmos/posts/v1/{subspace_id}/posts/{post_id}/polls/{poll_id}/answers";
+    option (google.api.http).get = "/huddle/posts/v1/{subspace_id}/posts/{post_id}/polls/{poll_id}/answers";
   }
   
   // Params queries the module parameters
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/desmos/posts/v1/params";
+    option (google.api.http).get = "/huddle/posts/v1/params";
   }
 }
 

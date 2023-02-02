@@ -8,7 +8,7 @@ slug: overview
 # `x/posts`
 
 ## Abstract 
-This document specifies the posts module of Desmos.  
+This document specifies the posts module of Huddle.  
 
 This module allows the creation and management of on-chain contents in the form of posts that can be enriched with different
 kind of data.

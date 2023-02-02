@@ -19,7 +19,7 @@ The relationships module emits the following events:
 | create_relationship | counterparty  | {counterpartyAddress}                          |
 | create_relationship | subspace      | {subspaceID}                                   |
 | message             | module        | relationships                                  |
-| message             | action        | /desmos.relationships.v1.MsgCreateRelationship |
+| message             | action        | /huddle.relationships.v1.MsgCreateRelationship |
 | message             | sender        | {userAddress}                                  |
 
 ### MsgDeleteRelationship
@@ -30,7 +30,7 @@ The relationships module emits the following events:
 | delete_relationship | counterparty  | {counterpartyAddress}                          |
 | delete_relationship | subspace      | {subspaceID}                                   |
 | message             | module        | relationships                                  |
-| message             | action        | /desmos.relationships.v1.MsgDeleteRelationship |
+| message             | action        | /huddle.relationships.v1.MsgDeleteRelationship |
 | message             | sender        | {userAddress}                                  |
 
 ### MsgBlockUser
@@ -41,7 +41,7 @@ The relationships module emits the following events:
 | block_user | blocked       | {blockedAddress}                      |
 | block_user | subspace      | {subspaceID}                          |
 | message    | module        | relationships                         |
-| message    | action        | /desmos.relationships.v1.MsgBlockUser |
+| message    | action        | /huddle.relationships.v1.MsgBlockUser |
 | message    | sender        | {userAddress}                         |
 
 ### MsgUnblockUser
@@ -52,5 +52,5 @@ The relationships module emits the following events:
 | unblock_user | blocked       | {blockedAddress}                        |
 | unblock_user | subspace      | {subspaceID}                            |
 | message      | module        | relationships                           |
-| message      | action        | /desmos.relationships.v1.MsgUnblockUser |
+| message      | action        | /huddle.relationships.v1.MsgUnblockUser |
 | message      | sender        | {userAddress}                           |

@@ -10,7 +10,7 @@ slug: state-sync
 The following seed nodes are to be used when configuring a full node for the **testnet**. If you are looking for mainnet seed nodes, please refer to [this](../../06-mainnet/03-state-sync.md) instead.
 :::
 
-In order to use this feature, you will have to edit a couple of things inside your `~/.desmos/config/config.toml` file,
+In order to use this feature, you will have to edit a couple of things inside your `~/.huddle/config/config.toml` file,
 under the `statesync` section:
 
 1. Enable state sync by setting `enable=true`;
@@ -34,10 +34,10 @@ under the `statesync` section:
        ```
       
 4. Now that you have a trusted height and block hash, use those values as the `trust_height` and `trust_hash` values. 
-   Also, make sure they're the right values for the Desmos version you're starting to synchronize.
+   Also, make sure they're the right values for the Huddle version you're starting to synchronize.
    You can check them looking inside the associated testnet folder [here](https://github.com/desmos-labs/morpheus).
 
-Here is an example of what the `statesync` section of your `~/.desmos/config/config.toml` file should look like in the end (the `trust_height` and `trust_hash` should contain your values instead):
+Here is an example of what the `statesync` section of your `~/.huddle/config/config.toml` file should look like in the end (the `trust_height` and `trust_hash` should contain your values instead):
 
 ```toml
 enable = true
@@ -48,7 +48,7 @@ trust_hash = "<block-hash>"
 trust_period = "336h0m0s"
 ```
 
-5. Add peers to `~/.desmos/config/config.toml` file:
+5. Add peers to `~/.huddle/config/config.toml` file:
 
  ```toml
 persistent_peers = "<peer-node-id-1>@<peer-address-1>:26656,<peer-node-id-2>@<peer-node-address-2>:26656",...."

@@ -5,7 +5,7 @@ package simulation
 import (
 	"math/rand"
 
-	feeskeeper "github.com/desmos-labs/desmos/v4/x/fees/keeper"
+	feeskeeper "github.com/gridiron-zone/huddle/x/fees/keeper"
 
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
@@ -14,8 +14,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sim "github.com/cosmos/cosmos-sdk/x/simulation"
 
-	"github.com/desmos-labs/desmos/v4/app/params"
-	"github.com/desmos-labs/desmos/v4/x/profiles/keeper"
+	"github.com/gridiron-zone/huddle/app/params"
+	"github.com/gridiron-zone/huddle/x/profiles/keeper"
 )
 
 // Simulation operation weights constants

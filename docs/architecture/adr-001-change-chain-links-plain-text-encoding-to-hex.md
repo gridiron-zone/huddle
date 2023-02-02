@@ -20,7 +20,7 @@ that it's impossible to verify correctly.
 ## Context
 
 The `x/profiles` module gives users the possibility to link their profile to some external account(s), either centralized applications 
-(eg. GitHub, Reddit, Twitter) or other blockchains (eg. Cosmos, Solana, Polkadot). When linking a Desmos profile to any of these accounts, 
+(eg. GitHub, Reddit, Twitter) or other blockchains (eg. Cosmos, Solana, Polkadot). When linking a Huddle profile to any of these accounts, 
 we use a signature-based authentication process in order to make sure that the user controls such accounts. In both the applications 
 and chains links, we currently expect the user to use the UTF-8 encoding when sending over the plain text used to create the signature. 
 However, since the UTF-8 encoding is not able to correctly represent all bytes, there might be cases in which we end up with a signature 
@@ -127,7 +127,7 @@ func (r Result_Success_) Validate() error {
 }
 ```
 
-Besides, we also need to change the function that is currently used by users to generate the signature using the Desmos CLI to 
+Besides, we also need to change the function that is currently used by users to generate the signature using the Huddle CLI to 
 make sure it returns the plain text using the HEX encoding:
 ```go
 // GetSignCmd returns the command allowing to sign an arbitrary value for later verification
@@ -196,5 +196,5 @@ As a result, this feature is backwards compatible.
 
 ## References
 
-- Issue [#636](https://github.com/desmos-labs/desmos/issues/636)
+- Issue [#636](https://github.com/gridiron-zone/huddle/issues/636)
 - [The basics of UTF-8](https://www.codeguru.com/cplusplus/the-basics-of-utf-8/)

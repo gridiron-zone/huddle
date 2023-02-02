@@ -16,19 +16,19 @@ A user can query and interact with the `reports` module using the CLI.
 The `query` commands allow users to query the `reports` state.
 
 ```
-desmos query reports --help
+huddle query reports --help
 ```
 
 #### report
 The `report` query command allows users to get the report with the given id inside the given subspace id.
 
 ```bash
- desmos query reports report [subspace-id] [report-id] [flags]
+ huddle query reports report [subspace-id] [report-id] [flags]
 ```
 
 Example:
 ```bash
- desmos query reports report 1 1
+ huddle query reports report 1 1
 ```
 
 Example output:
@@ -39,10 +39,10 @@ report:
   message: This is a test report
   reasons_ids:
   - 1
-  reporter: desmos1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3
+  reporter: huddle1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3
   subspace_id: "1"
   target:
-    '@type': /desmos.reports.v1.PostTarget
+    '@type': /huddle.reports.v1.PostTarget
     post_id: "1"
 ```
 
@@ -50,12 +50,12 @@ report:
 The `reports` query command allows users to get all the reports inside the subspace with the given id.
 
 ```bash
-desmos query reports reports [subspace-id] [flags]
+huddle query reports reports [subspace-id] [flags]
 ```
 
 Example:
 ```bash
-desmos query reports reports 1 --page=1 --limit=100
+huddle query reports reports 1 --page=1 --limit=100
 ```
 
 Example output:
@@ -69,10 +69,10 @@ reports:
   message: This is a test report
   reasons_ids:
   - 1
-  reporter: desmos1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3
+  reporter: huddle1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3
   subspace_id: "1"
   target:
-    '@type': /desmos.reports.v1.PostTarget
+    '@type': /huddle.reports.v1.PostTarget
     post_id: "1"
 ```
 
@@ -80,12 +80,12 @@ reports:
 The `reason` query command allows users to get the reason with the given id inside the subspace with the given id.
 
 ```bash
-desmos query reports reason [subspace-id] [reason-id] [flags]
+huddle query reports reason [subspace-id] [reason-id] [flags]
 ```
 
 Example:
 ```bash
-desmos query reports reason 1 1
+huddle query reports reason 1 1
 ```
 
 Example output:
@@ -101,12 +101,12 @@ reason:
 The `reasons` query command allows users to get all the reasons inside the subspace with the given id.
 
 ```bash
-desmos query reports reasons [subspace-id] [flags]
+huddle query reports reasons [subspace-id] [flags]
 ```
 
 Example:
 ```bash
-desmos query reports reasons 1 --page=1 --limit=100
+huddle query reports reasons 1 --page=1 --limit=100
 ```
 
 Example output:
@@ -125,12 +125,12 @@ reasons:
 The `params` query command allows users to get the currently set parameters of the module.
 
 ```bash
-desmos query reports params [flags]
+huddle query reports params [flags]
 ```
 
 Example:
 ```bash
-desmos query reports params
+huddle query reports params
 ```
 
 Example output:
@@ -148,12 +148,12 @@ A user can query the `reports` module gRPC endpoints.
 The `Report` endpoint allows users to query a report given its ID and the ID of the subspace where its made.
 
 ```bash
-desmos.reports.v1.Query/Report
+huddle.reports.v1.Query/Report
 ```
 
 Example:
 ```bash
-grpcurl -plaintext -d '{"subspace_id":1, "report_id":1}' localhost:9090 desmos.reports.v1.Query/Report
+grpcurl -plaintext -d '{"subspace_id":1, "report_id":1}' localhost:9090 huddle.reports.v1.Query/Report
 ```
 
 Example output:
@@ -166,8 +166,8 @@ Example output:
       1
     ],
     "message": "This is a test report",
-    "reporter": "desmos1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3",
-    "target": {"@type":"/desmos.reports.v1.PostTarget","postId":"1"},
+    "reporter": "huddle1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3",
+    "target": {"@type":"/huddle.reports.v1.PostTarget","postId":"1"},
     "creationDate": "2022-07-01T10:11:09.229623Z"
   }
 }
@@ -177,12 +177,12 @@ Example output:
 The `Reports` endpoint allows users to query all the reports of the subspace with the given ID.
 
 ```bash
-desmos.reports.v1.Query/Reports
+huddle.reports.v1.Query/Reports
 ```
 
 Example:
 ```bash
-grpcurl -plaintext -d '{"subspace_id":1}' localhost:9090 desmos.reports.v1.Query/Reports
+grpcurl -plaintext -d '{"subspace_id":1}' localhost:9090 huddle.reports.v1.Query/Reports
 ```
 
 Example output:
@@ -196,8 +196,8 @@ Example output:
         1
       ],
       "message": "This is a test report",
-      "reporter": "desmos1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3",
-      "target": {"@type":"/desmos.reports.v1.PostTarget","postId":"1"},
+      "reporter": "huddle1rfv0f7mx7w9d3jv3h803u38vqym9ygg344asm3",
+      "target": {"@type":"/huddle.reports.v1.PostTarget","postId":"1"},
       "creationDate": "2022-07-01T10:11:09.229623Z"
     }
   ],
@@ -212,12 +212,12 @@ Example output:
 The `Reason` endpoint allows users to query the reason given its ID and the ID of the subspace where its made.
 
 ```bash
-desmos.reports.v1.Query/Reason
+huddle.reports.v1.Query/Reason
 ```
 
 Example:
 ```bash
-grpcurl -plaintext -d '{"subspace_id":1, "reason_id":1}' localhost:9090 desmos.reports.v1.Query/Reason 
+grpcurl -plaintext -d '{"subspace_id":1, "reason_id":1}' localhost:9090 huddle.reports.v1.Query/Reason 
 ```
 
 Example output:
@@ -236,12 +236,12 @@ Example output:
 The `Reasons` endpoint allows users to query all the reasons of the subspace with the given ID.
 
 ```bash
-desmos.reports.v1.Query/Reasons
+huddle.reports.v1.Query/Reasons
 ```
 
 Example:
 ```bash
-grpcurl -plaintext -d '{"subspace_id":1}' localhost:9090 desmos.reports.v1.Query/Reasons 
+grpcurl -plaintext -d '{"subspace_id":1}' localhost:9090 huddle.reports.v1.Query/Reasons 
 ```
 
 Example output:
@@ -265,12 +265,12 @@ Example output:
 The `Params` endpoint allows users to query the module's parameters.
 
 ```bash
-desmos.reports.v1.Query/Params
+huddle.reports.v1.Query/Params
 ```
 
 Example:
 ```bash
-grpcurl -plaintext localhost:9090 desmos.reports.v1.Query/Params 
+grpcurl -plaintext localhost:9090 huddle.reports.v1.Query/Params 
 ```
 
 Example output:
@@ -295,33 +295,33 @@ A user can query the `reports` module using REST endpoints.
 The `Report` endpoint allows users to query a report given its ID and the ID of the subspace where its made.
 
 ```
-/desmos/reports/v1/subspaces/{subspace_id}/reports
+/huddle/reports/v1/subspaces/{subspace_id}/reports
 ```
 
 ### Reports
 The `Reports` endpoint allows users to query all the reports of the subspace with the given ID.
 
 ```
-/desmos/reports/v1/subspaces/{subspace_id}/reports
+/huddle/reports/v1/subspaces/{subspace_id}/reports
 ```
 
 ### Reason
 The `Reason` endpoint allows users to query the reason given its ID and the ID of the subspace where its made.
 
 ```
-/desmos/reports/v1/subspaces/{subspace_id}/reasons/{reason_id}
+/huddle/reports/v1/subspaces/{subspace_id}/reasons/{reason_id}
 ```
 
 ### Reasons
 The `Reasons` endpoint allows users to query all the reasons of the subspace with the given ID.
 
 ```
-/desmos/reports/v1/subspaces/{subspace_id}/reasons
+/huddle/reports/v1/subspaces/{subspace_id}/reasons
 ```
 
 ### Params
 The `Params` endpoint allows users to query the module's parameters.
 
 ```
-/desmos/reports/v1/params
+/huddle/reports/v1/params
 ```

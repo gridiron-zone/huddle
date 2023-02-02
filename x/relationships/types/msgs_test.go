@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/desmos-labs/desmos/v4/x/relationships/types"
+	"github.com/gridiron-zone/huddle/x/relationships/types"
 
 	"github.com/stretchr/testify/require"
 )
@@ -79,7 +79,7 @@ func TestMsgCreateRelationship_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgCreateRelationship_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgCreateRelationship","value":{"counterparty":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","signer":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgCreateRelationship","value":{"counterparty":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","signer":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgCreateRelationship.GetSignBytes()))
 }
 
@@ -159,7 +159,7 @@ func TestMsgDeleteRelationships_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgDeleteRelationships_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgDeleteRelationship","value":{"counterparty":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","signer":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns","subspace_id":"1"}}`
+	expected := `{"type":"huddle/MsgDeleteRelationship","value":{"counterparty":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","signer":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns","subspace_id":"1"}}`
 	require.Equal(t, expected, string(msgDeleteRelationships.GetSignBytes()))
 }
 
@@ -243,7 +243,7 @@ func TestMsgBlockUser_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgBlockUser_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgBlockUser","value":{"blocked":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","blocker":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns","reason":"reason"}}`
+	expected := `{"type":"huddle/MsgBlockUser","value":{"blocked":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","blocker":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns","reason":"reason"}}`
 	require.Equal(t, expected, string(msgBlockUser.GetSignBytes()))
 }
 
@@ -327,7 +327,7 @@ func TestMsgUnblockUser_ValidateBasic(t *testing.T) {
 }
 
 func TestMsgUnblockUser_GetSignBytes(t *testing.T) {
-	expected := `{"type":"desmos/MsgUnblockUser","value":{"blocked":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","blocker":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns"}}`
+	expected := `{"type":"huddle/MsgUnblockUser","value":{"blocked":"cosmos1y54exmx84cqtasvjnskf9f63djuuj68p7hqf47","blocker":"cosmos1cjf97gpzwmaf30pzvaargfgr884mpp5ak8f7ns"}}`
 	require.Equal(t, expected, string(msgUnblockUser.GetSignBytes()))
 }
 

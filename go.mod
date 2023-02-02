@@ -1,4 +1,4 @@
-module github.com/desmos-labs/desmos/v4
+module github.com/gridiron-zone/huddle
 
 go 1.18
 
@@ -270,17 +270,17 @@ require (
 replace (
 	github.com/99designs/keyring => github.com/cosmos/keyring v1.2.0
 
-	// Our wasmd branch is: https://github.com/desmos-labs/wasmd v0.28.x-desmos
-	github.com/CosmWasm/wasmd => github.com/desmos-labs/wasmd v0.29.0-desmos.2
+	// Our wasmd branch is: https://github.com/desmos-labs/wasmd v0.28.x-huddle
+	github.com/CosmWasm/wasmd => github.com/desmos-labs/wasmd v0.29.0-huddle.2
 
 	// Fixes Dragonberry
 	github.com/confio/ics23/go => github.com/cosmos/cosmos-sdk/ics23/go v0.8.0
 
-	// Our cosmos-sdk branch is: https://github.com/desmos-labs/cosmos-sdk v0.45.x-desmos
-	github.com/cosmos/cosmos-sdk => github.com/desmos-labs/cosmos-sdk v0.45.11-desmos
+	// Our cosmos-sdk branch is: https://github.com/desmos-labs/cosmos-sdk v0.45.x-huddle
+	github.com/cosmos/cosmos-sdk => github.com/desmos-labs/cosmos-sdk v0.45.11-huddle
 
-	// Replace the Cosmos Ledger app with the Desmos fork
-	github.com/cosmos/ledger-cosmos-go => github.com/desmos-labs/ledger-desmos-go v0.11.1-desmos
+	// Replace the Cosmos Ledger app with the Huddle fork
+	github.com/cosmos/ledger-cosmos-go => github.com/desmos-labs/ledger-huddle-go v0.11.1-huddle
 
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 

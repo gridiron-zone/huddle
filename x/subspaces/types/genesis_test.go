@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/x/subspaces/types"
 
 	"github.com/stretchr/testify/require"
 )

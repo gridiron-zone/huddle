@@ -7,9 +7,9 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	subspacetypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	subspacetypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 
-	"github.com/desmos-labs/desmos/v4/x/posts/types"
+	"github.com/gridiron-zone/huddle/x/posts/types"
 )
 
 // HasProfile returns true iff the given user has a profile, or an error if something is wrong.

@@ -14,12 +14,12 @@ As you know, the blockchain can be seen as a decentralized state machine that st
 To know more about transactions inside the cosmos-SDK based blockchains, check the documentation [here](https://docs.cosmos.network/main/core/transactions.html).
 
 ### What is a message?
-A (transaction) message is the method that allows you to specify which action(s) should be taken inside a transaction to change the current chain state. For example, inside Desmos we can use messages to tell the chain to create a profile, store a post, report a user, etc..
+A (transaction) message is the method that allows you to specify which action(s) should be taken inside a transaction to change the current chain state. For example, inside Huddle we can use messages to tell the chain to create a profile, store a post, report a user, etc..
 
-To know more about all the available messages inside Desmos Modules check the __Developers__ section.
+To know more about all the available messages inside Huddle Modules check the __Developers__ section.
 
 ### How do I send a transaction?
-Sending a transaction is pretty straight forward. All what you need to have is access to an instance of an HD wallet associated with a Desmos account having some `desmos` tokens inside. Once you have it, you simply need to: 
+Sending a transaction is pretty straight forward. All what you need to have is access to an instance of an HD wallet associated with a Huddle account having some `huddle` tokens inside. Once you have it, you simply need to: 
 
 1. Create the proper JSON object containing the message(s) that you want to send as well as the account information of the sender. 
 
@@ -49,7 +49,7 @@ If you want to know more about it, please refer to the [websocket page](05-obser
 
 ## Developing applications
 ### I wrongly did an operation. Can I revert it?
-Unfortunately, due to the nature of the blockchain itself we cannot allow to revert any operations that have been done. For example, once you send a post to Desmos, it will stay there forever and everyone will be able to read it as it appeared when created. 
+Unfortunately, due to the nature of the blockchain itself we cannot allow to revert any operations that have been done. For example, once you send a post to Huddle, it will stay there forever and everyone will be able to read it as it appeared when created. 
 Even if you edit or delete a post, the original one will always be inside the chain's history and people will be able to see that you made some changes. It's like trying to edit something that is public and written in a stone that cannot be destroyed. 
 
 For this reason, we suggest you to take **all the possible precautions** before sending any transaction to the chain. 

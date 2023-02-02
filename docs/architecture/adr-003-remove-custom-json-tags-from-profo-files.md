@@ -69,4 +69,4 @@ These changes will not produce any backwards compatibility problem.
 
 ## References
 
-- Issue [#644](https://github.com/desmos-labs/desmos/issues/644)
+- Issue [#644](https://github.com/gridiron-zone/huddle/issues/644)

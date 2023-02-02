@@ -26,5 +26,5 @@ Mgoogle/protobuf/any.proto=github.com/cosmos/cosmos-sdk/codec/types:. \
 done
 
 # move proto files to the right places
-cp -r github.com/desmos-labs/desmos/v4/* ./
+cp -r github.com/gridiron-zone/huddle/* ./
 rm -rf github.com

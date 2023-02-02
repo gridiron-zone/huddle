@@ -7,12 +7,12 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	poststypes "github.com/desmos-labs/desmos/v4/x/posts/types"
-	profilestypes "github.com/desmos-labs/desmos/v4/x/profiles/types"
-	reactionstypes "github.com/desmos-labs/desmos/v4/x/reactions/types"
-	relationshipstypes "github.com/desmos-labs/desmos/v4/x/relationships/types"
-	reportstypes "github.com/desmos-labs/desmos/v4/x/reports/types"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	poststypes "github.com/gridiron-zone/huddle/x/posts/types"
+	profilestypes "github.com/gridiron-zone/huddle/x/profiles/types"
+	reactionstypes "github.com/gridiron-zone/huddle/x/reactions/types"
+	relationshipstypes "github.com/gridiron-zone/huddle/x/relationships/types"
+	reportstypes "github.com/gridiron-zone/huddle/x/reports/types"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 const (

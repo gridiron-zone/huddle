@@ -8,7 +8,7 @@ slug: concepts
 # Concepts 
 
 ## Report
-A report represents the way that users have to report misbehaving users or bad contents inside Desmos. 
+A report represents the way that users have to report misbehaving users or bad contents inside Huddle. 
 Each report contains the necessary information to identify the target and reason that lead to its creation.
 
 ### Subspace ID

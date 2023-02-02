@@ -8,10 +8,10 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/desmos-labs/desmos/v4/app"
-	profilestypes "github.com/desmos-labs/desmos/v4/x/profiles/types"
-	"github.com/desmos-labs/desmos/v4/x/reports/types"
-	"github.com/desmos-labs/desmos/v4/x/reports/wasm"
+	"github.com/gridiron-zone/huddle/app"
+	profilestypes "github.com/gridiron-zone/huddle/x/profiles/types"
+	"github.com/gridiron-zone/huddle/x/reports/types"
+	"github.com/gridiron-zone/huddle/x/reports/wasm"
 )
 
 func TestMsgsParser_ParseCustomMsgs(t *testing.T) {

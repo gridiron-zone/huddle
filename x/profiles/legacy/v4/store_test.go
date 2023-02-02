@@ -5,16 +5,16 @@ import (
 	"testing"
 	"time"
 
-	v4 "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v4"
-	types2 "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v4/types"
-	v5types "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v5/types"
+	v4 "github.com/gridiron-zone/huddle/x/profiles/legacy/v4"
+	types2 "github.com/gridiron-zone/huddle/x/profiles/legacy/v4/types"
+	v5types "github.com/gridiron-zone/huddle/x/profiles/legacy/v5/types"
 
 	"github.com/cosmos/cosmos-sdk/types/tx"
 	"github.com/cosmos/cosmos-sdk/types/tx/signing"
 	"github.com/cosmos/cosmos-sdk/x/auth/legacy/legacytx"
 
-	"github.com/desmos-labs/desmos/v4/testutil/profilestesting"
-	profilestypes "github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/testutil/profilestesting"
+	profilestypes "github.com/gridiron-zone/huddle/x/profiles/types"
 
 	"github.com/cosmos/cosmos-sdk/store"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
@@ -30,8 +30,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/desmos-labs/desmos/v4/app"
-	v4types "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v4/types"
+	"github.com/gridiron-zone/huddle/app"
+	v4types "github.com/gridiron-zone/huddle/x/profiles/legacy/v4/types"
 )
 
 func buildContext(

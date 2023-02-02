@@ -17,7 +17,7 @@ All the live data observation is done though the usage of a [websocket](https://
 ws://lcd-endpoint/websocket
 
 # Example
-# ws://morpheus.desmos.network/websocket
+# ws://morpheus.huddle.network/websocket
 ```
 
 ### Events

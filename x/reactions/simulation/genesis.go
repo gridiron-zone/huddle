@@ -8,11 +8,11 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 
-	postssim "github.com/desmos-labs/desmos/v4/x/posts/simulation"
-	poststypes "github.com/desmos-labs/desmos/v4/x/posts/types"
-	"github.com/desmos-labs/desmos/v4/x/reactions/types"
-	subspacessim "github.com/desmos-labs/desmos/v4/x/subspaces/simulation"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	postssim "github.com/gridiron-zone/huddle/x/posts/simulation"
+	poststypes "github.com/gridiron-zone/huddle/x/posts/types"
+	"github.com/gridiron-zone/huddle/x/reactions/types"
+	subspacessim "github.com/gridiron-zone/huddle/x/subspaces/simulation"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 // RandomizedGenState generates a random GenesisState

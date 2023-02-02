@@ -1,7 +1,7 @@
 {
   "name": "docs",
   "version": "0.1.0",
-  "description": "Desmos documentation",
+  "description": "Huddle documentation",
   "main": "index.js",
   "scripts": {
     "docs:serve": "vuepress dev docs",

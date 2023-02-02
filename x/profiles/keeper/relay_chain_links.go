@@ -8,16 +8,16 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 // OnRecvLinkChainAccountPacket processes the reception of a LinkChainAccountPacket
 // To be properly accepted, the packet must be created by signing two different things:
 //
-// 1. the source proof, which is obtained by signing the destination (Desmos) address using the
+// 1. the source proof, which is obtained by signing the destination (Huddle) address using the
 //    private key of the external chain account;
 // 2. the destination proof, which is obtained by signing the external chain address using the
-//    private key of the Desmos address for which the link should be created.
+//    private key of the Huddle address for which the link should be created.
 //
 // This way we can make sure the user owns both private keys and no one is trying to pull a replay attack.
 func (k Keeper) OnRecvLinkChainAccountPacket(

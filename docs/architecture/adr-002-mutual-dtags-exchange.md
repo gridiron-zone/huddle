@@ -153,4 +153,4 @@ The following tests cases needs to be added:
 
 ## References
 
-- Issue [#643](https://github.com/desmos-labs/desmos/issues/643)
+- Issue [#643](https://github.com/gridiron-zone/huddle/issues/643)

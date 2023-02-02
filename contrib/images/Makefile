@@ -1,19 +1,19 @@
-desmos-env:
-	docker build --build-arg UID=$(shell id -u) --build-arg GID=$(shell id -g) --tag desmoslabs/desmos-env desmos-env
+huddle-env:
+	docker build --build-arg UID=$(shell id -u) --build-arg GID=$(shell id -g) --tag huddlelabs/huddle-env huddle-env
 
-desmos-python:
-	docker build --tag desmoslabs/desmos-python desmos-python
+huddle-python:
+	docker build --tag huddlelabs/huddle-python huddle-python
 
-desmos-cosmovisor:
+huddle-cosmovisor:
 	docker build \
 		--build-arg UID=$(shell id -u) --build-arg GID=$(shell id -g) \
-		--build-arg DESMOS_VERSION=$(DESMOS_VERSION) \
-		--tag desmoslabs/desmos-cosmovisor:$(DESMOS_VERSION) \
-		desmos-cosmovisor
+		--build-arg HUDDLE_VERSION=$(HUDDLE_VERSION) \
+		--tag huddlelabs/huddle-cosmovisor:$(HUDDLE_VERSION) \
+		huddle-cosmovisor
 
-desmos-builder:
-	docker build --tag desmoslabs/builder -f desmos-builder/Dockerfile $(CONTEXT)
+huddle-builder:
+	docker build --tag huddlelabs/builder -f huddle-builder/Dockerfile $(CONTEXT)
 
-all: desmos-env desmos-python desmos-cosmovisor desmos-builder
+all: huddle-env huddle-python huddle-cosmovisor huddle-builder
 
-.PHONY: all desmos-env desmos-python desmos-cosmovisor desmos-builder
+.PHONY: all huddle-env huddle-python huddle-cosmovisor huddle-builder

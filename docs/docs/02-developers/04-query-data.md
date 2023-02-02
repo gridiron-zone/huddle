@@ -6,7 +6,7 @@ slug: query-data
 ---
 
 # Query data
-Inside Desmos it is possible to query data in 4 different ways:
+Inside Huddle it is possible to query data in 4 different ways:
 1. With the `CLI` directly from terminal.
 2. With the `REST` endpoint directly from a full node.
 3. With the `gRPC` endpoint directly from a full node.
@@ -25,7 +25,7 @@ To query data using `CLI`, you can check the following commands of each module:
 * [Fees CLI commands](02-modules/fees/06-client.md#cli).
 
 :::info
-To be able to perform the above queries, you need to have the desmos daemon installed.
+To be able to perform the above queries, you need to have the huddle daemon installed.
 Check the full node [setup section](../03-fullnode/02-setup.md#1-build-the-software) to know how.
 :::
 
@@ -61,8 +61,8 @@ The above endpoints can be used with the following endpoints to get the desired 
 * [Fees REST endpoints](02-modules/fees/06-client.md#rest).
 
 ## GQL
-Another way to query the Desmos data is GQL. GQL is different from the above methods because it offers high possibilities of customisation for developers based on their needs. It is possible to interact with GQL endpoints in the client you are building by using one of the many libraries available for this kind of interaction. You can check what suites your needs here: [GraphQL resources](https://graphql.org/code/).
+Another way to query the Huddle data is GQL. GQL is different from the above methods because it offers high possibilities of customisation for developers based on their needs. It is possible to interact with GQL endpoints in the client you are building by using one of the many libraries available for this kind of interaction. You can check what suites your needs here: [GraphQL resources](https://graphql.org/code/).
 
-The GQL endpoints for Desmos chains are the following:
+The GQL endpoints for Huddle chains are the following:
 1. [Testnet GQL endpoint](../05-testnet/05-endpoints.md#gql)
 2. [Mainnet GQL endpoint](../06-mainnet/06-endpoints.md#gql)

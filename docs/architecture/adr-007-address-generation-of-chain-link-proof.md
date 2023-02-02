@@ -11,7 +11,7 @@ PROPOSED
 
 ## Abstract
 
-Currently, Desmos allows linking other chains accounts which addresses are formatted using either the `Bech32`, `Base58` or `Hex` encoding and generated using a single algorithm specific to the encoding itself. Since Desmos idea is to support as many chains as possible, we SHOULD split the address generation algorithm from the encoding algorithm so that more chains can be linked properly.
+Currently, Huddle allows linking other chains accounts which addresses are formatted using either the `Bech32`, `Base58` or `Hex` encoding and generated using a single algorithm specific to the encoding itself. Since Huddle idea is to support as many chains as possible, we SHOULD split the address generation algorithm from the encoding algorithm so that more chains can be linked properly.
 
 ## Context
 
@@ -159,4 +159,4 @@ Since this update will affect all the instances of `AddressData` by completely c
 - [Solana address](https://docs.solana.com/terminology#account)
 - [Elrond address](https://docs.elrond.com/technology/glossary/)
 - [Polkadot address](https://wiki.polkadot.network/docs/learn-accounts#address-format)
-- Issue [#724](https://github.com/desmos-labs/desmos/issues/724).
+- Issue [#724](https://github.com/gridiron-zone/huddle/issues/724).

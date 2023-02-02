@@ -8,37 +8,37 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/desmos-labs/desmos/v4/x/reactions"
-	reactionstypes "github.com/desmos-labs/desmos/v4/x/reactions/types"
+	"github.com/gridiron-zone/huddle/x/reactions"
+	reactionstypes "github.com/gridiron-zone/huddle/x/reactions/types"
 
-	postskeeper "github.com/desmos-labs/desmos/v4/x/posts/keeper"
-	poststypes "github.com/desmos-labs/desmos/v4/x/posts/types"
+	postskeeper "github.com/gridiron-zone/huddle/x/posts/keeper"
+	poststypes "github.com/gridiron-zone/huddle/x/posts/types"
 
-	"github.com/desmos-labs/desmos/v4/app/upgrades"
-	v300 "github.com/desmos-labs/desmos/v4/app/upgrades/v300"
-	v310 "github.com/desmos-labs/desmos/v4/app/upgrades/v310"
-	v320 "github.com/desmos-labs/desmos/v4/app/upgrades/v320"
-	v4 "github.com/desmos-labs/desmos/v4/app/upgrades/v4"
-	v400 "github.com/desmos-labs/desmos/v4/app/upgrades/v400"
-	v410 "github.com/desmos-labs/desmos/v4/app/upgrades/v410"
-	v420 "github.com/desmos-labs/desmos/v4/app/upgrades/v420"
-	v430 "github.com/desmos-labs/desmos/v4/app/upgrades/v430"
-	v441 "github.com/desmos-labs/desmos/v4/app/upgrades/v441"
-	v450 "github.com/desmos-labs/desmos/v4/app/upgrades/v450"
-	v460 "github.com/desmos-labs/desmos/v4/app/upgrades/v460"
-	v470 "github.com/desmos-labs/desmos/v4/app/upgrades/v470"
+	"github.com/gridiron-zone/huddle/app/upgrades"
+	v300 "github.com/gridiron-zone/huddle/app/upgrades/v300"
+	v310 "github.com/gridiron-zone/huddle/app/upgrades/v310"
+	v320 "github.com/gridiron-zone/huddle/app/upgrades/v320"
+	v4 "github.com/gridiron-zone/huddle/app/upgrades/v4"
+	v400 "github.com/gridiron-zone/huddle/app/upgrades/v400"
+	v410 "github.com/gridiron-zone/huddle/app/upgrades/v410"
+	v420 "github.com/gridiron-zone/huddle/app/upgrades/v420"
+	v430 "github.com/gridiron-zone/huddle/app/upgrades/v430"
+	v441 "github.com/gridiron-zone/huddle/app/upgrades/v441"
+	v450 "github.com/gridiron-zone/huddle/app/upgrades/v450"
+	v460 "github.com/gridiron-zone/huddle/app/upgrades/v460"
+	v470 "github.com/gridiron-zone/huddle/app/upgrades/v470"
 
-	profilesv4 "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v4"
+	profilesv4 "github.com/gridiron-zone/huddle/x/profiles/legacy/v4"
 
 	"github.com/cosmos/cosmos-sdk/version"
 
-	"github.com/desmos-labs/desmos/v4/x/posts"
-	"github.com/desmos-labs/desmos/v4/x/relationships"
-	relationshipstypes "github.com/desmos-labs/desmos/v4/x/relationships/types"
+	"github.com/gridiron-zone/huddle/x/posts"
+	"github.com/gridiron-zone/huddle/x/relationships"
+	relationshipstypes "github.com/gridiron-zone/huddle/x/relationships/types"
 
-	"github.com/desmos-labs/desmos/v4/x/fees"
-	feeskeeper "github.com/desmos-labs/desmos/v4/x/fees/keeper"
-	feestypes "github.com/desmos-labs/desmos/v4/x/fees/types"
+	"github.com/gridiron-zone/huddle/x/fees"
+	feeskeeper "github.com/gridiron-zone/huddle/x/fees/keeper"
+	feestypes "github.com/gridiron-zone/huddle/x/fees/types"
 
 	"github.com/cosmos/cosmos-sdk/x/auth/vesting"
 	vestingtypes "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
@@ -113,21 +113,21 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/upgrade"
 	upgradeclient "github.com/cosmos/cosmos-sdk/x/upgrade/client"
 
-	"github.com/desmos-labs/desmos/v4/x/profiles"
-	profileskeeper "github.com/desmos-labs/desmos/v4/x/profiles/keeper"
-	profilestypes "github.com/desmos-labs/desmos/v4/x/profiles/types"
-	reactionskeeper "github.com/desmos-labs/desmos/v4/x/reactions/keeper"
-	relationshipskeeper "github.com/desmos-labs/desmos/v4/x/relationships/keeper"
-	"github.com/desmos-labs/desmos/v4/x/reports"
-	reportskeeper "github.com/desmos-labs/desmos/v4/x/reports/keeper"
-	reportstypes "github.com/desmos-labs/desmos/v4/x/reports/types"
-	"github.com/desmos-labs/desmos/v4/x/subspaces"
-	subspaceskeeper "github.com/desmos-labs/desmos/v4/x/subspaces/keeper"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/x/profiles"
+	profileskeeper "github.com/gridiron-zone/huddle/x/profiles/keeper"
+	profilestypes "github.com/gridiron-zone/huddle/x/profiles/types"
+	reactionskeeper "github.com/gridiron-zone/huddle/x/reactions/keeper"
+	relationshipskeeper "github.com/gridiron-zone/huddle/x/relationships/keeper"
+	"github.com/gridiron-zone/huddle/x/reports"
+	reportskeeper "github.com/gridiron-zone/huddle/x/reports/keeper"
+	reportstypes "github.com/gridiron-zone/huddle/x/reports/types"
+	"github.com/gridiron-zone/huddle/x/subspaces"
+	subspaceskeeper "github.com/gridiron-zone/huddle/x/subspaces/keeper"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 
-	"github.com/desmos-labs/desmos/v4/x/supply"
-	supplykeeper "github.com/desmos-labs/desmos/v4/x/supply/keeper"
-	supplytypes "github.com/desmos-labs/desmos/v4/x/supply/types"
+	"github.com/gridiron-zone/huddle/x/supply"
+	supplykeeper "github.com/gridiron-zone/huddle/x/supply/keeper"
+	supplytypes "github.com/gridiron-zone/huddle/x/supply/types"
 
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
@@ -163,8 +163,8 @@ import (
 )
 
 const (
-	appName          = "Desmos"
-	Bech32MainPrefix = "desmos"
+	appName          = "Huddle"
+	Bech32MainPrefix = "huddle"
 
 	CoinType           = 852
 	FullFundraiserPath = "44'/852'/0'/0/0"
@@ -184,7 +184,7 @@ var (
 )
 
 // GetEnabledProposals parses the ProposalsEnabled / EnableSpecificProposals values to
-// produce a list of enabled proposals to pass into desmos app.
+// produce a list of enabled proposals to pass into huddle app.
 func GetEnabledProposals() []wasm.ProposalType {
 	if EnableSpecificProposals == "" {
 		if ProposalsEnabled == "true" {
@@ -217,7 +217,7 @@ func GetWasmOpts(
 		wasmOpts = append(wasmOpts, wasmkeeper.WithVMCacheMetrics(prometheus.DefaultRegisterer))
 	}
 
-	customQueryPlugin := NewDesmosCustomQueryPlugin(
+	customQueryPlugin := NewHuddleCustomQueryPlugin(
 		cdc,
 		profilesKeeper,
 		subspacesKeeper,
@@ -226,9 +226,9 @@ func GetWasmOpts(
 		reportsKeeper,
 		reactionsKeeper,
 	)
-	customMessageEncoder := NewDesmosCustomMessageEncoder(cdc)
+	customMessageEncoder := NewHuddleCustomMessageEncoder(cdc)
 
-	wasmOpts = append(wasmOpts, wasmkeeper.WithGasRegister(NewDesmosWasmGasRegister()))
+	wasmOpts = append(wasmOpts, wasmkeeper.WithGasRegister(NewHuddleWasmGasRegister()))
 	wasmOpts = append(wasmOpts, wasmkeeper.WithQueryPlugins(&customQueryPlugin))
 	wasmOpts = append(wasmOpts, wasmkeeper.WithMessageEncoders(&customMessageEncoder))
 
@@ -295,12 +295,12 @@ var (
 	}
 )
 
-var _ simapp.App = (*DesmosApp)(nil)
+var _ simapp.App = (*HuddleApp)(nil)
 
-// DesmosApp extends an ABCI application, but with most of its parameters exported.
+// HuddleApp extends an ABCI application, but with most of its parameters exported.
 // They are exported for convenience in creating helper functions, as object
 // capabilities aren't needed for testing.
-type DesmosApp struct {
+type HuddleApp struct {
 	*baseapp.BaseApp
 	legacyAmino       *codec.LegacyAmino
 	appCodec          codec.Codec
@@ -364,15 +364,15 @@ func init() {
 		panic(err)
 	}
 
-	DefaultNodeHome = filepath.Join(userHomeDir, ".desmos")
+	DefaultNodeHome = filepath.Join(userHomeDir, ".huddle")
 }
 
-// NewDesmosApp is a constructor function for DesmosApp
-func NewDesmosApp(
+// NewHuddleApp is a constructor function for HuddleApp
+func NewHuddleApp(
 	logger log.Logger, db dbm.DB, traceStore io.Writer, loadLatest bool, skipUpgradeHeights map[int64]bool,
 	homePath string, invCheckPeriod uint, encodingConfig simappparams.EncodingConfig,
 	appOpts servertypes.AppOptions, baseAppOptions ...func(*baseapp.BaseApp),
-) *DesmosApp {
+) *HuddleApp {
 
 	// TODO: Remove cdc in favor of appCodec once all modules are migrated.
 	appCodec := encodingConfig.Marshaler
@@ -401,7 +401,7 @@ func NewDesmosApp(
 	memKeys := sdk.NewMemoryStoreKeys(capabilitytypes.MemStoreKey)
 
 	// Here you initialize your application with the store keys it requires
-	var app = &DesmosApp{
+	var app = &HuddleApp{
 		BaseApp:           bApp,
 		legacyAmino:       legacyAmino,
 		appCodec:          appCodec,
@@ -926,7 +926,7 @@ func NewDesmosApp(
 	return app
 }
 
-// SetupConfig sets up the given config as it should be for Desmos
+// SetupConfig sets up the given config as it should be for Huddle
 func SetupConfig(config *sdk.Config) {
 	config.SetBech32PrefixForAccount(Bech32MainPrefix, Bech32MainPrefix+sdk.PrefixPublic)
 	config.SetBech32PrefixForValidator(Bech32MainPrefix+sdk.PrefixValidator+sdk.PrefixOperator, Bech32MainPrefix+sdk.PrefixValidator+sdk.PrefixOperator+sdk.PrefixPublic)
@@ -938,28 +938,28 @@ func SetupConfig(config *sdk.Config) {
 }
 
 // MakeCodecs constructs the *std.Codec and *codec.LegacyAmino instances used by
-// DesmosApp. It is useful for tests and clients who do not want to construct the
-// full DesmosApp
+// HuddleApp. It is useful for tests and clients who do not want to construct the
+// full HuddleApp
 func MakeCodecs() (codec.Codec, *codec.LegacyAmino) {
 	cfg := MakeTestEncodingConfig()
 	return cfg.Marshaler, cfg.Amino
 }
 
 // Name returns the name of the App
-func (app *DesmosApp) Name() string { return app.BaseApp.Name() }
+func (app *HuddleApp) Name() string { return app.BaseApp.Name() }
 
 // BeginBlocker application updates every begin block
-func (app *DesmosApp) BeginBlocker(ctx sdk.Context, req abci.RequestBeginBlock) abci.ResponseBeginBlock {
+func (app *HuddleApp) BeginBlocker(ctx sdk.Context, req abci.RequestBeginBlock) abci.ResponseBeginBlock {
 	return app.mm.BeginBlock(ctx, req)
 }
 
 // EndBlocker application updates every end block
-func (app *DesmosApp) EndBlocker(ctx sdk.Context, req abci.RequestEndBlock) abci.ResponseEndBlock {
+func (app *HuddleApp) EndBlocker(ctx sdk.Context, req abci.RequestEndBlock) abci.ResponseEndBlock {
 	return app.mm.EndBlock(ctx, req)
 }
 
 // InitChainer application update.md at chain initialization
-func (app *DesmosApp) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci.ResponseInitChain {
+func (app *HuddleApp) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci.ResponseInitChain {
 	var genesisState GenesisState
 	if err := json.Unmarshal(req.AppStateBytes, &genesisState); err != nil {
 		panic(err)
@@ -969,12 +969,12 @@ func (app *DesmosApp) InitChainer(ctx sdk.Context, req abci.RequestInitChain) ab
 }
 
 // LoadHeight loads a particular height
-func (app *DesmosApp) LoadHeight(height int64) error {
+func (app *HuddleApp) LoadHeight(height int64) error {
 	return app.LoadVersion(height)
 }
 
 // ModuleAccountAddrs returns all the app's module account addresses.
-func (app *DesmosApp) ModuleAccountAddrs() map[string]bool {
+func (app *HuddleApp) ModuleAccountAddrs() map[string]bool {
 	modAccAddrs := make(map[string]bool)
 	for acc := range maccPerms {
 		modAccAddrs[authtypes.NewModuleAddress(acc).String()] = true
@@ -987,7 +987,7 @@ func (app *DesmosApp) ModuleAccountAddrs() map[string]bool {
 //
 // NOTE: This is solely to be used for testing purposes as it may be desirable
 // for modules to register their own custom testing types.
-func (app *DesmosApp) LegacyAmino() *codec.LegacyAmino {
+func (app *HuddleApp) LegacyAmino() *codec.LegacyAmino {
 	return app.legacyAmino
 }
 
@@ -995,52 +995,52 @@ func (app *DesmosApp) LegacyAmino() *codec.LegacyAmino {
 //
 // NOTE: This is solely to be used for testing purposes as it may be desirable
 // for modules to register their own custom testing types.
-func (app *DesmosApp) AppCodec() codec.Codec {
+func (app *HuddleApp) AppCodec() codec.Codec {
 	return app.appCodec
 }
 
 // InterfaceRegistry returns SimApp's InterfaceRegistry
-func (app *DesmosApp) InterfaceRegistry() types.InterfaceRegistry {
+func (app *HuddleApp) InterfaceRegistry() types.InterfaceRegistry {
 	return app.interfaceRegistry
 }
 
 // GetKey returns the KVStoreKey for the provided store key.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *DesmosApp) GetKey(storeKey string) *sdk.KVStoreKey {
+func (app *HuddleApp) GetKey(storeKey string) *sdk.KVStoreKey {
 	return app.keys[storeKey]
 }
 
 // GetTKey returns the TransientStoreKey for the provided store key.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *DesmosApp) GetTKey(storeKey string) *sdk.TransientStoreKey {
+func (app *HuddleApp) GetTKey(storeKey string) *sdk.TransientStoreKey {
 	return app.tkeys[storeKey]
 }
 
 // GetMemKey returns the MemStoreKey for the provided mem key.
 //
 // NOTE: This is solely used for testing purposes.
-func (app *DesmosApp) GetMemKey(storeKey string) *sdk.MemoryStoreKey {
+func (app *HuddleApp) GetMemKey(storeKey string) *sdk.MemoryStoreKey {
 	return app.memKeys[storeKey]
 }
 
 // GetSubspace returns a param subspace for a given module name.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *DesmosApp) GetSubspace(moduleName string) paramstypes.Subspace {
+func (app *HuddleApp) GetSubspace(moduleName string) paramstypes.Subspace {
 	subspace, _ := app.ParamsKeeper.GetSubspace(moduleName)
 	return subspace
 }
 
 // SimulationManager implements the SimulationApp interface
-func (app *DesmosApp) SimulationManager() *module.SimulationManager {
+func (app *HuddleApp) SimulationManager() *module.SimulationManager {
 	return app.sm
 }
 
 // RegisterAPIRoutes registers all application module routes with the provided
 // API server.
-func (app *DesmosApp) RegisterAPIRoutes(apiSvr *api.Server, apiConfig config.APIConfig) {
+func (app *HuddleApp) RegisterAPIRoutes(apiSvr *api.Server, apiConfig config.APIConfig) {
 	clientCtx := apiSvr.ClientCtx
 	rpc.RegisterRoutes(clientCtx, apiSvr.Router)
 	// Register legacy tx routes.
@@ -1061,20 +1061,20 @@ func (app *DesmosApp) RegisterAPIRoutes(apiSvr *api.Server, apiConfig config.API
 }
 
 // RegisterTxService implements the Application.RegisterTxService method.
-func (app *DesmosApp) RegisterTxService(clientCtx client.Context) {
+func (app *HuddleApp) RegisterTxService(clientCtx client.Context) {
 	authtx.RegisterTxService(app.BaseApp.GRPCQueryRouter(), clientCtx, app.BaseApp.Simulate, app.interfaceRegistry)
 }
 
-func (app *DesmosApp) RegisterTendermintService(clientCtx client.Context) {
+func (app *HuddleApp) RegisterTendermintService(clientCtx client.Context) {
 	tmservice.RegisterTendermintService(app.BaseApp.GRPCQueryRouter(), clientCtx, app.interfaceRegistry)
 }
 
-func (app *DesmosApp) RegisterNodeService(clientCtx client.Context) {
+func (app *HuddleApp) RegisterNodeService(clientCtx client.Context) {
 	nodeservice.RegisterNodeService(clientCtx, app.GRPCQueryRouter())
 }
 
 // registerUpgradeHandlers registers all the upgrade handlers that are supported by the app
-func (app *DesmosApp) registerUpgradeHandlers() {
+func (app *HuddleApp) registerUpgradeHandlers() {
 	app.registerUpgrade(v300.NewUpgrade(app.mm, app.configurator))
 	app.registerUpgrade(v310.NewUpgrade(app.mm, app.configurator))
 	app.registerUpgrade(v320.NewUpgrade(app.mm, app.configurator))
@@ -1090,7 +1090,7 @@ func (app *DesmosApp) registerUpgradeHandlers() {
 }
 
 // registerUpgrade registers the given upgrade to be supported by the app
-func (app *DesmosApp) registerUpgrade(upgrade upgrades.Upgrade) {
+func (app *HuddleApp) registerUpgrade(upgrade upgrades.Upgrade) {
 	app.UpgradeKeeper.SetUpgradeHandler(upgrade.Name(), upgrade.Handler())
 
 	upgradeInfo, err := app.UpgradeKeeper.ReadUpgradeInfoFromDisk()

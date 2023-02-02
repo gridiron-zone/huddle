@@ -20,7 +20,7 @@ The subspaces module emits the following events:
 | create_subspace | subspace_creator  | {subspaceCreator}                     |
 | create_subspace | creation_date     | {subspaceCreationTime}                |
 | message         | module            | subspaces                             |
-| message         | action            | desmos.subspaces.v2.MsgCreateSubspace |
+| message         | action            | huddle.subspaces.v2.MsgCreateSubspace |
 | message         | sender            | {userAddress}                         |
 
 ### MsgEditSubspace
@@ -29,7 +29,7 @@ The subspaces module emits the following events:
 |:--------------|:------------------|:------------------------------------|
 | edit_subspace | subspace_id       | {subspaceID}                        |
 | message       | module            | subspaces                           |
-| message       | action            | desmos.subspaces.v2.MsgEditSubspace |
+| message       | action            | huddle.subspaces.v2.MsgEditSubspace |
 | message       | sender            | {userAddress}                       |
 
 
@@ -39,7 +39,7 @@ The subspaces module emits the following events:
 |:----------------|:------------------|:--------------------------------------|
 | delete_subspace | subspace_id       | {subspaceID}                          |
 | message         | module            | subspaces                             |
-| message         | action            | desmos.subspaces.v2.MsgDeleteSubspace |
+| message         | action            | huddle.subspaces.v2.MsgDeleteSubspace |
 | message         | sender            | {userAddress}                         |
 
 ### MsgCreateSection
@@ -49,7 +49,7 @@ The subspaces module emits the following events:
 | create_section | subspace_id       | {subspaceID}                         |
 | create_section | section_id        | {sectionID}                          |
 | message        | module            | subspaces                            |
-| message        | action            | desmos.subspaces.v2.MsgCreateSection |
+| message        | action            | huddle.subspaces.v2.MsgCreateSection |
 | message        | sender            | {userAddress}                        |
 
 ### MsgEditSection
@@ -59,7 +59,7 @@ The subspaces module emits the following events:
 | edit_section | subspace_id       | {subspaceID}                       |
 | edit_section | section_id        | {sectionID}                        |
 | message      | module            | subspaces                          |
-| message      | action            | desmos.subspaces.v2.MsgEditSection |
+| message      | action            | huddle.subspaces.v2.MsgEditSection |
 | message      | sender            | {userAddress}                      |
 
 ### MsgMoveSection
@@ -69,7 +69,7 @@ The subspaces module emits the following events:
 | move_section | subspace_id       | {subspaceID}                       |
 | move_section | section_id        | {sectionID}                        |
 | message      | module            | subspaces                          |
-| message      | action            | desmos.subspaces.v2.MsgMoveSection |
+| message      | action            | huddle.subspaces.v2.MsgMoveSection |
 | message      | sender            | {userAddress}                      |
 
 ### MsgDeleteSection
@@ -79,7 +79,7 @@ The subspaces module emits the following events:
 | delete_section | subspace_id       | {subspaceID}                         |
 | delete_section | section_id        | {sectionID}                          |
 | message        | module            | subspaces                            |
-| message        | action            | desmos.subspaces.v2.MsgDeleteSection |
+| message        | action            | huddle.subspaces.v2.MsgDeleteSection |
 | message        | sender            | {userAddress}                        |
 
 ### MsgCreateUserGroup
@@ -89,7 +89,7 @@ The subspaces module emits the following events:
 | create_user_group | subspace_id       | {subspaceID}                           |    
 | create_user_group | user_group_id     | {userGroupID}                          |    
 | message           | module            | subspaces                              |
-| message           | action            | desmos.subspaces.v2.MsgCreateUserGroup |
+| message           | action            | huddle.subspaces.v2.MsgCreateUserGroup |
 | message           | sender            | {userAddress}                          |
 
 ### MsgEditUserGroup
@@ -99,7 +99,7 @@ The subspaces module emits the following events:
 | edit_user_group | subspace_id       | {subspaceID}                         |
 | edit_user_group | user_group_id     | {userGroupID}                        |
 | message         | module            | subspaces                            |
-| message         | action            | desmos.subspaces.v2.MsgEditUserGroup |
+| message         | action            | huddle.subspaces.v2.MsgEditUserGroup |
 | message         | sender            | {userAddress}                        |
 
 ### MsgMoveUserGroup
@@ -109,7 +109,7 @@ The subspaces module emits the following events:
 | move_user_group | subspace_id       | {subspaceID}                         |
 | move_user_group | user_group_id     | {userGroupID}                        |
 | message         | module            | subspaces                            |
-| message         | action            | desmos.subspaces.v2.MsgMoveUserGroup |
+| message         | action            | huddle.subspaces.v2.MsgMoveUserGroup |
 | message         | sender            | {userAddress}                        |
 
 ### MsgSetUserGroupPermissions
@@ -119,7 +119,7 @@ The subspaces module emits the following events:
 | set_user_group_permissions | subspace_id       | {subspaceID}                                   |
 | set_user_group_permissions | user_group_id     | {userGroupID}                                  |
 | message                    | module            | subspaces                                      |
-| message                    | action            | desmos.subspaces.v2.MsgSetUserGroupPermissions |
+| message                    | action            | huddle.subspaces.v2.MsgSetUserGroupPermissions |
 | message                    | sender            | {userAddress}                                  |
 
 ### MsgDeleteUserGroup
@@ -129,7 +129,7 @@ The subspaces module emits the following events:
 | delete_user_group | subspace_id       | {subspaceID}                           |
 | delete_user_group | user_group_id     | {userGroupID}                          |
 | message           | module            | subspaces                              |
-| message           | action            | desmos.subspaces.v2.MsgDeleteUserGroup |
+| message           | action            | huddle.subspaces.v2.MsgDeleteUserGroup |
 | message           | sender            | {userAddress}                          |
 
 ### MsgAddUserToUserGroup
@@ -140,7 +140,7 @@ The subspaces module emits the following events:
 | add_group_member | user_group_id     | {userGroupID}                             |
 | add_group_member | user              | {userAddress}                             |
 | message          | module            | subspaces                                 |
-| message          | action            | desmos.subspaces.v2.MsgAddUserToUserGroup |
+| message          | action            | huddle.subspaces.v2.MsgAddUserToUserGroup |
 | message          | sender            | {userAddress}                             |
 
 ### MsgRemoveUserFromUserGroup
@@ -151,7 +151,7 @@ The subspaces module emits the following events:
 | remove_group_member | user_group_id     | {userGroupID}                                  |
 | remove_group_member | user              | {userAddress}                                  |
 | message             | module            | subspaces                                      |
-| message             | action            | desmos.subspaces.v2.MsgRemoveUserFromUserGroup |
+| message             | action            | huddle.subspaces.v2.MsgRemoveUserFromUserGroup |
 | message             | sender            | {userAddress}                                  |
 
 ### MsgSetUserPermissions
@@ -161,5 +161,5 @@ The subspaces module emits the following events:
 | set_user_permissions | subspace_id       | {subspaceID}                        |
 | set_user_permissions | user              | {userAddress}                       |
 | message              | module            | subspaces                           |
-| message              | action            | desmos.subspaces.v2.MsgEditSubspace |
+| message              | action            | huddle.subspaces.v2.MsgEditSubspace |
 | message              | sender            | {userAddress}                       |

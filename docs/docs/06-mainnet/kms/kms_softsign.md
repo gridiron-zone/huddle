@@ -21,7 +21,7 @@ nano tmkms.toml
 
 [[chain]]
 id = "<chain-id>"
-key_format = { type = "bech32", account_key_prefix = "desmospub", consensus_key_prefix = "desmosvalconspub" }
+key_format = { type = "bech32", account_key_prefix = "huddlepub", consensus_key_prefix = "huddlevalconspub" }
 state_file = "/root/kms/home/state/cosmoshub-3-consensus.json"
 
 ## Signing Provider Configuration
@@ -47,7 +47,7 @@ reconnect = true
 ### Get the Identity key
  
 ```bash
-desmos query staking validator <valoperaddress>
+huddle query staking validator <valoperaddress>
 ```
 
 You will get a similar response:
@@ -70,7 +70,7 @@ description:
   website: ""
 jailed: false
 min_self_delegation: "1"
-operator_address: desmosvaloper1...
+operator_address: huddlevaloper1...
 status: BOND_STATUS_BONDED
 tokens: "9999999999"
 unbonding_height: "617524"
@@ -83,15 +83,15 @@ Copy the `consensus_pubkey` `key` value and put it inside the `kms-identity.key`
 ### Import the private validator key
 
 ```bash
-cd ~/.desmos/config
+cd ~/.huddle/config
 
 tmkms softsign import priv_validator_key.json "/root/kms/home/secret/morpheus-apollo-1.consensus.key"
 ```
 
 ### Chain configuration
 
-Now you need to enable KMS access by editing .desmos/config/config.toml.   
-In this file, modify `priv_validator_laddr` to create a listening address/port or a unix socket in desmos.
+Now you need to enable KMS access by editing .huddle/config/config.toml.   
+In this file, modify `priv_validator_laddr` to create a listening address/port or a unix socket in huddle.
 
 ```
 ...
@@ -111,7 +111,7 @@ tmkms start -c ~/.tmkms/tmkms.toml
 If you've setup everything properly you should see a log like this:
 ```bash
 2021-06-09T14:23:51.525184Z  INFO tmkms::commands::start: tmkms 0.10.1 starting up...
-2021-06-09T14:23:51.525380Z  INFO tmkms::keyring: [keyring:softsign] added consensus Ed25519 key: desmosvalconspub1zcjduepqepu8acj4qua576zzquvcly2un0xkzhwh0ehvgmx8gxgl34zhkceskthfp6
+2021-06-09T14:23:51.525380Z  INFO tmkms::keyring: [keyring:softsign] added consensus Ed25519 key: huddlevalconspub1zcjduepqepu8acj4qua576zzquvcly2un0xkzhwh0ehvgmx8gxgl34zhkceskthfp6
 2021-06-09T14:23:51.526030Z  INFO tmkms::connection::tcp: KMS node ID: 7489C3177FB578314099657A7B56CC241144CCC8
 2021-06-09T14:23:51.527591Z  INFO tmkms::session: [morpheus-apollo-1@tcp://127.0.0.1:26659] connected to validator successfully
 2021-06-09T14:23:51.527625Z  WARN tmkms::session: [morpheus-apollo-1@tcp://127.0.0.1:26659]: unverified validator peer ID! (6CA3A1674B1AE6774D1BA6E100D559C5BF80F82B)

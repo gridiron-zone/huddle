@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/desmos-labs/desmos/v4/x/reactions/types"
+	"github.com/gridiron-zone/huddle/x/reactions/types"
 )
 
 // SetNextReactionID sets the next reaction id for the given subspace

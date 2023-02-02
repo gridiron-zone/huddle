@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/desmos-labs/desmos/v4/x/subspaces/keeper"
-	"github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/x/subspaces/keeper"
+	"github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 func (suite *KeeperTestsuite) TestMsgServer_CreateSubspace() {

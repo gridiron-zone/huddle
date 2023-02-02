@@ -22,8 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      GENESIS_DESMOS_VERSION: "v2.3.1"
-      GENESIS_URL: "https://raw.githubusercontent.com/RiccardoM/desmos-states/master/desmos-mainnet-5363795.json"
+      GENESIS_HUDDLE_VERSION: "v2.3.1"
+      GENESIS_URL: "https://raw.githubusercontent.com/RiccardoM/huddle-states/master/huddle-mainnet-5363795.json"
       UPGRADE_NAME: "v4"
     steps:
       - name: Checkout 🛎️
@@ -34,13 +34,13 @@ jobs:
         with:
           go-version: 1.18
 
-      - name: Install Desmos 🔧
+      - name: Install Huddle 🔧
         run: make clean install
 
       - name: Start testnet ⛓
         run: |
           make upgrade-testnet-start \
-            GENESIS_VERSION="$GENESIS_DESMOS_VERSION" \
+            GENESIS_VERSION="$GENESIS_HUDDLE_VERSION" \
             GENESIS_URL="$GENESIS_URL" \
             UPGRADE_NAME="$UPGRADE_NAME"
 

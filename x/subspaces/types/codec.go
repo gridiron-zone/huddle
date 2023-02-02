@@ -10,24 +10,24 @@ import (
 )
 
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
-	cdc.RegisterConcrete(&MsgCreateSubspace{}, "desmos/MsgCreateSubspace", nil)
-	cdc.RegisterConcrete(&MsgEditSubspace{}, "desmos/MsgEditSubspace", nil)
-	cdc.RegisterConcrete(&MsgCreateUserGroup{}, "desmos/MsgCreateUserGroup", nil)
+	cdc.RegisterConcrete(&MsgCreateSubspace{}, "huddle/MsgCreateSubspace", nil)
+	cdc.RegisterConcrete(&MsgEditSubspace{}, "huddle/MsgEditSubspace", nil)
+	cdc.RegisterConcrete(&MsgCreateUserGroup{}, "huddle/MsgCreateUserGroup", nil)
 
-	cdc.RegisterConcrete(&MsgCreateSection{}, "desmos/MsgCreateSection", nil)
-	cdc.RegisterConcrete(&MsgEditSection{}, "desmos/MsgEditSection", nil)
-	cdc.RegisterConcrete(&MsgMoveSection{}, "desmos/MsgMoveSection", nil)
-	cdc.RegisterConcrete(&MsgDeleteSection{}, "desmos/MsgDeleteSection", nil)
+	cdc.RegisterConcrete(&MsgCreateSection{}, "huddle/MsgCreateSection", nil)
+	cdc.RegisterConcrete(&MsgEditSection{}, "huddle/MsgEditSection", nil)
+	cdc.RegisterConcrete(&MsgMoveSection{}, "huddle/MsgMoveSection", nil)
+	cdc.RegisterConcrete(&MsgDeleteSection{}, "huddle/MsgDeleteSection", nil)
 
-	cdc.RegisterConcrete(&MsgEditUserGroup{}, "desmos/MsgEditUserGroup", nil)
-	cdc.RegisterConcrete(&MsgMoveUserGroup{}, "desmos/MsgMoveUserGroup", nil)
-	cdc.RegisterConcrete(&MsgSetUserGroupPermissions{}, "desmos/MsgSetUserGroupPermissions", nil)
-	cdc.RegisterConcrete(&MsgDeleteUserGroup{}, "desmos/MsgDeleteUserGroup", nil)
+	cdc.RegisterConcrete(&MsgEditUserGroup{}, "huddle/MsgEditUserGroup", nil)
+	cdc.RegisterConcrete(&MsgMoveUserGroup{}, "huddle/MsgMoveUserGroup", nil)
+	cdc.RegisterConcrete(&MsgSetUserGroupPermissions{}, "huddle/MsgSetUserGroupPermissions", nil)
+	cdc.RegisterConcrete(&MsgDeleteUserGroup{}, "huddle/MsgDeleteUserGroup", nil)
 
-	cdc.RegisterConcrete(&MsgAddUserToUserGroup{}, "desmos/MsgAddUserToUserGroup", nil)
-	cdc.RegisterConcrete(&MsgRemoveUserFromUserGroup{}, "desmos/MsgRemoveUserFromUserGroup", nil)
+	cdc.RegisterConcrete(&MsgAddUserToUserGroup{}, "huddle/MsgAddUserToUserGroup", nil)
+	cdc.RegisterConcrete(&MsgRemoveUserFromUserGroup{}, "huddle/MsgRemoveUserFromUserGroup", nil)
 
-	cdc.RegisterConcrete(&MsgSetUserPermissions{}, "desmos/MsgSetUserPermissions", nil)
+	cdc.RegisterConcrete(&MsgSetUserPermissions{}, "huddle/MsgSetUserPermissions", nil)
 }
 
 func RegisterInterfaces(registry types.InterfaceRegistry) {

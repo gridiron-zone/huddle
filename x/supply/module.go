@@ -16,10 +16,10 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/desmos-labs/desmos/v4/x/supply/client/cli"
-	"github.com/desmos-labs/desmos/v4/x/supply/client/rest"
-	"github.com/desmos-labs/desmos/v4/x/supply/keeper"
-	"github.com/desmos-labs/desmos/v4/x/supply/types"
+	"github.com/gridiron-zone/huddle/x/supply/client/cli"
+	"github.com/gridiron-zone/huddle/x/supply/client/rest"
+	"github.com/gridiron-zone/huddle/x/supply/keeper"
+	"github.com/gridiron-zone/huddle/x/supply/types"
 )
 
 var (

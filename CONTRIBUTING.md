@@ -19,15 +19,15 @@
         - [Point Release Procedure](#point-release-procedure)
     - [Code Owner Membership](#code-owner-membership)
 
-Thank you for considering making contributions to Desmos and related
+Thank you for considering making contributions to Huddle and related
 repositories!
 
 Contributing to this repo can mean many things such as participating in
 discussion or proposing code changes. To ensure a smooth workflow for all
 contributors, the general procedure for contributing has been established:
 
-1. Either [open](https://github.com/desmos-labs/desmos/issues/new/choose) or
-   [find](https://github.com/desmos-labs/desmos/issues) an issue you'd like to help with
+1. Either [open](https://github.com/gridiron-zone/huddle/issues/new/choose) or
+   [find](https://github.com/gridiron-zone/huddle/issues) an issue you'd like to help with
 2. Participate in thoughtful discussion on that issue
 3. If you would like to contribute:
     1. If the issue is a proposal, ensure that the proposal has been accepted
@@ -38,7 +38,7 @@ contributors, the general procedure for contributing has been established:
        to begin work
     4. Follow standard GitHub best practices: fork the repo, branch from the
        HEAD of `master`, make some commits, and submit a PR to `master`
-        - For core developers working within the Desmos repo, to ensure a clear
+        - For core developers working within the Huddle repo, to ensure a clear
           ownership of branches, branches must be named with the convention
           `{moniker}/{issue#}-branch-name`
     5. Be sure to submit the PR in `Draft` mode submit your PR early, even if
@@ -56,7 +56,7 @@ taken place in a GitHub issue, that PR runs a high likelihood of being rejected.
 Other notes:
 
 - Looking for a good place to start contributing? How about checking out some
-  [good first issues](https://github.com/desmos-labs/desmos/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
+  [good first issues](https://github.com/gridiron-zone/huddle/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
 - Please make sure to run `make format` before every commit - the easiest way
   to do this is to have your editor run it for you upon saving a file. Additionally,
   please ensure that your code is lint compliant by running `make lint-fix`.
@@ -65,7 +65,7 @@ Other notes:
 
 ## Architecture Decision Records (ADR)
 
-When proposing an architecture decision for Desmos, please start by opening an [issue](https://github.com/desmos-labs/desmos/issues/new/choose) or a [discussion](https://github.com/desmos-labs/desmos/discussions/new) with a summary of the proposal. Once the proposal has been discussed and there is rough alignment on a high-level approach to the design, the [ADR creation process](https://github.com/desmos-labs/desmos/blob/master/docs/architecture/PROCESS.md) can begin. We are following this process to ensure all involved parties are in agreement before any party begins coding the proposed implementation. If you would like to see examples of how these are written, please refer to the current [ADRs](https://github.com/desmos-labs/desmos/tree/master/docs/architecture) or to [Cosmos ADRs](https://github.com/cosmos/cosmos-sdk/tree/master/docs/architecture).
+When proposing an architecture decision for Huddle, please start by opening an [issue](https://github.com/gridiron-zone/huddle/issues/new/choose) or a [discussion](https://github.com/gridiron-zone/huddle/discussions/new) with a summary of the proposal. Once the proposal has been discussed and there is rough alignment on a high-level approach to the design, the [ADR creation process](https://github.com/gridiron-zone/huddle/blob/master/docs/architecture/PROCESS.md) can begin. We are following this process to ensure all involved parties are in agreement before any party begins coding the proposed implementation. If you would like to see examples of how these are written, please refer to the current [ADRs](https://github.com/gridiron-zone/huddle/tree/master/docs/architecture) or to [Cosmos ADRs](https://github.com/cosmos/cosmos-sdk/tree/master/docs/architecture).
 
 ## Pull Requests
 
@@ -109,27 +109,27 @@ items. In addition, use the following review explanations:
 
 ### Updating Documentation
 
-If you open a PR on Desmos, it is mandatory to update the relevant documentation inside the  [docs repo](https://github.com/desmos-labs/docs).
+If you open a PR on Huddle, it is mandatory to update the relevant documentation inside the  [docs repo](https://github.com/desmos-labs/docs).
 
 When writing documentation, follow the [Documentation Writing Guidelines](https://github.com/desmos-labs/docs/DOC_WRITING_GUIDELINES.md).
 
 ## Forking
 
 Go requires code to live under absolute paths, and this requirement complicates forking.
-While my fork lives at `https://github.com/riccardom/desmos`,
-the code should never exist at `$GOPATH/src/github.com/riccardom/desmos`.
+While my fork lives at `https://github.com/riccardom/huddle`,
+the code should never exist at `$GOPATH/src/github.com/riccardom/huddle`.
 Instead, we use `git remote` to add the fork as a new remote for the original repo,
-`$GOPATH/src/github.com/desmos-labs/desmos`, and do all the work there.
+`$GOPATH/src/github.com/gridiron-zone/huddle`, and do all the work there.
 
 For instance, to create a fork and work on a branch of it, I would:
 
 - Create the fork on GitHub, using the fork button.
-- Go to the original repo checked out locally (i.e. `$GOPATH/src/github.com/desmos-labs/desmos`)
+- Go to the original repo checked out locally (i.e. `$GOPATH/src/github.com/gridiron-zone/huddle`)
 - `git remote rename origin upstream`
-- `git remote add origin git@github.com:riccardom/desmos.git`
+- `git remote add origin git@github.com:riccardom/huddle.git`
 
-Now `origin` refers to my fork and `upstream` refers to the Desmos version.
-So I can `git push -u origin master` to update my fork, and make pull requests to Desmos from there.
+Now `origin` refers to my fork and `upstream` refers to the Huddle version.
+So I can `git push -u origin master` to update my fork, and make pull requests to Huddle from there.
 Of course, replace `riccardom` with your git handle.
 
 To pull in updates from the origin repo, run
@@ -144,7 +144,7 @@ Please don't make Pull Requests from `master`.
 We use [Go 1.14 Modules](https://github.com/golang/go/wiki/Modules) to manage
 dependency versions.
 
-The master branch of every Desmos repository should just build with `go get`,
+The master branch of every Huddle repository should just build with `go get`,
 which means they should be kept up-to-date with their dependencies, so we can
 get away with telling people they can just `go get` our software.
 
@@ -153,7 +153,7 @@ build, in which case we can fall back on `go mod tidy -v`.
 
 ## Protobuf
 
-We use [Protocol Buffers](https://developers.google.com/protocol-buffers) along with [gogoproto](https://github.com/gogo/protobuf) to generate code for use in Desmos.
+We use [Protocol Buffers](https://developers.google.com/protocol-buffers) along with [gogoproto](https://github.com/gogo/protobuf) to generate code for use in Huddle.
 
 For deterministic behavior around Protobuf tooling, everything is containerized using Docker. Make sure to have Docker installed on your machine, or head to [Docker's website](https://docs.docker.com/get-docker/) to install it.
 
@@ -182,7 +182,7 @@ For example, in vscode your `.vscode/settings.json` should look like:
 
 ## Testing
 
-Tests can be run by running `make test` at the top level of the Desmos repository.
+Tests can be run by running `make test` at the top level of the Huddle repository.
 
 We expect tests to use `require` or `assert` rather than `t.Skip` or `t.Fail`,
 unless there is a reason to do otherwise.
@@ -213,7 +213,7 @@ User-facing repos should adhere to the [trunk based development branching model]
 
 Libraries need not follow the model strictly, but would be wise to.
 
-Desmos utilizes [semantic versioning](https://semver.org/).
+Huddle utilizes [semantic versioning](https://semver.org/).
 
 ### PR Targeting
 
@@ -228,7 +228,7 @@ should be targeted against the release candidate branch.
 - `master` must never fail `make lint test test-race`
 - `master` should not fail `make lint`
 - no `--force` onto `master` (except when reverting a broken commit, which should seldom happen)
-- create a development branch either on github.com/desmos-labs/desmos, or your fork (using `git remote add origin`)
+- create a development branch either on github.com/gridiron-zone/huddle, or your fork (using `git remote add origin`)
 - before submitting a pull request, begin `git rebase` on top of `master`
 
 ### Pull Merge Procedure
@@ -339,20 +339,20 @@ the community of this project.
 
 ## Concept & Release Approval Process
 
-The process for how Desmos maintainers take features and ADRs from concept to release
+The process for how Huddle maintainers take features and ADRs from concept to release
 is broken up into three distinct stages: **Strategy Discovery**, **Concept Approval**, and
 **Implementation & Release Approval**
 
 ### Strategy Discovery
 
-* Develop long term priorities, strategy and roadmap for Desmos
+* Develop long term priorities, strategy and roadmap for Huddle
 * Release committee not yet defined as there is already a roadmap that can be used for the time being
 
 ### Concept Approval
 
-* Architecture Decision Records (ADRs) may be proposed by any contributors or maintainers of Desmos,
+* Architecture Decision Records (ADRs) may be proposed by any contributors or maintainers of Huddle,
   and should follow the guidelines outlined in the
-  [ADR Creation Process](https://github.com/desmos-labs/desmos/blob/master/docs/architecture/PROCESS.md)
+  [ADR Creation Process](https://github.com/gridiron-zone/huddle/blob/master/docs/architecture/PROCESS.md)
 * After proposal, a time bound period for Request for Comment (RFC) on ADRs commences
 * ADRs are intended to be iterative, and may be merged into `master` while still in a `Proposed` status
 

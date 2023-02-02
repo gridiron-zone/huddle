@@ -6,13 +6,13 @@ import (
 	"fmt"
 	"math/rand"
 
-	"github.com/desmos-labs/desmos/v4/x/reactions/client/cli"
+	"github.com/gridiron-zone/huddle/x/reactions/client/cli"
 
-	postskeeper "github.com/desmos-labs/desmos/v4/x/posts/keeper"
+	postskeeper "github.com/gridiron-zone/huddle/x/posts/keeper"
 
-	feeskeeper "github.com/desmos-labs/desmos/v4/x/fees/keeper"
+	feeskeeper "github.com/gridiron-zone/huddle/x/fees/keeper"
 
-	subspaceskeeper "github.com/desmos-labs/desmos/v4/x/subspaces/keeper"
+	subspaceskeeper "github.com/gridiron-zone/huddle/x/subspaces/keeper"
 
 	"github.com/cosmos/cosmos-sdk/client"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
@@ -28,9 +28,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/desmos-labs/desmos/v4/x/reactions/keeper"
-	"github.com/desmos-labs/desmos/v4/x/reactions/simulation"
-	"github.com/desmos-labs/desmos/v4/x/reactions/types"
+	"github.com/gridiron-zone/huddle/x/reactions/keeper"
+	"github.com/gridiron-zone/huddle/x/reactions/simulation"
+	"github.com/gridiron-zone/huddle/x/reactions/types"
 )
 
 const (

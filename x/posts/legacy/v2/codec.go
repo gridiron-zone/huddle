@@ -8,7 +8,7 @@ import (
 
 func RegisterInterfaces(registry types.InterfaceRegistry) {
 	registry.RegisterInterface(
-		"desmos.posts.v1.AttachmentContent",
+		"huddle.posts.v1.AttachmentContent",
 		(*AttachmentContent)(nil),
 		&Poll{},
 		&Media{},

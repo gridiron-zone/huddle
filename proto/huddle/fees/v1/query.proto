@@ -1,0 +1,26 @@
+syntax = "proto3";
+package huddle.fees.v1;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "huddle/fees/v1/params.proto";
+
+option go_package = "github.com/gridiron-zone/huddle/x/fees/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  // Params queries the fees module params
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/huddle/fees/v1/params";
+  }
+}
+
+// ___________________________________________________________________________________________________________________
+
+// QueryParamsRequest is the request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is the response type for the Query/Params RPC
+message QueryParamsResponse {
+  huddle.fees.v1.Params params = 1 [ (gogoproto.nullable) = false ];
+}

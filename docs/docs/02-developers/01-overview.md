@@ -7,12 +7,12 @@ slug: overview
 # Overview
 
 ## Introduction
-[Desmos](../01-intro.md) aims to provide developers a protocol with which they will be able to create decentralized and censorship-resistant social enabled apps. Different apps, with different scopes and their own Term of Services will be able to use the features offered by Desmos to customize their user experience in a unique way.
+[Huddle](../01-intro.md) aims to provide developers a protocol with which they will be able to create decentralized and censorship-resistant social enabled apps. Different apps, with different scopes and their own Term of Services will be able to use the features offered by Huddle to customize their user experience in a unique way.
  
 If you want to know more about the base concepts of a blockchain and understand some key points, please take a look at the [FAQ page](07-faq.md). 
 
 ## Core features
-The core features of Desmos are organised in **modules** following the specification of the [Cosmos-SDK](https://docs.cosmos.network/main/building-modules/intro.html).   
+The core features of Huddle are organised in **modules** following the specification of the [Cosmos-SDK](https://docs.cosmos.network/main/building-modules/intro.html).   
 
 Here a brief description of each one of these:
 
@@ -20,7 +20,7 @@ Here a brief description of each one of these:
 
 * `Relationships`: Handles the creation and management of mono-directional and bidirectional [relationships] between users' wallets. It also allows managing users blocks lists;
 
-* `Subspaces`: Handles the creation and management of a [subspace] and their [sections] inside Desmos;
+* `Subspaces`: Handles the creation and management of a [subspace] and their [sections] inside Huddle;
 
 * `Posts`: Handles the creation and management of posts and their contents. These contents can include a variety of different attachments such as medias (pics, gifs, videos) and polls. Posts can also be enriched with a variety of [entities].
 

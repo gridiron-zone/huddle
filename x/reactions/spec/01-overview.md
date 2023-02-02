@@ -8,7 +8,7 @@ slug: overview
 # `x/reactions`
 
 ## Abstract 
-This document specifies the reactions module of Desmos.  
+This document specifies the reactions module of Huddle.  
 
 This module gives the possibility to react to contents and customise the reactions experience for you social dApp.
 

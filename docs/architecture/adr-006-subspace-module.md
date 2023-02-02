@@ -18,10 +18,10 @@ ACCEPTED Implemented
 This ADR defines the `x/subspaces` module which allows users to create and manage the representation of different social networks inside which contents will be created.  
 
 ## Context
-In order to support building independent social networks, it is vital for Desmos to expose a mechanism that allows to replicate as much as possible the current stace of social networks in which each platform has different economic model, set of administrators, Terms of Services and ways of enforcing such terms.  
+In order to support building independent social networks, it is vital for Huddle to expose a mechanism that allows to replicate as much as possible the current stace of social networks in which each platform has different economic model, set of administrators, Terms of Services and ways of enforcing such terms.  
 
 ## Decision
-We will create a module named `subspaces` which provided users the ability to create independent spaces inside Desmos, each one having its own administrators, ToS and tokenomics.
+We will create a module named `subspaces` which provided users the ability to create independent spaces inside Huddle, each one having its own administrators, ToS and tokenomics.
 
 ### Types 
 Subspaces must always have an account that is elected as the _owner_ and should act as the final decision maker and accountable user. Additionally, each subspace can have the following data:
@@ -33,7 +33,7 @@ Subspaces must always have an account that is elected as the _owner_ and should 
 #### Subspace
 
 ```go
-// Subspace contains all the data related to a Desmos subspace
+// Subspace contains all the data related to a Huddle subspace
 type Subspace struct {
   // Unique identifier of this subspace
   ID uint64
@@ -297,7 +297,7 @@ message MsgSetUserPermissionsResponse {}
 ## Consequences
 ### Positive
 
-* Users will be able to create their own subspace representing a social network inside Desmos
+* Users will be able to create their own subspace representing a social network inside Huddle
 * The ACL implementation proposed is generic enough to allow future permissions to be implemented without much work to be done
 * The link-based verification system proposed is generic enough to allow any creator to verify their subspace relying on the already existing `x/profiles` module without the need of new code 
 
@@ -306,4 +306,4 @@ message MsgSetUserPermissionsResponse {}
 ### Neutral
 
 ## References
-- Extend the concept of subspaces: https://github.com/desmos-labs/desmos/discussions/375
+- Extend the concept of subspaces: https://github.com/gridiron-zone/huddle/discussions/375

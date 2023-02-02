@@ -5,16 +5,16 @@ package simulation
 import (
 	"math/rand"
 
-	feeskeeper "github.com/desmos-labs/desmos/v4/x/fees/keeper"
+	feeskeeper "github.com/gridiron-zone/huddle/x/fees/keeper"
 
-	subspaceskeeper "github.com/desmos-labs/desmos/v4/x/subspaces/keeper"
+	subspaceskeeper "github.com/gridiron-zone/huddle/x/subspaces/keeper"
 
-	subspacessim "github.com/desmos-labs/desmos/v4/x/subspaces/simulation"
+	subspacessim "github.com/gridiron-zone/huddle/x/subspaces/simulation"
 
-	"github.com/desmos-labs/desmos/v4/testutil/simtesting"
+	"github.com/gridiron-zone/huddle/testutil/simtesting"
 
-	"github.com/desmos-labs/desmos/v4/x/relationships/keeper"
-	"github.com/desmos-labs/desmos/v4/x/relationships/types"
+	"github.com/gridiron-zone/huddle/x/relationships/keeper"
+	"github.com/gridiron-zone/huddle/x/relationships/types"
 
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"

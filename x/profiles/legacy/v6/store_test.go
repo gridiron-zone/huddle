@@ -7,10 +7,10 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 
-	v5types "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v5/types"
-	v6 "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v6"
+	v5types "github.com/gridiron-zone/huddle/x/profiles/legacy/v5/types"
+	v6 "github.com/gridiron-zone/huddle/x/profiles/legacy/v6"
 
-	"github.com/desmos-labs/desmos/v4/testutil/profilestesting"
+	"github.com/gridiron-zone/huddle/testutil/profilestesting"
 
 	"github.com/cosmos/cosmos-sdk/store"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
@@ -27,8 +27,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/tx/signing"
 	"github.com/stretchr/testify/require"
 
-	"github.com/desmos-labs/desmos/v4/app"
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/app"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 func buildContext(
@@ -234,19 +234,19 @@ func TestMigrateStore(t *testing.T) {
 				kvStore := ctx.KVStore(keys[types.StoreKey])
 
 				var signatureJSON = `{
-				  "@type": "/desmos.profiles.v2.MultiSignatureData",
+				  "@type": "/huddle.profiles.v2.MultiSignatureData",
 				  "bit_array": {
 					"extra_bits_stored": 3,
 					"elems": "wA=="
 				  },
 				  "signatures": [
 					{
-					  "@type": "/desmos.profiles.v2.SingleSignatureData",
+					  "@type": "/huddle.profiles.v2.SingleSignatureData",
 					  "mode": "SIGN_MODE_LEGACY_AMINO_JSON",
 					  "signature": "J/xFZ4GKKYA+wT9ClATHExyBiswZVPUS89caM3nn7HQdJd6LFC9hFRZSsG73iq7/1YcHAj5ujfvpjJkBhQFkdg=="
 					},
 					{
-					  "@type": "/desmos.profiles.v2.SingleSignatureData",
+					  "@type": "/huddle.profiles.v2.SingleSignatureData",
 					  "mode": "SIGN_MODE_LEGACY_AMINO_JSON",
 					  "signature": "k5TIZjDnr7lhiZrdj8GiEdFLjMOHAsU8qnAYUVV/NYMsEeEVENpNZ2V4oZs0KGUxdUdUmytL14zfgJ2vpVBB9w=="
 					}
@@ -277,19 +277,19 @@ func TestMigrateStore(t *testing.T) {
 				kvStore := ctx.KVStore(keys[types.StoreKey])
 
 				var signatureJSON = `{
-				  "@type": "/desmos.profiles.v3.CosmosMultiSignature",
+				  "@type": "/huddle.profiles.v3.CosmosMultiSignature",
 				  "bit_array": {
 					"extra_bits_stored": 3,
 					"elems": "wA=="
 				  },
 				  "signatures": [
 					{
-					  "@type": "/desmos.profiles.v3.SingleSignature",
+					  "@type": "/huddle.profiles.v3.SingleSignature",
 					  "value_type": "SIGNATURE_VALUE_TYPE_COSMOS_AMINO",
 					  "signature": "J/xFZ4GKKYA+wT9ClATHExyBiswZVPUS89caM3nn7HQdJd6LFC9hFRZSsG73iq7/1YcHAj5ujfvpjJkBhQFkdg=="
 					},
 					{
-					  "@type": "/desmos.profiles.v3.SingleSignature",
+					  "@type": "/huddle.profiles.v3.SingleSignature",
 					  "value_type": "SIGNATURE_VALUE_TYPE_COSMOS_AMINO",
 					  "signature": "k5TIZjDnr7lhiZrdj8GiEdFLjMOHAsU8qnAYUVV/NYMsEeEVENpNZ2V4oZs0KGUxdUdUmytL14zfgJ2vpVBB9w=="
 					}

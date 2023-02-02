@@ -10,7 +10,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/vesting/exported"
 	authzcodec "github.com/cosmos/cosmos-sdk/x/authz/codec"
 
-	"github.com/desmos-labs/desmos/v4/types/crypto/ethsecp256k1"
+	"github.com/gridiron-zone/huddle/types/crypto/ethsecp256k1"
 )
 
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
@@ -18,28 +18,28 @@ func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&ethsecp256k1.PubKey{}, ethsecp256k1.PubKeyName, nil)
 	cdc.RegisterConcrete(&ethsecp256k1.PrivKey{}, ethsecp256k1.PrivKeyName, nil)
 
-	cdc.RegisterConcrete(&MsgSaveProfile{}, "desmos/MsgSaveProfile", nil)
-	cdc.RegisterConcrete(&MsgDeleteProfile{}, "desmos/MsgDeleteProfile", nil)
-	cdc.RegisterConcrete(&MsgRequestDTagTransfer{}, "desmos/MsgRequestDTagTransfer", nil)
-	cdc.RegisterConcrete(&MsgCancelDTagTransferRequest{}, "desmos/MsgCancelDTagTransferRequest", nil)
-	cdc.RegisterConcrete(&MsgAcceptDTagTransferRequest{}, "desmos/MsgAcceptDTagTransferRequest", nil)
-	cdc.RegisterConcrete(&MsgRefuseDTagTransferRequest{}, "desmos/MsgRefuseDTagTransferRequest", nil)
-	cdc.RegisterConcrete(&MsgLinkChainAccount{}, "desmos/MsgLinkChainAccount", nil)
-	cdc.RegisterConcrete(&MsgUnlinkChainAccount{}, "desmos/MsgUnlinkChainAccount", nil)
-	cdc.RegisterConcrete(&MsgSetDefaultExternalAddress{}, "desmos/MsgSetDefaultExternalAddress", nil)
-	cdc.RegisterConcrete(&MsgLinkApplication{}, "desmos/MsgLinkApplication", nil)
-	cdc.RegisterConcrete(&MsgUnlinkApplication{}, "desmos/MsgUnlinkApplication", nil)
+	cdc.RegisterConcrete(&MsgSaveProfile{}, "huddle/MsgSaveProfile", nil)
+	cdc.RegisterConcrete(&MsgDeleteProfile{}, "huddle/MsgDeleteProfile", nil)
+	cdc.RegisterConcrete(&MsgRequestDTagTransfer{}, "huddle/MsgRequestDTagTransfer", nil)
+	cdc.RegisterConcrete(&MsgCancelDTagTransferRequest{}, "huddle/MsgCancelDTagTransferRequest", nil)
+	cdc.RegisterConcrete(&MsgAcceptDTagTransferRequest{}, "huddle/MsgAcceptDTagTransferRequest", nil)
+	cdc.RegisterConcrete(&MsgRefuseDTagTransferRequest{}, "huddle/MsgRefuseDTagTransferRequest", nil)
+	cdc.RegisterConcrete(&MsgLinkChainAccount{}, "huddle/MsgLinkChainAccount", nil)
+	cdc.RegisterConcrete(&MsgUnlinkChainAccount{}, "huddle/MsgUnlinkChainAccount", nil)
+	cdc.RegisterConcrete(&MsgSetDefaultExternalAddress{}, "huddle/MsgSetDefaultExternalAddress", nil)
+	cdc.RegisterConcrete(&MsgLinkApplication{}, "huddle/MsgLinkApplication", nil)
+	cdc.RegisterConcrete(&MsgUnlinkApplication{}, "huddle/MsgUnlinkApplication", nil)
 
 	cdc.RegisterInterface((*AddressData)(nil), nil)
-	cdc.RegisterConcrete(&Bech32Address{}, "desmos/Bech32Address", nil)
-	cdc.RegisterConcrete(&Base58Address{}, "desmos/Base58Address", nil)
-	cdc.RegisterConcrete(&HexAddress{}, "desmos/HexAddress", nil)
+	cdc.RegisterConcrete(&Bech32Address{}, "huddle/Bech32Address", nil)
+	cdc.RegisterConcrete(&Base58Address{}, "huddle/Base58Address", nil)
+	cdc.RegisterConcrete(&HexAddress{}, "huddle/HexAddress", nil)
 
 	cdc.RegisterInterface((*Signature)(nil), nil)
-	cdc.RegisterConcrete(&SingleSignature{}, "desmos/SingleSignature", nil)
-	cdc.RegisterConcrete(&CosmosMultiSignature{}, "desmos/CosmosMultiSignature", nil)
+	cdc.RegisterConcrete(&SingleSignature{}, "huddle/SingleSignature", nil)
+	cdc.RegisterConcrete(&CosmosMultiSignature{}, "huddle/CosmosMultiSignature", nil)
 
-	cdc.RegisterConcrete(&Profile{}, "desmos/Profile", nil)
+	cdc.RegisterConcrete(&Profile{}, "huddle/Profile", nil)
 }
 
 func RegisterInterfaces(registry types.InterfaceRegistry) {
@@ -47,14 +47,14 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 	registry.RegisterImplementations((*exported.VestingAccount)(nil), &Profile{})
 	registry.RegisterImplementations((*authtypes.GenesisAccount)(nil), &Profile{})
 	registry.RegisterInterface(
-		"desmos.profiles.v3.AddressData",
+		"huddle.profiles.v3.AddressData",
 		(*AddressData)(nil),
 		&Bech32Address{},
 		&Base58Address{},
 		&HexAddress{},
 	)
 	registry.RegisterInterface(
-		"desmos.profiles.v3.Signature",
+		"huddle.profiles.v3.Signature",
 		(*Signature)(nil),
 		&SingleSignature{},
 		&CosmosMultiSignature{},

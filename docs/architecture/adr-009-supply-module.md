@@ -17,7 +17,7 @@ This ADR defines the `x/supply` module which will expose a set of APIs that can 
 
 ## Context
 
-Currently, inside our [CoinGecko](https://www.coingecko.com/en/coins/desmos) and [CoinMarketCap](https://coinmarketcap.com/currencies/desmos/) some important information about current and total supply are missing or not correctly updated. To solve this, we can implement a series of APIs that read those data from the chain. Data aggregator websites that have the token listed can later use them.
+Currently, inside our [CoinGecko](https://www.coingecko.com/en/coins/huddle) and [CoinMarketCap](https://coinmarketcap.com/currencies/huddle/) some important information about current and total supply are missing or not correctly updated. To solve this, we can implement a series of APIs that read those data from the chain. Data aggregator websites that have the token listed can later use them.
 
 ## Decision
 
@@ -49,4 +49,4 @@ This query will return the circulating supply by subtracting the total vested to
 
 ## References
 
-- Issue [#733](https://github.com/desmos-labs/desmos/issues/773).
+- Issue [#733](https://github.com/gridiron-zone/huddle/issues/773).

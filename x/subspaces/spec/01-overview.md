@@ -8,7 +8,7 @@ slug: overview
 # `x/subspaces`
 
 ## Abstract 
-This document specifies the subspaces module of Desmos.  
+This document specifies the subspaces module of Huddle.  
 
 This module allows users to create and manage the representation of different social networks inside which contents will be created.
 

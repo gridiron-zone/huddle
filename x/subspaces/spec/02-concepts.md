@@ -8,7 +8,7 @@ slug: concepts
 # Concepts
 
 ## Subspace
-A subspace is a structure representing a specific dApp within the Desmos ecosystem where content can be created.
+A subspace is a structure representing a specific dApp within the Huddle ecosystem where content can be created.
 Each subspace can have its own [sections](#section), [user groups](#user-group) and [permissions](#user-permission).
 
 ### ID
@@ -62,7 +62,7 @@ The ID of the subspace where the group exists.
 The ID of the section where the group exists.
 
 ### ID
-A user group id uniquely identifies this group within the subspace itself. This, along with the subspace id itself, is used to uniquely reference this group within Desmos.
+A user group id uniquely identifies this group within the subspace itself. This, along with the subspace id itself, is used to uniquely reference this group within Huddle.
 
 ### Name
 The user group name represents the human-readable name of the group. In most cases, this is going to be a short name that makes it possible to easily understand who the users within the group are (e.g. __admins__, __moderators__, etc).

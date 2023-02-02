@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"math/rand"
 
-	v4 "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v4/types"
-	v5 "github.com/desmos-labs/desmos/v4/x/profiles/legacy/v5/types"
+	v4 "github.com/gridiron-zone/huddle/x/profiles/legacy/v4/types"
+	v5 "github.com/gridiron-zone/huddle/x/profiles/legacy/v5/types"
 
-	feeskeeper "github.com/desmos-labs/desmos/v4/x/fees/keeper"
+	feeskeeper "github.com/gridiron-zone/huddle/x/fees/keeper"
 
 	"github.com/cosmos/cosmos-sdk/client"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
@@ -25,10 +25,10 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/desmos-labs/desmos/v4/x/profiles/client/cli"
-	"github.com/desmos-labs/desmos/v4/x/profiles/keeper"
-	"github.com/desmos-labs/desmos/v4/x/profiles/simulation"
-	"github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/x/profiles/client/cli"
+	"github.com/gridiron-zone/huddle/x/profiles/keeper"
+	"github.com/gridiron-zone/huddle/x/profiles/simulation"
+	"github.com/gridiron-zone/huddle/x/profiles/types"
 )
 
 const (

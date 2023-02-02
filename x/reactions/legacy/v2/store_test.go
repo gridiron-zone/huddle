@@ -7,9 +7,9 @@ import (
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	"github.com/desmos-labs/desmos/v4/testutil/storetesting"
-	profileskeeper "github.com/desmos-labs/desmos/v4/x/profiles/keeper"
-	profilestypes "github.com/desmos-labs/desmos/v4/x/profiles/types"
+	"github.com/gridiron-zone/huddle/testutil/storetesting"
+	profileskeeper "github.com/gridiron-zone/huddle/x/profiles/keeper"
+	profilestypes "github.com/gridiron-zone/huddle/x/profiles/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	capabilitytypes "github.com/cosmos/cosmos-sdk/x/capability/types"
@@ -17,15 +17,15 @@ import (
 	paramstypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/desmos-labs/desmos/v4/app"
-	postskeeper "github.com/desmos-labs/desmos/v4/x/posts/keeper"
-	poststypes "github.com/desmos-labs/desmos/v4/x/posts/types"
-	v2 "github.com/desmos-labs/desmos/v4/x/reactions/legacy/v2"
-	"github.com/desmos-labs/desmos/v4/x/reactions/types"
-	relationshipskeeper "github.com/desmos-labs/desmos/v4/x/relationships/keeper"
-	relationshipstypes "github.com/desmos-labs/desmos/v4/x/relationships/types"
-	subspaceskeeper "github.com/desmos-labs/desmos/v4/x/subspaces/keeper"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/app"
+	postskeeper "github.com/gridiron-zone/huddle/x/posts/keeper"
+	poststypes "github.com/gridiron-zone/huddle/x/posts/types"
+	v2 "github.com/gridiron-zone/huddle/x/reactions/legacy/v2"
+	"github.com/gridiron-zone/huddle/x/reactions/types"
+	relationshipskeeper "github.com/gridiron-zone/huddle/x/relationships/keeper"
+	relationshipstypes "github.com/gridiron-zone/huddle/x/relationships/types"
+	subspaceskeeper "github.com/gridiron-zone/huddle/x/subspaces/keeper"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 func TestMigrateStore(t *testing.T) {

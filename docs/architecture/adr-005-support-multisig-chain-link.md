@@ -22,7 +22,7 @@ Currently, the `x/profiles` module gives users the possibility to link their pro
 In particular, to link other blockchains accounts to a profile, we follow this process:
 1. the user signs a message with their own private key;
 2. the signature and the signed value are placed inside a `Proof` object;
-3. Desmos verifies the `Proof` object to guarantee that the user really owns such account and thus it can be linked successfully to their Desmos profile.
+3. Huddle verifies the `Proof` object to guarantee that the user really owns such account and thus it can be linked successfully to their Huddle profile.
 
 Currently, this process works properly for single-signature accounts, but it does not support multi-signature accounts. This is due to the fact that the `Proof` type only supports single-account's signatures, and its `Verify` function is only able to verify such signature type.
 
@@ -113,7 +113,7 @@ Since we change the `Proof#Signature` field from a hex-encoded string into a `Si
 
 ### Positive
 
-- Give the possibility to link a multisig account to a Desmos profile
+- Give the possibility to link a multisig account to a Huddle profile
 
 ### Negative
 
@@ -137,7 +137,7 @@ The following tests cases MUST to be present:
 
 ## References
 
-- Issue [#633](https://github.com/desmos-labs/desmos/issues/633)
+- Issue [#633](https://github.com/gridiron-zone/huddle/issues/633)
 - [SignatureData](https://github.com/cosmos/cosmos-sdk/blob/master/types/tx/signing/signature_data.go)
 - [Signature](https://github.com/cosmos/cosmos-sdk/blob/master/types/tx/signing/signature.go)
 - [Multisig](https://github.com/cosmos/cosmos-sdk/blob/master/crypto/keys/multisig/multisig.go)

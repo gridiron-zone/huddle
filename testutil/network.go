@@ -17,13 +17,13 @@ import (
 	tmrand "github.com/tendermint/tendermint/libs/rand"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/desmos-labs/desmos/v4/app"
+	"github.com/gridiron-zone/huddle/app"
 )
 
-// NewAppConstructor returns a new Desmos AppConstructor
+// NewAppConstructor returns a new Huddle AppConstructor
 func NewAppConstructor(encodingCfg params.EncodingConfig) network.AppConstructor {
 	return func(val network.Validator) servertypes.Application {
-		return app.NewDesmosApp(
+		return app.NewHuddleApp(
 			val.Ctx.Logger, dbm.NewMemDB(), nil, true, make(map[int64]bool), val.Ctx.Config.RootDir, 0,
 			encodingCfg,
 			simapp.EmptyAppOptions{},

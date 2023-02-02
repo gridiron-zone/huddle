@@ -9,14 +9,14 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Installing RocksDB
-By default, Desmos uses [LevelDB](https://github.com/google/leveldb) as its database backend engine. However, since version 
+By default, Huddle uses [LevelDB](https://github.com/google/leveldb) as its database backend engine. However, since version 
 `v0.6.0` we've also added the possibility of optionally using [Facebook's RocksDB](https://github.com/facebook/rocksdb),
 which, although still being experimental, is know to be faster and could lead to lower syncing times. 
 If you want to try out RocksDB (which we suggest you to do) you can take a look at our
 [RocksDB installation guide](06-rocksdb-installation.mdx) before proceeding further.
 
 The following guide allows you to install [Facebook's RocksDB](https://github.com/facebook/rocksdb) inside your local machine,
-so that you will be able to use as Desmos' backend engine for better performances.
+so that you will be able to use as Huddle' backend engine for better performances.
 
 ## 1. Install the dependencies
 The first thing to do is to install all the dependencies for RocksDB.
@@ -77,7 +77,7 @@ git clone https://github.com/facebook/rocksdb.git && cd rocksdb
 # Build RocksDB
 DEBUG_LEVEL=0 make shared_lib
 
-# Install RocksDB so that Desmos can access it
+# Install RocksDB so that Huddle can access it
 sudo make install-shared
 
 # Make sure the newly built library is linked correctly
@@ -96,7 +96,7 @@ brew install rocksdb
 
 </Tabs>
 
-Once the installation has finished, you will be able to compile Desmos using the following command: 
+Once the installation has finished, you will be able to compile Huddle using the following command: 
 
 ```bash
 make install DB_BACKEND=rocksdb

@@ -14,7 +14,7 @@ This ADR introduces a new way of registering and managing permissions within the
 
 ## Context
 
-Currently, Desmos implements a permission system that is very similar to the one used within Linux-based systems: each permission is represented by an `uint` value treated reading its bits individually. The combination of a permission is thus obtained using the `|` operator, and to check if a specific permission is set it's sufficient to check the value of the associated bit. Although this works, it has some limitations to it:
+Currently, Huddle implements a permission system that is very similar to the one used within Linux-based systems: each permission is represented by an `uint` value treated reading its bits individually. The combination of a permission is thus obtained using the `|` operator, and to check if a specific permission is set it's sufficient to check the value of the associated bit. Although this works, it has some limitations to it:
 - clients need to know the value of each permission, and how to properly combine them to form the final permission value they want to set;
 - permission values that are given from outside (e.g. a client setting a permission for a user) need to be sanitized in order to grant forward-compatibility;
 - all permissions need to be put inside the `x/subspaces` module, so that a proper validity mask can be computed and used to sanitize permissions values.
@@ -198,5 +198,5 @@ In the future, we might even allow developers to register custom permissions wit
 
 ## References
 
-- Issue [#800](https://github.com/desmos-labs/desmos/issues/800)
-- Issue [#855](https://github.com/desmos-labs/desmos/issues/855)
+- Issue [#800](https://github.com/gridiron-zone/huddle/issues/800)
+- Issue [#855](https://github.com/gridiron-zone/huddle/issues/855)

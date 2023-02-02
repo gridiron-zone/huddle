@@ -5,16 +5,16 @@ package simulation
 import (
 	"math/rand"
 
-	postskeeper "github.com/desmos-labs/desmos/v4/x/posts/keeper"
-	postssim "github.com/desmos-labs/desmos/v4/x/posts/simulation"
-	"github.com/desmos-labs/desmos/v4/x/reactions/keeper"
+	postskeeper "github.com/gridiron-zone/huddle/x/posts/keeper"
+	postssim "github.com/gridiron-zone/huddle/x/posts/simulation"
+	"github.com/gridiron-zone/huddle/x/reactions/keeper"
 
-	feeskeeper "github.com/desmos-labs/desmos/v4/x/fees/keeper"
-	subspaceskeeper "github.com/desmos-labs/desmos/v4/x/subspaces/keeper"
-	subspacessim "github.com/desmos-labs/desmos/v4/x/subspaces/simulation"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	feeskeeper "github.com/gridiron-zone/huddle/x/fees/keeper"
+	subspaceskeeper "github.com/gridiron-zone/huddle/x/subspaces/keeper"
+	subspacessim "github.com/gridiron-zone/huddle/x/subspaces/simulation"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 
-	"github.com/desmos-labs/desmos/v4/testutil/simtesting"
+	"github.com/gridiron-zone/huddle/testutil/simtesting"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
@@ -23,7 +23,7 @@ import (
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 
-	"github.com/desmos-labs/desmos/v4/x/reactions/types"
+	"github.com/gridiron-zone/huddle/x/reactions/types"
 )
 
 // SimulateMsgAddReaction tests and runs a single MsgAddReaction

@@ -3,15 +3,15 @@ package keeper_test
 import (
 	"time"
 
-	"github.com/desmos-labs/desmos/v4/testutil/profilestesting"
+	"github.com/gridiron-zone/huddle/testutil/profilestesting"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	poststypes "github.com/desmos-labs/desmos/v4/x/posts/types"
-	"github.com/desmos-labs/desmos/v4/x/reactions/keeper"
-	"github.com/desmos-labs/desmos/v4/x/reactions/types"
-	relationshipstypes "github.com/desmos-labs/desmos/v4/x/relationships/types"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	poststypes "github.com/gridiron-zone/huddle/x/posts/types"
+	"github.com/gridiron-zone/huddle/x/reactions/keeper"
+	"github.com/gridiron-zone/huddle/x/reactions/types"
+	relationshipstypes "github.com/gridiron-zone/huddle/x/relationships/types"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 func (suite *KeeperTestSuite) TestMsgServer_AddReaction() {

@@ -8,18 +8,18 @@ import (
 
 	authzkeeper "github.com/cosmos/cosmos-sdk/x/authz/keeper"
 
-	v2 "github.com/desmos-labs/desmos/v4/x/subspaces/legacy/v2"
+	v2 "github.com/gridiron-zone/huddle/x/subspaces/legacy/v2"
 
-	"github.com/desmos-labs/desmos/v4/x/subspaces/authz"
+	"github.com/gridiron-zone/huddle/x/subspaces/authz"
 
-	feeskeeper "github.com/desmos-labs/desmos/v4/x/fees/keeper"
+	feeskeeper "github.com/gridiron-zone/huddle/x/fees/keeper"
 
-	"github.com/desmos-labs/desmos/v4/x/subspaces/simulation"
+	"github.com/gridiron-zone/huddle/x/subspaces/simulation"
 
-	"github.com/desmos-labs/desmos/v4/x/subspaces/client/cli"
+	"github.com/gridiron-zone/huddle/x/subspaces/client/cli"
 
-	"github.com/desmos-labs/desmos/v4/x/subspaces/keeper"
-	"github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/x/subspaces/keeper"
+	"github.com/gridiron-zone/huddle/x/subspaces/types"
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"

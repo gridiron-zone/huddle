@@ -13,20 +13,20 @@ import (
 
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterInterface((*AttachmentContent)(nil), nil)
-	cdc.RegisterConcrete(&Poll{}, "desmos/Poll", nil)
-	cdc.RegisterConcrete(&Media{}, "desmos/Media", nil)
+	cdc.RegisterConcrete(&Poll{}, "huddle/Poll", nil)
+	cdc.RegisterConcrete(&Media{}, "huddle/Media", nil)
 
-	cdc.RegisterConcrete(&MsgCreatePost{}, "desmos/MsgCreatePost", nil)
-	cdc.RegisterConcrete(&MsgEditPost{}, "desmos/MsgEditPost", nil)
-	cdc.RegisterConcrete(&MsgAddPostAttachment{}, "desmos/MsgAddPostAttachment", nil)
-	cdc.RegisterConcrete(&MsgRemovePostAttachment{}, "desmos/MsgRemovePostAttachment", nil)
-	cdc.RegisterConcrete(&MsgDeletePost{}, "desmos/MsgDeletePost", nil)
-	cdc.RegisterConcrete(&MsgAnswerPoll{}, "desmos/MsgAnswerPoll", nil)
+	cdc.RegisterConcrete(&MsgCreatePost{}, "huddle/MsgCreatePost", nil)
+	cdc.RegisterConcrete(&MsgEditPost{}, "huddle/MsgEditPost", nil)
+	cdc.RegisterConcrete(&MsgAddPostAttachment{}, "huddle/MsgAddPostAttachment", nil)
+	cdc.RegisterConcrete(&MsgRemovePostAttachment{}, "huddle/MsgRemovePostAttachment", nil)
+	cdc.RegisterConcrete(&MsgDeletePost{}, "huddle/MsgDeletePost", nil)
+	cdc.RegisterConcrete(&MsgAnswerPoll{}, "huddle/MsgAnswerPoll", nil)
 }
 
 func RegisterInterfaces(registry types.InterfaceRegistry) {
 	registry.RegisterInterface(
-		"desmos.posts.v2.AttachmentContent",
+		"huddle.posts.v2.AttachmentContent",
 		(*AttachmentContent)(nil),
 		&Poll{},
 		&Media{},

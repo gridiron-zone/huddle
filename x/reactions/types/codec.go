@@ -11,20 +11,20 @@ import (
 
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterInterface((*ReactionValue)(nil), nil)
-	cdc.RegisterConcrete(&RegisteredReactionValue{}, "desmos/RegisteredReactionValue", nil)
-	cdc.RegisterConcrete(&FreeTextValue{}, "desmos/FreeTextValue", nil)
+	cdc.RegisterConcrete(&RegisteredReactionValue{}, "huddle/RegisteredReactionValue", nil)
+	cdc.RegisterConcrete(&FreeTextValue{}, "huddle/FreeTextValue", nil)
 
-	cdc.RegisterConcrete(&MsgAddReaction{}, "desmos/MsgAddReaction", nil)
-	cdc.RegisterConcrete(&MsgRemoveReaction{}, "desmos/MsgRemoveReaction", nil)
-	cdc.RegisterConcrete(&MsgAddRegisteredReaction{}, "desmos/MsgAddRegisteredReaction", nil)
-	cdc.RegisterConcrete(&MsgEditRegisteredReaction{}, "desmos/MsgEditRegisteredReaction", nil)
-	cdc.RegisterConcrete(&MsgRemoveRegisteredReaction{}, "desmos/MsgRemoveRegisteredReaction", nil)
-	cdc.RegisterConcrete(&MsgSetReactionsParams{}, "desmos/MsgSetReactionsParams", nil)
+	cdc.RegisterConcrete(&MsgAddReaction{}, "huddle/MsgAddReaction", nil)
+	cdc.RegisterConcrete(&MsgRemoveReaction{}, "huddle/MsgRemoveReaction", nil)
+	cdc.RegisterConcrete(&MsgAddRegisteredReaction{}, "huddle/MsgAddRegisteredReaction", nil)
+	cdc.RegisterConcrete(&MsgEditRegisteredReaction{}, "huddle/MsgEditRegisteredReaction", nil)
+	cdc.RegisterConcrete(&MsgRemoveRegisteredReaction{}, "huddle/MsgRemoveRegisteredReaction", nil)
+	cdc.RegisterConcrete(&MsgSetReactionsParams{}, "huddle/MsgSetReactionsParams", nil)
 }
 
 func RegisterInterfaces(registry types.InterfaceRegistry) {
 	registry.RegisterInterface(
-		"desmos.reactions.v1.ReactionValue",
+		"huddle.reactions.v1.ReactionValue",
 		(*ReactionValue)(nil),
 		&RegisteredReactionValue{},
 		&FreeTextValue{},

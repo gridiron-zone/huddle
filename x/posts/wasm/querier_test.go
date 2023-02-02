@@ -7,9 +7,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/query"
 
-	"github.com/desmos-labs/desmos/v4/x/posts/types"
-	"github.com/desmos-labs/desmos/v4/x/posts/wasm"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/x/posts/types"
+	"github.com/gridiron-zone/huddle/x/posts/wasm"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 func (suite *TestSuite) TestQuerier_QueryCustom() {

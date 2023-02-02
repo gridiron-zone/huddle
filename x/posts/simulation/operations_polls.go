@@ -13,13 +13,13 @@ import (
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 
-	"github.com/desmos-labs/desmos/v4/testutil/simtesting"
-	feeskeeper "github.com/desmos-labs/desmos/v4/x/fees/keeper"
-	"github.com/desmos-labs/desmos/v4/x/posts/keeper"
-	"github.com/desmos-labs/desmos/v4/x/posts/types"
-	subspaceskeeper "github.com/desmos-labs/desmos/v4/x/subspaces/keeper"
-	subspacessim "github.com/desmos-labs/desmos/v4/x/subspaces/simulation"
-	subspacestypes "github.com/desmos-labs/desmos/v4/x/subspaces/types"
+	"github.com/gridiron-zone/huddle/testutil/simtesting"
+	feeskeeper "github.com/gridiron-zone/huddle/x/fees/keeper"
+	"github.com/gridiron-zone/huddle/x/posts/keeper"
+	"github.com/gridiron-zone/huddle/x/posts/types"
+	subspaceskeeper "github.com/gridiron-zone/huddle/x/subspaces/keeper"
+	subspacessim "github.com/gridiron-zone/huddle/x/subspaces/simulation"
+	subspacestypes "github.com/gridiron-zone/huddle/x/subspaces/types"
 )
 
 // SimulateMsgAnswerPoll tests and runs a single msg answer poll post

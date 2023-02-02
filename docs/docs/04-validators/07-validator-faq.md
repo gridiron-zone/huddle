@@ -13,14 +13,14 @@ This is work in progress. Mechanisms and values are susceptible to change.
 
 ## General Concepts
 ### What is a validator?
-[Desmos](../..) is based on [Tendermint](https://docs.tendermint.com/v0.34/introduction/what-is-tendermint.html), which
+[Huddle](../..) is based on [Tendermint](https://docs.tendermint.com/v0.34/introduction/what-is-tendermint.html), which
 relies on a set of validators to secure the network. The role of validators is to run a full-node and participate in
 consensus by broadcasting votes which contain cryptographic signatures signed by their private key. Validators commit
 new blocks in the blockchain and receive revenue in exchange for their work. They must also participate in governance by
 voting on proposals. Validators are weighted according to their total stake.
 
 ### What is 'staking'?
-Desmos is a public Proof-Of-Stake (PoS) blockchain, meaning that the weight of validators is determined by the amount of staking tokens (Desmos tokens) bonded as collateral. These tokens can be self-delegated directly by the validator or delegated to them by other Desmos tokens holders.
+Huddle is a public Proof-Of-Stake (PoS) blockchain, meaning that the weight of validators is determined by the amount of staking tokens (Huddle tokens) bonded as collateral. These tokens can be self-delegated directly by the validator or delegated to them by other Huddle tokens holders.
 
 Any user in the system can declare their intention to become a validator by sending a `create-validator` transaction. From there, they become validator candidates.
 
@@ -32,7 +32,7 @@ A full-node is a program that fully validates transactions and blocks of a block
 Of course, it is possible and encouraged for users to run full-nodes even if they do not plan to be validators.
 
 ### What is a delegator?
-Delegators are Desmos tokens holders who cannot, or do not want to run a validator themselves. Token holders can delegate Desmos tokens to a validator and obtain a part of their revenue in exchange (for more detail on how revenue is distributed, see [**What is the incentive to stake?**](#what-is-the-incentive-to-stake?) and [**What are validators commission?**](#what-are-validators-commission?) sections below).
+Delegators are Huddle tokens holders who cannot, or do not want to run a validator themselves. Token holders can delegate Huddle tokens to a validator and obtain a part of their revenue in exchange (for more detail on how revenue is distributed, see [**What is the incentive to stake?**](#what-is-the-incentive-to-stake?) and [**What are validators commission?**](#what-are-validators-commission?) sections below).
 
 Because they share revenue with their validators, delegators also share risks. Should a validator misbehave, each of their delegators will be partially slashed in proportion to their delegated stake. This is why delegators should perform due diligence on validators before delegating, as well as spreading their stake over multiple validators.
 
@@ -50,9 +50,9 @@ Any participant in the network can signal that they want to become a validator b
 - **Initial commission rate**: The commission rate on block rewards and fees charged to delegators.
 - **Maximum commission:** The maximum commission rate which this validator can charge. This parameter cannot be changed after `create-validator` is processed.
 - **Commission max change rate:** The maximum daily increase of the validator commission. This parameter cannot be changed after `create-validator` is processed.
-- **Minimum self-delegation:** Minimum amount of Desmos tokens the validator needs to have bonded at all time. If the validator's self-delegated stake falls below this limit, their entire staking pool will unbond.
+- **Minimum self-delegation:** Minimum amount of Huddle tokens the validator needs to have bonded at all time. If the validator's self-delegated stake falls below this limit, their entire staking pool will unbond.
 
-Once a validator is created, Desmos tokens holders can delegate tokens to them, effectively adding stake to their pool. The total stake of an address is the combination of Desmos tokens bonded by delegators and Desmos tokens self-bonded by the entity which designated themselves.
+Once a validator is created, Huddle tokens holders can delegate tokens to them, effectively adding stake to their pool. The total stake of an address is the combination of Huddle tokens bonded by delegators and Huddle tokens self-bonded by the entity which designated themselves.
 
 Out of all validator candidates that signaled themselves, the 100 with the most total stake are the ones who are designated as validators. They become **validators** If a validator's total stake falls below the top 100 then that validator loses their validator privileges: they don't participate in consensus and generate rewards any more. Over time, the maximum number of validators will increase, according to the following schedule (_Note: this schedule can be changed by governance_):
 
@@ -78,37 +78,37 @@ We view testnet participation as a great way to signal to the community that you
 In short, there are two types of keys:
 
 - **Tendermint Key**: This is a unique key used to sign consensus votes.
-    - It is associated with a public key `desmosvalconspub` (Get this value with `desmos tendermint show-validator`)
-    - It is generated when the node is created with `desmos init`.
-- **Application key**: This key is created from `desmos` and used to sign transactions. Application keys are associated
-  with a public key prefixed by `desmospub` and an address prefixed by `desmos`. Both are derived from account keys
-  generated by `desmos keys add`.
+    - It is associated with a public key `huddlevalconspub` (Get this value with `huddle tendermint show-validator`)
+    - It is generated when the node is created with `huddle init`.
+- **Application key**: This key is created from `huddle` and used to sign transactions. Application keys are associated
+  with a public key prefixed by `huddlepub` and an address prefixed by `huddle`. Both are derived from account keys
+  generated by `huddle keys add`.
 
 Note: A validator's operator key is directly tied to an application key, but
-uses reserved prefixes solely for this purpose: `desmosvaloper` and `desmosvaloperpub`
+uses reserved prefixes solely for this purpose: `huddlevaloper` and `huddlevaloperpub`
 
 ### What are the different states a validator can be in?
 After a validator is created with a `create-validator` transaction, they can be in three states:
 
 - `in validator set`: Validator is in the active set and participates in consensus. Validator is earning rewards and can be slashed for misbehaviour.
 - `jailed`: Validator misbehaved and is in jail, i.e. outside of the validator set. If the jailing is due to being offline for too long, the validator can send an `unjail` transaction in order to re-enter the validator set. If the jailing is due to double signing, the validator cannot unjail.
-- `unbonded`: Validator is not in the active set, and therefore not signing blocs. Validator cannot be slashed, and does not earn any reward. It is still possible to delegate Desmos tokens to this validator. Un-delegating from an `unbonded` validator is immediate.
+- `unbonded`: Validator is not in the active set, and therefore not signing blocs. Validator cannot be slashed, and does not earn any reward. It is still possible to delegate Huddle tokens to this validator. Un-delegating from an `unbonded` validator is immediate.
 
 ### What is 'self-delegation'? How can I increase my 'self-delegation'?
 Self-delegation is delegation from a validator to themselves. This amount can be increases by sending a `delegate` transaction from your validator's `application` application key.
 
-### Is there a minimum amount of Desmos tokens that must be delegated to be an active (=bonded) validator?
-The minimum is `1 desmos`.
+### Is there a minimum amount of Huddle tokens that must be delegated to be an active (=bonded) validator?
+The minimum is `1 huddle`.
 
 ### How will delegators choose their validators?
 Delegators are free to choose validators according to their own subjective criteria. This said, criteria anticipated to be important include:
 
-- **Amount of self-delegated Desmos tokens:** Number of Desmos tokens a validator self-delegated to themselves. A validator with a higher amount of self-delegated Desmos tokens has more skin in the game, making them more liable for their actions.
-- **Amount of delegated Desmos tokens:** Total number of Desmos tokens delegated to a validator. A high voting power shows that the community trusts this validator, but it also means that this validator is a bigger target for hackers. Bigger validators also decrease the decentralisation of the network.
+- **Amount of self-delegated Huddle tokens:** Number of Huddle tokens a validator self-delegated to themselves. A validator with a higher amount of self-delegated Huddle tokens has more skin in the game, making them more liable for their actions.
+- **Amount of delegated Huddle tokens:** Total number of Huddle tokens delegated to a validator. A high voting power shows that the community trusts this validator, but it also means that this validator is a bigger target for hackers. Bigger validators also decrease the decentralisation of the network.
 - **Commission rate:** Commission applied on revenue by validators before it is distributed to their delegators.
 - **Track record:** Delegators will likely look at the track record of the validators they plan to delegate to. This includes seniority, past votes on proposals, historical average uptime and how often the node was compromised.
 
-Apart from these criteria, there will be a possibility for validators to signal a website address to complete their resume. Validators will need to build reputation one way or another to attract delegators. For example, it would be a good practice for validators to have their setup audited by third parties. Note though, that the Desmos team will not approve or conduct any audit themselves. For more on due diligence, see [this blog post](https://medium.com/@interchain_io/3d0faf10ce6f)
+Apart from these criteria, there will be a possibility for validators to signal a website address to complete their resume. Validators will need to build reputation one way or another to attract delegators. For example, it would be a good practice for validators to have their setup audited by third parties. Note though, that the Huddle team will not approve or conduct any audit themselves. For more on due diligence, see [this blog post](https://medium.com/@interchain_io/3d0faf10ce6f)
 
 ## Responsibilities
 ### Do validators need to be publicly identified?
@@ -128,17 +128,17 @@ Validators and delegators on the Cosmos Hub can vote on proposals to change oper
 Validators play a special role in the governance system. Being the pillars of the system, they are required to vote on every proposal. It is especially important since delegators who do not vote will inherit the vote of their validator.
 
 ### What does staking imply?
-Staking Desmos tokens can be thought of as a safety deposit on validation activities. When a validator or a delegator wants to retrieve part or all of their deposit, they send an `unbonding` transaction. Then, Desmos tokens undergo a **3 weeks unbonding period** during which they are liable to being slashed for potential misbehaviour committed by the validator before the unbonding process started.
+Staking Huddle tokens can be thought of as a safety deposit on validation activities. When a validator or a delegator wants to retrieve part or all of their deposit, they send an `unbonding` transaction. Then, Huddle tokens undergo a **3 weeks unbonding period** during which they are liable to being slashed for potential misbehaviour committed by the validator before the unbonding process started.
 
-Validators, and by association delegators, receive block rewards, fees, and have the right to participate in governance. If a validator misbehaves, a certain portion of their total stake is slashed. This means that every delegator that bonded Desmos tokens to this validator gets penalized in proportion to their bonded stake. Delegators are therefore incentivized to delegate to validators that they anticipate will function safely.
+Validators, and by association delegators, receive block rewards, fees, and have the right to participate in governance. If a validator misbehaves, a certain portion of their total stake is slashed. This means that every delegator that bonded Huddle tokens to this validator gets penalized in proportion to their bonded stake. Delegators are therefore incentivized to delegate to validators that they anticipate will function safely.
 
-### Can a validator run away with their delegators' Desmos tokens?
-By delegating to a validator, a user delegates voting power. The more voting power a validator have, the more weight they have in the consensus and governance processes. This does not mean that the validator has custody of their delegators' Desmos tokens. **By no means can a validator run away with its delegator's funds**.
+### Can a validator run away with their delegators' Huddle tokens?
+By delegating to a validator, a user delegates voting power. The more voting power a validator have, the more weight they have in the consensus and governance processes. This does not mean that the validator has custody of their delegators' Huddle tokens. **By no means can a validator run away with its delegator's funds**.
 
 Even though delegated funds cannot be stolen by their validators, delegators are still liable if their validators misbehave.
 
-### How often will a validator be chosen to propose the next block? Does it go up with the quantity of bonded Desmos tokens?
-The validator that is selected to propose the next block is called proposer. Each proposer is selected deterministically, and the frequency of being chosen is proportional to the voting power (i.e. amount of bonded Desmos tokens) of the validator. For example, if the total bonded stake across all validators is 100 Desmos tokens and a validator's total stake is 10 Desmos tokens, then this validator will proposer ~10% of the blocks.
+### How often will a validator be chosen to propose the next block? Does it go up with the quantity of bonded Huddle tokens?
+The validator that is selected to propose the next block is called proposer. Each proposer is selected deterministically, and the frequency of being chosen is proportional to the voting power (i.e. amount of bonded Huddle tokens) of the validator. For example, if the total bonded stake across all validators is 100 Huddle tokens and a validator's total stake is 10 Huddle tokens, then this validator will proposer ~10% of the blocks.
 
 ### Will validators of the Cosmos Hub ever be required to validate other zones in the Cosmos ecosystem?
 Yes, they will. If governance decides so, validators of the Cosmos hub may be required to validate additional zones in the Cosmos ecosystem.
@@ -147,8 +147,8 @@ Yes, they will. If governance decides so, validators of the Cosmos hub may be re
 ### What is the incentive to stake?
 Each member of a validator's staking pool earns different types of revenue:
 
-- **Block rewards:** Native tokens of applications run by validators (e.g. Desmos tokens on the Cosmos Hub) are inflated to produce block provisions. These provisions exist to incentivize Desmos tokens holders to bond their stake, as non-bonded Desmos tokens will be diluted over time.
-- **Transaction fees:** The Cosmos Hub maintains a whitelist of token that are accepted as fee payment. The initial fee token is the `Desmos tokens`.
+- **Block rewards:** Native tokens of applications run by validators (e.g. Huddle tokens on the Cosmos Hub) are inflated to produce block provisions. These provisions exist to incentivize Huddle tokens holders to bond their stake, as non-bonded Huddle tokens will be diluted over time.
+- **Transaction fees:** The Cosmos Hub maintains a whitelist of token that are accepted as fee payment. The initial fee token is the `Huddle tokens`.
 
 This total revenue is divided among validators' staking pools according to each validator's weight. Then, within each validator's staking pool the revenue is divided among delegators in proportion to each delegator's stake. A commission on delegators' revenue is applied by the validator before it is distributed.
 
@@ -161,43 +161,43 @@ Validators also play a major role in governance. If a delegator does not vote, t
 Revenue received by a validator's pool is split between the validator and their delegators. The validator can apply a commission on the part of the revenue that goes to their delegators. This commission is set as a percentage. Each validator is free to set their initial commission, maximum daily commission change rate and maximum commission. The Cosmos Hub enforces the parameter that each validator sets. Only the commission rate can change after the validator is created.
 
 ### How are block rewards distributed?
-Block rewards are distributed proportionally to all validators relative to their voting power. This means that even though each validator gains Desmos tokens with each reward, all validators will maintain equal weight over time.
+Block rewards are distributed proportionally to all validators relative to their voting power. This means that even though each validator gains Huddle tokens with each reward, all validators will maintain equal weight over time.
 
-Let us take an example where we have 10 validators with equal voting power and a commission rate of 1%. Let us also assume that the reward for a block is 1000 Desmos tokens and that each validator has 20% of self-bonded Desmos tokens. These tokens do not go directly to the proposer. Instead, they are evenly spread among validators. So now each validator's pool has 100 Desmos tokens. These 100 Desmos tokens will be distributed according to each participant's stake:
+Let us take an example where we have 10 validators with equal voting power and a commission rate of 1%. Let us also assume that the reward for a block is 1000 Huddle tokens and that each validator has 20% of self-bonded Huddle tokens. These tokens do not go directly to the proposer. Instead, they are evenly spread among validators. So now each validator's pool has 100 Huddle tokens. These 100 Huddle tokens will be distributed according to each participant's stake:
 
-- Commission: `100*80%*1% = 0.8 Desmos tokens`
-- Validator gets: `100\*20% + Commission = 20.8 Desmos tokens`
-- All delegators get: `100\*80% - Commission = 79.2 Desmos tokens`
+- Commission: `100*80%*1% = 0.8 Huddle tokens`
+- Validator gets: `100\*20% + Commission = 20.8 Huddle tokens`
+- All delegators get: `100\*80% - Commission = 79.2 Huddle tokens`
 
-Then, each delegator can claim their part of the 79.2 Desmos tokens in proportion to their stake in the validator's staking pool.
+Then, each delegator can claim their part of the 79.2 Huddle tokens in proportion to their stake in the validator's staking pool.
 
 ### How are fees distributed?
 Fees are similarly distributed with the exception that the block proposer can get a bonus on the fees of the block they propose if they include more than the strict minimum of required precommits.
 
 When a validator is selected to propose the next block, they must include at least 2/3 precommits of the previous block. However, there is an incentive to include more than 2/3 precommits in the form of a bonus. The bonus is linear: it ranges from 1% if the proposer includes 2/3rd precommits (minimum for the block to be valid) to 5% if the proposer includes 100% precommits. Of course the proposer should not wait too long or other validators may timeout and move on to the next proposer. As such, validators have to find a balance between wait-time to get the most signatures and risk of losing out on proposing the next block. This mechanism aims to incentivize non-empty block proposals, better networking between validators as well as to mitigate censorship.
 
-Let's take a concrete example to illustrate the aforementioned concept. In this example, there are 10 validators with equal stake. Each of them applies a 1% commission rate and has 20% of self-delegated Desmos tokens. Now comes a successful block that collects a total of 1025.51020408 Desmos tokens in fees.
+Let's take a concrete example to illustrate the aforementioned concept. In this example, there are 10 validators with equal stake. Each of them applies a 1% commission rate and has 20% of self-delegated Huddle tokens. Now comes a successful block that collects a total of 1025.51020408 Huddle tokens in fees.
 
-First, a 2% tax is applied. The corresponding Desmos tokens go to the reserve pool. Reserve pool's funds can be allocated through governance to fund bounties and upgrades.
+First, a 2% tax is applied. The corresponding Huddle tokens go to the reserve pool. Reserve pool's funds can be allocated through governance to fund bounties and upgrades.
 
-- `2% * 1025.51020408 = 20.51020408` Desmos tokens go to the reserve pool.
+- `2% * 1025.51020408 = 20.51020408` Huddle tokens go to the reserve pool.
 
-1005 Desmos tokens now remain. Let's assume that the proposer included 100% of the signatures in its block. It thus obtains the full bonus of 5%.
+1005 Huddle tokens now remain. Let's assume that the proposer included 100% of the signatures in its block. It thus obtains the full bonus of 5%.
 
 We have to solve this simple equation to find the reward R for each validator:
 
 `9*R + R + R*5% = 1005 ⇔ R = 1005/10.05 = 100`
 
 - For the proposer validator:
-  - The pool obtains `R + R * 5%`: 105 Desmos tokens
-  - Commission: `105 * 80% * 1%` = 0.84 Desmos tokens
-  - Validator's reward: `105 * 20% + Commission` = 21.84 Desmos tokens
-  - Delegators' rewards: `105 * 80% - Commission` = 83.16 Desmos tokens (each delegator will be able to claim its portion of these rewards in proportion to their stake)
+  - The pool obtains `R + R * 5%`: 105 Huddle tokens
+  - Commission: `105 * 80% * 1%` = 0.84 Huddle tokens
+  - Validator's reward: `105 * 20% + Commission` = 21.84 Huddle tokens
+  - Delegators' rewards: `105 * 80% - Commission` = 83.16 Huddle tokens (each delegator will be able to claim its portion of these rewards in proportion to their stake)
 - For each non-proposer validator:
-  - The pool obtains R: 100 Desmos tokens
-  - Commission: `100 * 80% * 1%` = 0.8 Desmos tokens
-  - Validator's reward: `100 * 20% + Commission` = 20.8 Desmos tokens
-  - Delegators' rewards: `100 * 80% - Commission` = 79.2 Desmos tokens (each delegator will be able to claim their portion of these rewards in proportion to their stake)
+  - The pool obtains R: 100 Huddle tokens
+  - Commission: `100 * 80% * 1%` = 0.8 Huddle tokens
+  - Validator's reward: `100 * 20% + Commission` = 20.8 Huddle tokens
+  - Delegators' rewards: `100 * 80% - Commission` = 79.2 Huddle tokens (each delegator will be able to claim their portion of these rewards in proportion to their stake)
 
 ### What are the slashing conditions?
 If a validator misbehaves, their delegated stake will be partially slashed. There are currently two faults that can result in slashing of funds for a validator and their delegators:
@@ -205,10 +205,10 @@ If a validator misbehaves, their delegated stake will be partially slashed. Ther
 - **Double signing:** If someone reports on chain A that a validator signed two blocks at the same height on chain A and chain B, and if chain A and chain B share a common ancestor, then this validator will get slashed by 5% on chain A.
 - **Downtime:** If a validator misses more than 95% of the last 10.000 blocks, they will get slashed by 0.01%.
 
-### Do validators need to self-delegate Desmos tokens?
-Yes, they do need to self-delegate at least `1 Desmos tokens`. Even though there is no obligation for validators to self-delegate more than `1 Desmos tokens`, delegators should want their validator to have more self-delegated Desmos tokens in their staking pool. In other words, validators should have skin in the game.
+### Do validators need to self-delegate Huddle tokens?
+Yes, they do need to self-delegate at least `1 Huddle tokens`. Even though there is no obligation for validators to self-delegate more than `1 Huddle tokens`, delegators should want their validator to have more self-delegated Huddle tokens in their staking pool. In other words, validators should have skin in the game.
 
-In order for delegators to have some guarantee about how much skin-in-the-game their validator has, the latter can signal a minimum amount of self-delegated Desmos tokens. If a validator's self-delegation goes below the limit that it predefined, this validator and all of its delegators will unbond.
+In order for delegators to have some guarantee about how much skin-in-the-game their validator has, the latter can signal a minimum amount of self-delegated Huddle tokens. If a validator's self-delegation goes below the limit that it predefined, this validator and all of its delegators will unbond.
 
 ### How to prevent concentration of stake in the hands of a few top validators?
 For now the community is expected to behave in a smart and self-preserving way. When a mining pool in Bitcoin gets too much mining power the community usually stops contributing to that pool. The Cosmos Hub will rely on the same effect initially. Other mechanisms are in place to smoothen this process as much as possible:
@@ -243,7 +243,7 @@ Validators should expect to run an HSM that supports ed25519 keys. Here are pote
 - Ledger BOLOS SGX enclave
 - Thales nShield support
 
-The Desmos team does not recommend one solution above the other. The community is encouraged to bolster the effort to improve HSMs and the security of key management.
+The Huddle team does not recommend one solution above the other. The community is encouraged to bolster the effort to improve HSMs and the security of key management.
 
 ### What can validators expect in terms of operations?
 Running effective operation is the key to avoiding unexpectedly unbonding or being slashed. This includes being able to respond to attacks, outages, as well as to maintain security and isolation in your data center.
